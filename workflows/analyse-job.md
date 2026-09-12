@@ -8,3 +8,5 @@
 6. Produce all ten assessment dimensions, classified gaps and interview/work-style separation. Apply practical preferences without modifying capability. Consider company slot constraints using existing records, and direct-functional-vs-MT preference only for otherwise similar opportunities.
 7. Give one explainable recommendation, preparation gate and next action. Unknown critical identity, current authority status, qualification or company-slot facts block high-investment preparation. A closed role retains historical analysis but stops tailoring. Ask only a material unresolved question under the questioning rule.
 8. Return a complete JobAnalysis candidate using [contracts](../schemas/contracts.md). Do not persist application status or adopt materials. For structured automation, evaluate guard functions and inspect every failure; a guard pass is only structural validation.
+
+Core Integration: apply [stretch policy](../rules/stretch.md) at matching and assessment. Distinguish bounded proven support, PARTIAL + DEFENSIBLE_STRETCH and unsupported gaps; maintain qualification separately.

@@ -30,3 +30,11 @@ Match row: `requirement_id, requirement_text, requirement_source_location, hiera
 - Optional VibeCodedProjectEvidencePacket: trigger reason, completed project refs, all fields enumerated in claim rules, per-field sources/UNKNOWN, aggregate/event trace distinction, objections and answer boundaries. It never becomes an evidence owner.
 
 Blocked preparation still identifies job, gate reasons and next verification actions, but has no tailored claims, project packet or speculative CV variants. Human approval is not derivable from any report field.
+
+## Core Integration claim/use extension
+
+Apply [stretch policy](../rules/stretch.md). Existing evidence and capability schemas are reused. Add to a claim or match when relevant: `claim_id, use_boundary` (VERIFIED_FACT / DEFENSIBLE_STRETCH / SPECULATIVE_UNSUPPORTED), `verification_scope`, `source_capability_refs`, `evidence_refs`, `bridge_reasoning`, `unproven_scope`, `allowed_use`, `prohibited_overclaim`, `defensibility` (L1 What / L2 Transfer / L3 Boundary with refs and review disposition). Preserve the original `kind`, source level, scope, permissions and epistemic status. DEFENSIBLE_STRETCH match_level is PARTIAL, not SUPPORTED.
+
+For explicitly requested historical integration review, ApplicationBrief may contain `framing_review` with purpose=HISTORICAL_INTEGRATION_REVIEW, disposition=NOT_FOR_ADOPTION, weak/strong wording comparisons, source/bridge chain and internal L1–L3. It remains separate from `claim_candidates`, which stays empty under PREPARATION_HOLD. No packet or new CV is implied. Without that explicit request, the existing default HOLD behavior applies.
+
+Integration artifact references each stage's output ID/revision and input IDs, preserving exact job identity from analysis into preparation. Trace final strategy/framing → match/assessment → role hypothesis → capability → source evidence. Broken links are named, not filled by semantic similarity. Market observation history can contradict a job-specific hypothesis without deleting its capability premises.

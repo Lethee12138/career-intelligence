@@ -1,0 +1,456 @@
+{
+  "test_only": true,
+  "run_mode": "HISTORICAL_INTEGRATION_REVIEW",
+  "as_of": "2026-09-12",
+  "role_fixture_as_of": "2026-09-11",
+  "selected_role_key": "Tencent:1283126456553382912:2027",
+  "selection_reason": "Kuaishou role_key UNKNOWN; Tencent provides exact frozen identity. No network refresh.",
+  "input_sha256": {
+    "tests/fixtures/A-tencent.json": "d901664b9dbe3caec8812a75fc94ae2c6c2f967484a9c9d837e26427bd27bbd4",
+    "tests/fixtures/B-kuaishou-user.json": "c3c9d10e86e658dba50e77be98670e50af74f75f969afc910907bc526f5d2a8f",
+    "tests/fixtures/evidence-excerpts.json": "5fd26e0999dbe5a7152d6ad3865d84791cbcdafe7d8352bcd23c6b4b6b8d1af4",
+    "tests/fixtures/slice2-cases.json": "283b1d845f91b82b232f65106a0eb32c57334827b5d4fd804813e5c40d5281f6",
+    "tests/fixtures/source-manifest.json": "ccdb4ae14d9b8ecce528bc07961e3ecaaedef3a007b7e9aa6ee49bd95db75202"
+  },
+  "source_registry": "tests/fixtures/source-manifest.json",
+  "stage_sequence": [
+    {
+      "id": "C-CORE-01",
+      "workflow": "/position",
+      "input_refs": [
+        "evidence-excerpts",
+        "slice2-cases"
+      ],
+      "demonstrated_capabilities": [],
+      "reason": "No directly verified personal capability original; report-derived INFERRED patterns and POTENTIAL targets preserved."
+    },
+    {
+      "id": "D-CORE-01",
+      "workflow": "/discover",
+      "input_refs": [
+        "C-CORE-01"
+      ],
+      "hypotheses": [
+        "Research-led Product Discovery",
+        "Workflow Product Operations",
+        "Applied AI Product / HITL",
+        "Game Systems Prototyping"
+      ],
+      "market_scope": "Historical Tencent frozen requirements only; hypotheses do not become JD facts."
+    },
+    {
+      "id": "A-TENCENT-CORE-01",
+      "input_refs": [
+        "D-CORE-01"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027",
+      "source_status": {
+        "role_key": "Tencent:1283126456553382912:2027",
+        "status": "VERIFY",
+        "live_verified": false,
+        "refs": []
+      },
+      "qualification": "VERIFY",
+      "historical_qualification": "ELIGIBLE",
+      "evidence_justifies_preparation": true,
+      "recommendation": "Explore",
+      "critical_unknowns": [
+        "current authority",
+        "current qualification",
+        "company application constraint",
+        "source permissions"
+      ],
+      "one_active_application": "UNKNOWN",
+      "requirements": [
+        {
+          "requirement_id": "workflow",
+          "hierarchy": "MUST",
+          "match_level": "SUPPORTED",
+          "evidence_refs": [
+            "dneg-workflow"
+          ],
+          "supported_scope": "Human-AI prototype workflow design",
+          "unsupported_scope": "Commercial launch ownership UNKNOWN",
+          "requirement_text": "workflow (frozen normalized requirement; verbatim JD UNKNOWN)",
+          "requirement_source_location": "A-tencent.json requirements.workflow"
+        },
+        {
+          "requirement_id": "product-data",
+          "hierarchy": "MUST",
+          "match_level": "PARTIAL",
+          "evidence_refs": [
+            "dneg-testing"
+          ],
+          "supported_scope": "Qualitative prototype testing and iteration",
+          "unsupported_scope": "No verified SQL, A/B, retention/funnel or commercial product analytics ownership",
+          "requirement_text": "product-data (frozen normalized requirement; verbatim JD UNKNOWN)",
+          "requirement_source_location": "A-tencent.json requirements.product-data",
+          "use_boundary": "DEFENSIBLE_STRETCH",
+          "bridge_claim_ref": "S-evaluation"
+        }
+      ]
+    },
+    {
+      "gate": "PREPARATION_HOLD",
+      "reasons": [
+        "authority observation not bound to this job",
+        "authority status not OPEN",
+        "current authority revalidation required",
+        "hard qualification unresolved or failed",
+        "recommendation does not justify active tailoring",
+        "critical unknowns remain",
+        "company application constraints VERIFY"
+      ],
+      "id": "P-TENCENT-CORE-01",
+      "input_refs": [
+        "A-TENCENT-CORE-01"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027",
+      "claim_candidates": [],
+      "packet": null,
+      "framing_review": {
+        "purpose": "HISTORICAL_INTEGRATION_REVIEW",
+        "disposition": "NOT_FOR_ADOPTION",
+        "claim_refs": [
+          "S-AI",
+          "S-evaluation"
+        ]
+      }
+    }
+  ],
+  "claims": {
+    "S-AI": {
+      "claim_id": "S-AI",
+      "use_boundary": "DEFENSIBLE_STRETCH",
+      "kind": "INFERENCE",
+      "source_level": "REASONABLE INFERENCE",
+      "evidence_refs": [
+        "dneg-workflow",
+        "dneg-ownership"
+      ],
+      "source_capability_refs": [
+        "C-pattern"
+      ],
+      "bridge_reasoning": "Workflow states, human decision boundaries and iterative prototypes transfer to application-layer AI product discovery; no prior PM title required.",
+      "unproven_scope": "Commercial product lifecycle, Agent/RAG implementation and technical-stack ownership not established.",
+      "allowed_use": [
+        "positioning",
+        "role_hypothesis",
+        "fit_discussion",
+        "resume_framing",
+        "interview_bridge"
+      ],
+      "prohibited_overclaim": "Software Engineer, Full-stack Engineer, ML Engineer, backend or RAG implementation expertise",
+      "ownership_boundary": "Candidate prototype/testing/iteration; research/framing partly team-shared; AI-assisted implementation.",
+      "context_rationale": "DNEG product decisions plus Circular Flow and AI Survival behavioral contexts in OUTPUT; report-derived transfer, not independent-source verification.",
+      "adjacency_reviewed": true,
+      "ownership_reviewed": true,
+      "followup_reviewed": true,
+      "direct_counterevidence": false,
+      "invents_credential": false,
+      "defensibility": {
+        "L1": "Reported candidate prototype, test interpretation and iteration decisions; implementation uses AI support.",
+        "L2": "Workflow states, human decision boundaries and iterative prototypes transfer to application-layer AI product discovery; no prior PM title required.",
+        "L3": "Commercial product lifecycle, Agent/RAG implementation and technical-stack ownership not established.",
+        "reviewed": true
+      },
+      "disposition": "NOT_FOR_ADOPTION"
+    },
+    "S-evaluation": {
+      "claim_id": "S-evaluation",
+      "use_boundary": "DEFENSIBLE_STRETCH",
+      "kind": "INFERENCE",
+      "source_level": "REASONABLE INFERENCE",
+      "evidence_refs": [
+        "dneg-testing"
+      ],
+      "source_capability_refs": [
+        "C-stretch"
+      ],
+      "bridge_reasoning": "Qualitative test interpretation and iteration transfer to forming product evaluation questions and validation plans. This does not supply SQL, A/B execution or commercial analytics.",
+      "unproven_scope": "SQL, controlled A/B, retention/funnel analysis and quantitative commercial impact remain unsupported.",
+      "allowed_use": [
+        "positioning",
+        "role_hypothesis",
+        "fit_discussion",
+        "resume_framing",
+        "interview_bridge"
+      ],
+      "prohibited_overclaim": "30% usability improvement, 50% faster workflow, SQL or A/B ownership",
+      "ownership_boundary": "Candidate prototype/testing/iteration; research/framing partly team-shared; AI-assisted implementation.",
+      "context_rationale": "DNEG product decisions plus Circular Flow and AI Survival behavioral contexts in OUTPUT; report-derived transfer, not independent-source verification.",
+      "adjacency_reviewed": true,
+      "ownership_reviewed": true,
+      "followup_reviewed": true,
+      "direct_counterevidence": false,
+      "invents_credential": false,
+      "defensibility": {
+        "L1": "Reported candidate prototype, test interpretation and iteration decisions; implementation uses AI support.",
+        "L2": "Qualitative test interpretation and iteration transfer to forming product evaluation questions and validation plans. This does not supply SQL, A/B execution or commercial analytics.",
+        "L3": "SQL, controlled A/B, retention/funnel analysis and quantitative commercial impact remain unsupported.",
+        "reviewed": true
+      },
+      "disposition": "NOT_FOR_ADOPTION"
+    },
+    "F-documentary": {
+      "claim_id": "F-documentary",
+      "use_boundary": "VERIFIED_FACT",
+      "kind": "FACT",
+      "source_level": "CONFIRMED / AUTHORITY SOURCE",
+      "evidence_refs": [
+        "dneg-runtime"
+      ],
+      "proposition_verified": true,
+      "verification_scope": "Only the inspected local DNEG_IMPLEMENTATION note states simulated AI is default; not verification of current runtime or candidate authorship.",
+      "value": "The inspected implementation note specifies simulated AI as default."
+    }
+  },
+  "source_atoms": {
+    "changes": {
+      "type": "metric",
+      "value": "9+ documented changes",
+      "scope": "DNEG reported aggregate; not measured improvement",
+      "evidence_ref": "dneg-testing"
+    },
+    "ownership": {
+      "type": "formal_ownership",
+      "value": "independently developed prototype",
+      "scope": "Prototype only, AI-assisted; project research/framing partly team-shared",
+      "evidence_ref": "dneg-ownership"
+    }
+  },
+  "nodes": {
+    "P-record": {
+      "stage": "preparation",
+      "input_refs": [
+        "A-record"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "A-record": {
+      "stage": "analysis",
+      "input_refs": [
+        "H-record"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "H-record": {
+      "stage": "discovery",
+      "input_refs": [
+        "C-record"
+      ]
+    },
+    "C-record": {
+      "stage": "position",
+      "input_refs": [
+        "dneg-runtime"
+      ],
+      "value": "Documentary simulation boundary",
+      "epistemic_status": "NOT_APPLICABLE; source context, not a candidate capability"
+    },
+    "dneg-runtime": {
+      "stage": "evidence",
+      "source": "DNEG_IMPLEMENTATION",
+      "source_location": "DNEG_IMPLEMENTATION AI Integration Boundary"
+    },
+    "P-pattern": {
+      "stage": "preparation",
+      "input_refs": [
+        "A-pattern"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "A-pattern": {
+      "stage": "analysis",
+      "input_refs": [
+        "H-pattern"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "H-pattern": {
+      "stage": "discovery",
+      "input_refs": [
+        "C-pattern"
+      ]
+    },
+    "C-pattern": {
+      "stage": "position",
+      "input_refs": [
+        "dneg-ownership"
+      ],
+      "epistemic_status": "INFERRED",
+      "value": "Translate ambiguous problems into workflow rules and prototype decisions",
+      "cross_context_refs": [
+        "slice2-cases.json projects.Circular Flow",
+        "slice2-cases.json projects.AI Survival Game"
+      ]
+    },
+    "dneg-ownership": {
+      "stage": "evidence",
+      "source": "OUTPUT",
+      "source_location": "OUTPUT §2 DNEG, AI and Human ownership paragraphs"
+    },
+    "P-stretch": {
+      "stage": "preparation",
+      "input_refs": [
+        "A-stretch"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "A-stretch": {
+      "stage": "analysis",
+      "input_refs": [
+        "H-stretch"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "H-stretch": {
+      "stage": "discovery",
+      "input_refs": [
+        "C-stretch"
+      ]
+    },
+    "C-stretch": {
+      "stage": "position",
+      "input_refs": [
+        "dneg-testing"
+      ],
+      "epistemic_status": "INFERRED",
+      "value": "Interpret qualitative testing to decide iterations",
+      "target_epistemic_status": "POTENTIAL"
+    },
+    "dneg-testing": {
+      "stage": "evidence",
+      "source": "BATCH",
+      "source_location": "BATCH §2 User Product / Usability row"
+    },
+    "P-gap": {
+      "stage": "preparation",
+      "input_refs": [
+        "A-gap"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "A-gap": {
+      "stage": "analysis",
+      "input_refs": [
+        "H-gap"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "H-gap": {
+      "stage": "discovery",
+      "input_refs": [
+        "C-gap"
+      ]
+    },
+    "C-gap": {
+      "stage": "position",
+      "input_refs": [
+        "dneg-testing"
+      ],
+      "value": "SQL/A-B/commercial analytics evidence gap; not proof of inability"
+    },
+    "P-unknown": {
+      "stage": "preparation",
+      "input_refs": [
+        "A-unknown"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "A-unknown": {
+      "stage": "analysis",
+      "input_refs": [
+        "H-unknown"
+      ],
+      "role_key": "Tencent:1283126456553382912:2027"
+    },
+    "H-unknown": {
+      "stage": "discovery",
+      "input_refs": [
+        "C-unknown"
+      ]
+    },
+    "C-unknown": {
+      "stage": "position",
+      "input_refs": [
+        "dneg-workflow"
+      ],
+      "value": "Material permissions UNKNOWN; frozen CV identity UNKNOWN"
+    },
+    "dneg-workflow": {
+      "stage": "evidence",
+      "source": "BATCH",
+      "source_location": "BATCH §2 User Product / Product function row"
+    }
+  },
+  "trace_chains": {
+    "record": [
+      "P-record",
+      "A-record",
+      "H-record",
+      "C-record",
+      "dneg-runtime"
+    ],
+    "pattern": [
+      "P-pattern",
+      "A-pattern",
+      "H-pattern",
+      "C-pattern",
+      "dneg-ownership"
+    ],
+    "stretch": [
+      "P-stretch",
+      "A-stretch",
+      "H-stretch",
+      "C-stretch",
+      "dneg-testing"
+    ],
+    "gap": [
+      "P-gap",
+      "A-gap",
+      "H-gap",
+      "C-gap",
+      "dneg-testing"
+    ],
+    "unknown": [
+      "P-unknown",
+      "A-unknown",
+      "H-unknown",
+      "C-unknown",
+      "dneg-workflow"
+    ]
+  },
+  "trace_semantics": {
+    "record": "Verified documentary simulation boundary → no live AI claim",
+    "pattern": "INFERRED workflow capability → DNEG-first strategy",
+    "stretch": "PARTIAL transferable evaluation fit → defensible interview bridge",
+    "gap": "No SQL/A-B/commercial analytics proof → exclude factual claims",
+    "unknown": "Permissions and exact CV version unresolved → no adoption"
+  },
+  "excluded_evidence": [
+    "PAW",
+    "PORTFOLIO_STUDIO"
+  ],
+  "candidate_status": "HUMAN_REVIEW_REQUIRED",
+  "execution_checks": {
+    "claims": {
+      "S-AI": [],
+      "S-evaluation": [],
+      "F-documentary": []
+    },
+    "matches": [
+      [],
+      []
+    ],
+    "stretch_match": [],
+    "traces": {
+      "record": [],
+      "pattern": [],
+      "stretch": [],
+      "gap": [],
+      "unknown": []
+    },
+    "hard_atoms": []
+  }
+}

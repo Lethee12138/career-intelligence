@@ -7,3 +7,5 @@
 5. Offer relevant portfolio references subject to public-use permission. Prepare evidence stories and second-/third-layer follow-ups with answer boundaries. A proposed metrics framework is a future method, never a past result.
 6. Only if the target triggers it and completed evidence is available, create the optional packet under [claim rules](../rules/cv-claims.md). Preserve all missing fields and aggregate-vs-event trace limits.
 7. Return ApplicationBrief candidate, checklist and VERIFY items using [contracts](../schemas/contracts.md). Stop before material adoption, canonical Save, login, submission, contact, upload or external action. End with `HUMAN_REVIEW_REQUIRED`; this is not approval.
+
+Core Integration: apply [stretch policy](../rules/stretch.md) for strongest truthful wording and internal L1–L3 defensibility. Only when explicitly requested for historical integration review, a HOLD brief may add separate NOT_FOR_ADOPTION framing_review comparisons; claim_candidates remains empty and no packet is generated. Live gates and default HOLD behavior are unchanged.

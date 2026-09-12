@@ -29,6 +29,8 @@ Load this file, the six linked rules below, and the selected workflow. Accept JD
 
 Use [contracts](schemas/contracts.md) for complete outputs. The optional standard-library [guard](scripts/guard.py) checks structured decision boundaries; it is not an NLP matcher or a truth-verification service. Run it through tests or import its pure functions after manually grounding inputs. Do not treat a passing guard as Human approval.
 
+For all four workflows apply the Human-approved [stretch and strategic packaging policy](rules/stretch.md): No Invented Facts, evidence-anchored potential stretch, and strongest truthful framing. Keep use boundaries separate from capability epistemic status and application readiness.
+
 ## Runtime boundary
 
 Read canonical plan → relevant Master Evidence/project fact cards → existing Job Record → existing CV Base/Field Bank references. Keep source identity, revision and author/provenance. Do not replace facts with polished resume wording. If owners cannot be located, disclose missing coverage and keep preparation limited or blocked.
