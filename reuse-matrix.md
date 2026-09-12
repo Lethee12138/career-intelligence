@@ -17,3 +17,21 @@ Method-level reuse only; no external code, assets, installs or execution. Decisi
 Allowed vocabulary: REUSE / ADAPT / INSPIRE / BUILD / DROP / LATER. INSPIRE for the first two names is a conservative implementation decision, not a claim that an earlier audit adopted specific upstream code. Upstream audit can be separately requested later; it is not needed to execute this standalone Core.
 
 Audit status is separate from the reuse decision. The explicit suffix above means no upstream implementation audit in this Slice, including the final acceptance patch. ADAPT/DROP rows preserve accepted method-level decisions from Career sources; they do not imply a fresh upstream code or license audit. `career-ops = LATER` is unchanged. No online audit or installation was performed in this patch.
+
+## Slice 2 — supplied bounded pattern findings
+
+Provenance: Human-supplied completed Pattern Scan in the Slice 2 request, 2026-09-12. The Slice 1 NOT AUDITED entries above are historical. The following is method-level adaptation from that bounded input, not independent upstream implementation, identity, revision or license verification. No web audit, code copying, installation or external execution occurred.
+
+| Sample | Decision | Bounded pattern / implementation location |
+|---|---|---|
+| ai-job-search /expand | ADAPT | Existing-profile-first, deduplicate, source-trace inference, direct vs inferred, Human review; discovery rules and position workflow |
+| ai-job-search /expand | DROP | Syllabus/toolchain capability inflation, automatic profile growth, full public-profile scanning and web enrichment as personal truth |
+| ai-job-search Job Evaluation | REUSE | Eligibility before fit, duties over title, career alignment already owned by Slice 1 eligibility/assessment; no duplicate assessment schema |
+| ai-job-search Job Evaluation | DROP | Numeric fit dimensions, weighted overall/match percentage, rigid location gate |
+| resume-tailoring-skill | ADAPT | Dynamic broad-to-selective branching, cross-experience recall and low-information stop; discovery questioning extends existing rules |
+| resume-tailoring-skill | DROP | Percentage confidence, job-count-based leverage as truth, trivial-story mining to fill gaps |
+| ESCO / O*NET | INSPIRE | Optional REFERENCE VOCABULARY for occupation/title variants and skills/occupation sanity checking only |
+| ESCO / O*NET | DROP | Runtime APIs/datasets/dependency, candidate capability authority, current hiring/China demand/eligibility authority |
+| career-ops | LATER | Unchanged; no tracker, operations layer or integration |
+
+Current audit status for ai-job-search and resume-tailoring-skill: BOUNDED PATTERNS SUPPLIED BY HUMAN — UPSTREAM IMPLEMENTATION NOT INDEPENDENTLY AUDITED. Adaptation does not imply reusable verified code.

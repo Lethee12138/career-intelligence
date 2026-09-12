@@ -1,0 +1,143 @@
+{
+  "test_only": true,
+  "privacy": "Minimal paraphrases; no candidate identity/contact details. Historical reports, not direct Master Evidence verification.",
+  "as_of": "2026-09-12",
+  "mode": "ANALYSIS_ONLY",
+  "source_registry": "source-manifest.json",
+  "source_kind": "EXTERNAL_REPORT",
+  "source_level": "UNKNOWN",
+  "author": "Assistant/report synthesis; underlying Human authority not reverified in this fixture",
+  "observed_at": "2026-09-12",
+  "candidate": {
+    "education": "Media / Digital Media (reported Career context)",
+    "seed_roles": [
+      "Product Manager"
+    ],
+    "seed_reason": "UNKNOWN",
+    "preferences": {
+      "source_ref": "CANONICAL",
+      "avoid": [
+        "sales_quota",
+        "acquisition_kpi",
+        "revenue_ownership",
+        "persuasive_selling",
+        "negotiation_heavy_client_work"
+      ],
+      "neutral": [
+        "stakeholder_meetings",
+        "research_interviews",
+        "cross_functional_collaboration",
+        "internal_presentation"
+      ]
+    },
+    "industry_scope": "OPEN",
+    "completed_only": true
+  },
+  "projects": {
+    "DNEG": {
+      "source_ref": "OUTPUT",
+      "locator": "§2 DNEG / Creative Drift Checkpoint",
+      "context": "DNEG",
+      "completion_at_cutoff": "COMPLETED",
+      "problem": "creative intent drift",
+      "output_status": "Working + interactive + tested",
+      "ownership_boundary": "Candidate web prototype, tests, evidence interpretation, iteration decisions; research/framing team shared.",
+      "ai_team_boundary": "Codex implementation support; Human creative decisions.",
+      "limitations": "No production deployment or commercial efficiency; aggregate iteration only, incomplete per-event trace.",
+      "direct_verified": false,
+      "signal": "BEHAVIOR",
+      "ownership": "PARTIAL",
+      "behavior_reviewed": true,
+      "problem_reviewed": true
+    },
+    "Circular Flow": {
+      "source_ref": "OUTPUT",
+      "locator": "§4 Circular Flow",
+      "context": "Circular Flow",
+      "completion_at_cutoff": "COMPLETED",
+      "problem": "trust / visibility / traceability",
+      "output_status": "Functional + interactive + iterated",
+      "ownership_boundary": "Candidate research synthesis, reframing, system logic, service decisions, test-led iteration.",
+      "ai_team_boundary": "Lovable implementation support; candidate owns rules and test interpretation.",
+      "limitations": "No commercial launch or real supply-chain integration.",
+      "direct_verified": false,
+      "signal": "BEHAVIOR",
+      "ownership": "PARTIAL",
+      "behavior_reviewed": true,
+      "problem_reviewed": true
+    },
+    "C the Signs": {
+      "source_ref": "OUTPUT",
+      "locator": "§3 C the Signs",
+      "context": "C the Signs",
+      "completion_at_cutoff": "COMPLETED",
+      "problem": "trust / authority boundary",
+      "output_status": "Interactive prototype / concept validation",
+      "ownership_boundary": "Reported contribution: authority boundaries embedded in patient/clinician workflow and product logic.",
+      "ai_team_boundary": "AI concept supports information/dialogue; clinical decisions stay Human; AI coding UNKNOWN.",
+      "limitations": "No real GP interviews, clinical validation, diagnostic results or medical expertise.",
+      "direct_verified": false,
+      "signal": "BEHAVIOR",
+      "ownership": "PARTIAL",
+      "behavior_reviewed": true,
+      "problem_reviewed": true
+    },
+    "AR Seedlings+": {
+      "source_ref": "OUTPUT",
+      "locator": "§5 AR Seedlings+",
+      "context": "AR Seedlings+",
+      "completion_at_cutoff": "COMPLETED",
+      "problem": "adoption / usability friction",
+      "output_status": "Low/mid-fi interactive prototype",
+      "ownership_boundary": "Research synthesis, reframing, journey/service logic, low/mid-fi prototype and testing contribution.",
+      "ai_team_boundary": "Team member mainly owns final high-fi; AR does not prove AI implementation.",
+      "limitations": "No personal high-craft visual ownership or AR engineering; historical completed research only.",
+      "direct_verified": false,
+      "signal": "BEHAVIOR",
+      "ownership": "PARTIAL",
+      "behavior_reviewed": true,
+      "problem_reviewed": true
+    },
+    "AI Survival Game": {
+      "source_ref": "OUTPUT",
+      "locator": "§6 AI Survival Game / Survival in Snow",
+      "context": "AI Survival Game",
+      "completion_at_cutoff": "COMPLETED",
+      "problem": "system feedback / onboarding friction",
+      "output_status": "Playable + interactive + playtested + iterated",
+      "ownership_boundary": "Candidate core mechanics, system relationships, narrative meaning, prototype choices and playtest iteration.",
+      "ai_team_boundary": "AI assists build and in-game feedback; Human owns mechanics, balance and acceptance.",
+      "limitations": "No production SWE proof, commercial game metrics or Agent/RAG expertise.",
+      "direct_verified": false,
+      "signal": "BEHAVIOR",
+      "ownership": "PARTIAL",
+      "behavior_reviewed": true,
+      "problem_reviewed": true
+    }
+  },
+  "market_observation": {
+    "job_key": "OPPO/campus/1825/2027/report-2026-09-10",
+    "title": "Internet Product Manager — AI",
+    "source_kind": "EXTERNAL_REPORT",
+    "refs": [
+      "SCAN:OPPO Internet Product Manager — AI"
+    ],
+    "observed_at": "2026-09-10",
+    "locator": "OPPO row and qualification discussion",
+    "original_url": "https://careers.oppo.com/university/oppo/campus/post/1825?recruitType=Graduate",
+    "inspected_original": false,
+    "authority_for_job": false,
+    "duties_compared": true,
+    "duties": "Report describes AI coding, API/orchestration and engineering-oriented work.",
+    "hard_requirements": "Report states AI/software engineering/CS degree required.",
+    "hard_mismatch": true,
+    "mismatch_reason": "Reported required technical major versus reported Media/Digital Media background; historical job-specific mismatch, current original JD and formal qualification require /analyse-job."
+  },
+  "title_examples": {
+    "Product Operations": "growth/revenue",
+    "AI Transformation": "presales",
+    "AI Experience": "visual-heavy",
+    "Product Engineer": "engineering"
+  },
+  "source_level_rationale": "Historical local secondary report; original evidence depth UNKNOWN"
+}
