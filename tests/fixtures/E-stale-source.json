@@ -1,0 +1,31 @@
+{
+  "test_only": true,
+  "mode": "HISTORICAL_SNAPSHOT",
+  "as_of": "2026-09-09",
+  "privacy": "Candidate identity/contact details removed. Minimal paraphrases; no original CV or fact-bank copy.",
+  "provenance_boundary": "Accepted Career record/report excerpt; original employer pages and Master Evidence were not reverified in this run.",
+  "case": "E",
+  "title": "P&G CMK stale discovery conflict",
+  "role_key": "UNKNOWN",
+  "source_refs": [
+    "CMK_THREAD"
+  ],
+  "historical_report": {
+    "kind": "EXTERNAL_REPORT",
+    "source_level": "UNKNOWN",
+    "message_id": "cbf89d7e-0a92-4ab4-81e7-c66ef19049b4",
+    "thread_id": "6a7bbf38-ad1c-83eb-a956-ee4b435d3b2e",
+    "turn_id": "c31db8d5-868a-4275-b718-456756f6fa33",
+    "discovery_reported_status": "OPEN",
+    "authority_reported_status": "FILLED",
+    "reported_decision": "CLOSED",
+    "paraphrase": "The prior Career analyst reported that search indexes still advertised CMK, while the application page explicitly said filled.",
+    "original_authority_url": "UNKNOWN",
+    "original_authority_snapshot": "UNKNOWN"
+  },
+  "expected": {
+    "current_status": "VERIFY",
+    "preparation": "PREPARATION_HOLD"
+  },
+  "fault_injection_note": "Tests add explicit synthetic same-role inspected authority observations to check CLOSED wins; these observations are not fabricated historical proof."
+}

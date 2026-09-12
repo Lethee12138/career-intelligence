@@ -1,0 +1,65 @@
+{
+  "test_only": true,
+  "evidence": {
+    "dneg-workflow": {
+      "project_id": "DNEG",
+      "source": "BATCH",
+      "source_location": "BATCH §2 User Product / Product function row",
+      "inspected": true,
+      "completion_at_cutoff": "COMPLETED",
+      "result_or_output": "Working prototype with Anchor, Compare, Feedback, Human Decision and History.",
+      "ownership_scope": "Prototype implementation AI-assisted; research/problem definition partly shared.",
+      "resume_use_boundary": "UNKNOWN",
+      "public_use_boundary": "UNKNOWN"
+    },
+    "dneg-testing": {
+      "project_id": "DNEG",
+      "source": "BATCH",
+      "source_location": "BATCH §2 User Product / Usability row",
+      "inspected": true,
+      "completion_at_cutoff": "COMPLETED",
+      "result_or_output": "3 formal testing rounds and 9+ documented changes, reported aggregate.",
+      "metric_scope": "Rounds are not participants; individual nine-event trace not present in inspected sources.",
+      "resume_use_boundary": "UNKNOWN",
+      "public_use_boundary": "UNKNOWN"
+    },
+    "ar-research": {
+      "project_id": "AR_RESEARCH",
+      "source": "BATCH",
+      "source_location": "BATCH §2 User Product / Prototype row",
+      "inspected": true,
+      "completion_at_cutoff": "COMPLETED",
+      "result_or_output": "Research, 12-step journey, low-/mid-fi prototypes and testing; no high-fi ownership claim."
+    },
+    "paw-active": {
+      "project_id": "PAW",
+      "source": "BATCH",
+      "source_location": "BATCH header Evidence rule",
+      "inspected": true,
+      "completion_at_cutoff": "ACTIVE"
+    },
+    "portfolio-active": {
+      "project_id": "PORTFOLIO_STUDIO",
+      "source": "BATCH",
+      "source_location": "BATCH header Evidence rule",
+      "inspected": true,
+      "completion_at_cutoff": "ACTIVE"
+    },
+    "dneg-ownership": {
+      "project_id": "DNEG",
+      "source": "OUTPUT",
+      "source_location": "OUTPUT §2 DNEG, AI and Human ownership paragraphs",
+      "inspected": true,
+      "completion_at_cutoff": "COMPLETED",
+      "result_or_output": "Codex assisted implementation; candidate prototype/testing/iteration; research/problem definition partly team-shared."
+    },
+    "dneg-runtime": {
+      "project_id": "DNEG",
+      "source": "DNEG_IMPLEMENTATION",
+      "source_location": "DNEG_IMPLEMENTATION AI Integration Boundary",
+      "inspected": true,
+      "completion_at_cutoff": "COMPLETED",
+      "result_or_output": "Simulated default; optional compare/prompt/feedback integration; current live provider behavior not inspected."
+    }
+  }
+}

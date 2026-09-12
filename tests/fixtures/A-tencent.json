@@ -1,0 +1,53 @@
+{
+  "test_only": true,
+  "mode": "HISTORICAL_SNAPSHOT",
+  "as_of": "2026-09-11",
+  "privacy": "Candidate identity/contact details removed. Minimal paraphrases; no original CV or fact-bank copy.",
+  "provenance_boundary": "Accepted Career record/report excerpt; original employer pages and Master Evidence were not reverified in this run.",
+  "case": "A",
+  "title": "Tencent 2027 AI Product Manager",
+  "role_key": "Tencent:1283126456553382912:2027",
+  "source_refs": [
+    "TENCENT",
+    "SCAN"
+  ],
+  "accepted_user_message": "chatgpt:6aa19d03-51b4-83eb-ad49-3a11f93083a2/87a48246-a81f-4779-9a3d-667ac93a6bda",
+  "historical_qualification": "ELIGIBLE",
+  "qualification_basis": "Direct user states existing Qualification Gate ELIGIBLE and Full Evidence Match PASS; no new verification claimed.",
+  "requirements": [
+    {
+      "requirement_id": "workflow",
+      "hierarchy": "MUST",
+      "match_level": "SUPPORTED",
+      "evidence_refs": [
+        "dneg-workflow"
+      ],
+      "supported_scope": "Human-AI prototype workflow design",
+      "unsupported_scope": "Commercial launch ownership UNKNOWN"
+    },
+    {
+      "requirement_id": "product-data",
+      "hierarchy": "MUST",
+      "match_level": "PARTIAL",
+      "evidence_refs": [
+        "dneg-testing"
+      ],
+      "supported_scope": "Qualitative prototype testing and iteration",
+      "unsupported_scope": "No verified SQL, A/B, retention/funnel or commercial product analytics ownership"
+    }
+  ],
+  "scenario": {
+    "value": "Agent/productivity application-layer responsibilities plausibly fit workflow evidence",
+    "kind": "INFERENCE",
+    "source_level": "REASONABLE INFERENCE",
+    "refs": [
+      "TENCENT §2"
+    ]
+  },
+  "hc": "UNKNOWN",
+  "cv_strategy_count": 1,
+  "expected": {
+    "qualification_with_preferred_major_gap": "ELIGIBLE",
+    "live_preparation": "PREPARATION_HOLD"
+  }
+}

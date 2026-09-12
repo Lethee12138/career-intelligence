@@ -1,0 +1,37 @@
+{
+  "CANONICAL": {
+    "path": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1 (2).md",
+    "locator": "§0, §6–8, §15–16, 2026-09-11/12 increments",
+    "sha256": "583f32567c8c3735c39ed0f1345ee0188145237440017a1b532f1efa1eeb6a6d"
+  },
+  "BATCH": {
+    "path": "/Users/luna/Downloads/Kuaishou_Baidu_2027_Qualification_Evidence_Ranking_2026-09-11.md",
+    "locator": "§1–5",
+    "sha256": "10d7fd03463422435001d1efdd881255fb788b8be804a3ff034aebb88b94132f"
+  },
+  "METHOD": {
+    "path": "/Users/luna/Downloads/职业定位与求职工具.txt",
+    "locator": "2026-09-12 increment",
+    "sha256": "850014e2ae65e25882b80bcd9b21a45100ee8b0a37147b48a52a01f32f31057d"
+  },
+  "SCAN": {
+    "path": "/Users/luna/Downloads/China_September_Opportunity_Pool_Incremental_Scan_2026-09-10.md",
+    "locator": "Tencent rows, §5/Qualification shortlist",
+    "sha256": "6e5ea3185315ec8db568df03af769c86a59b4020a1716243e6cfd720d0683977"
+  },
+  "OUTPUT": {
+    "path": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+    "locator": "§2 DNEG / Creative Drift Checkpoint",
+    "sha256": "0834bf0708477446e995d5c39734447a5bae8418288b0f83d3b02a080741000b"
+  },
+  "DNEG_IMPLEMENTATION": {
+    "path": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+    "locator": "Core Workflow, AI Integration Boundary",
+    "sha256": "e3f5d1659de668e84ff8b961efb8f851621a5a41b38d2238ac20f3e7ef248fe9"
+  },
+  "TENCENT": {
+    "path": "/Users/luna/Downloads/Tencent_2027_AI_PM_BG_Product_Scenario_Routing_2026-09-11.md",
+    "locator": "§1–7; historical snapshot dated 2026-09-11",
+    "sha256": "2875d4af3ba01f27785b5732a1aeff693cbe0e23d889e97ad6bbaf22c1476d4d"
+  }
+}

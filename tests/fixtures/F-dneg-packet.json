@@ -1,0 +1,38 @@
+{
+  "test_only": true,
+  "mode": "HISTORICAL_SNAPSHOT",
+  "as_of": "2026-09-11",
+  "privacy": "Candidate identity/contact details removed. Minimal paraphrases; no original CV or fact-bank copy.",
+  "provenance_boundary": "Accepted Career record/report excerpt; original employer pages and Master Evidence were not reverified in this run.",
+  "case": "F",
+  "title": "DNEG Vibe-Coded Evidence Packet",
+  "source_refs": [
+    "CANONICAL",
+    "BATCH",
+    "OUTPUT",
+    "DNEG_IMPLEMENTATION"
+  ],
+  "target_context": "Historical Tencent Human-AI product preparation evidence review; no new application.",
+  "trigger": "HUMAN_AI_JUDGEMENT",
+  "evidence_refs": [
+    "dneg-workflow",
+    "dneg-testing",
+    "dneg-ownership",
+    "dneg-runtime"
+  ],
+  "aggregate_change_count": "9+",
+  "event_trace_status": "UNKNOWN",
+  "formal_test_rounds": 3,
+  "participant_count": "UNKNOWN",
+  "allowed_scope": "AI-assisted prototype, human product decisions, shared research, scoped testing and iteration.",
+  "unsupported_claims": [
+    "Software Engineer",
+    "commercial efficiency gain",
+    "commercial production adoption"
+  ],
+  "expected": {
+    "packet_boundary": "REVIEW_CANDIDATE",
+    "individual_change_events": [],
+    "live_preparation": "PREPARATION_HOLD"
+  }
+}
