@@ -10,3 +10,5 @@
 8. Return a complete JobAnalysis candidate using [contracts](../schemas/contracts.md). Do not persist application status or adopt materials. For structured automation, evaluate guard functions and inspect every failure; a guard pass is only structural validation.
 
 Core Integration: apply [stretch policy](../rules/stretch.md) at matching and assessment. Distinguish bounded proven support, PARTIAL + DEFENSIBLE_STRETCH and unsupported gaps; maintain qualification separately.
+
+Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Add job_quality detail under the shared contract; compare compensation, sustainability, performance environment and career return separately from Capability Fit. Explain any material recommendation downgrade or conditional trade-off.

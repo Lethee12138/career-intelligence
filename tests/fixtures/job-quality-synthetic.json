@@ -1,0 +1,495 @@
+{
+  "test_only": true,
+  "provenance": "Author-created privacy-safe synthetic terms and budget assumptions for testing the Human-confirmed profile. No real company/offer/salary/market claims or new personal floor. Observations are manually classified from each local terms record; refs SYN:<id>:terms resolve within offers.<id>.terms.",
+  "as_of": "2026-09-13",
+  "preference_ref": "JQ-HUMAN-20260913",
+  "salary_basis": "RMB/month gross; scenario amounts only; MARKET_VERIFY for actual salary quality",
+  "offers": {
+    "A-pressure": {
+      "id": "A-pressure",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "established",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 13000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "hours": "Structural 996; intimidation and unclear punitive expectations",
+        "living_standard": "adequate in fictional budget"
+      },
+      "observations": [
+        {
+          "signal": "structural_overtime",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:A-pressure:terms"
+          ],
+          "rationale": "996 is structural, not a short project peak"
+        },
+        {
+          "signal": "intimidating_management",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:A-pressure:terms"
+          ],
+          "rationale": "Intimidation and punishment without clear expectations"
+        },
+        {
+          "signal": "strong_contextual_pay",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:A-pressure:terms"
+          ],
+          "rationale": "Strong base within this synthetic budget"
+        }
+      ]
+    },
+    "B-sustainable": {
+      "id": "B-sustainable",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 10000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "hours": "Predictable normal hours, two rest days",
+        "manager": "Clear direction, support and growing autonomy",
+        "living_standard": "adequate in same fictional budget"
+      },
+      "observations": [
+        {
+          "signal": "predictable_rest",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:B-sustainable:terms"
+          ],
+          "rationale": "Normal predictable rhythm and rest"
+        },
+        {
+          "signal": "clear_support_growing_autonomy",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:B-sustainable:terms"
+          ],
+          "rationale": "Specific supportive manager conditions"
+        },
+        {
+          "signal": "strong_contextual_pay",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:B-sustainable:terms"
+          ],
+          "rationale": "Adequate dependable base under the fictional budget"
+        }
+      ]
+    },
+    "C-low-floor": {
+      "id": "C-low-floor",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "established",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 4500,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "hours": "Excellent predictable environment",
+        "budget": "Explicit SYNTHETIC personal gross-pay floor 6500 for this scenario, not current Human floor",
+        "hybrid": "3 days home/week"
+      },
+      "observations": [
+        {
+          "signal": "below_confirmed_living_floor",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:C-low-floor:terms"
+          ],
+          "rationale": "Below the scenario-specific budget floor even after costs/benefits review",
+          "floor_context": {
+            "human_confirmed": true,
+            "personal_floor_ref": "SYNTHETIC_BUDGET_NOT_REAL_USER_FLOOR",
+            "city": "SYNTHETIC City A",
+            "role_family": "early-career product",
+            "budget_basis": "Scenario assumption of 6500 gross/month minimum; not a market benchmark"
+          }
+        },
+        {
+          "signal": "predictable_rest",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:C-low-floor:terms"
+          ],
+          "rationale": "Excellent rest cannot supply missing living money"
+        },
+        {
+          "signal": "hybrid",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:C-low-floor:terms"
+          ],
+          "rationale": "Positive flexibility"
+        }
+      ]
+    },
+    "D-stable-low-value": {
+      "id": "D-stable-low-value",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "established",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 5500,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "business": "Stable",
+        "work": "Mechanical low-value tasks, weak ownership",
+        "pay_context": "Low attractiveness under the same fictional city budget, no exceptional return"
+      },
+      "observations": [
+        {
+          "signal": "low_pay_context",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:D-stable-low-value:terms"
+          ],
+          "rationale": "Contextual low-pay concern, not a universal salary exclusion"
+        },
+        {
+          "signal": "mechanical_low_value_work",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:D-stable-low-value:terms"
+          ],
+          "rationale": "Long-term mechanical work with little value"
+        }
+      ]
+    },
+    "E-startup-value": {
+      "id": "E-startup-value",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "early-stage startup",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 11000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "business": "Moderate business uncertainty; no known payroll issue",
+        "work": "Interesting workflow product with meaningful scope and guided ownership",
+        "career": "Specific transferable product artifacts and responsibility"
+      },
+      "observations": [
+        {
+          "signal": "moderate_business_risk",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:E-startup-value:terms"
+          ],
+          "rationale": "Actual moderate uncertainty, not startup label alone"
+        },
+        {
+          "signal": "strong_contextual_pay",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:E-startup-value:terms"
+          ],
+          "rationale": "Strong dependable pay under scenario"
+        },
+        {
+          "signal": "interesting_work",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:E-startup-value:terms"
+          ],
+          "rationale": "Specific workflow product content"
+        },
+        {
+          "signal": "meaningful_ownership",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:E-startup-value:terms"
+          ],
+          "rationale": "Owned output with clear guidance"
+        },
+        {
+          "signal": "credible_mobility",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:E-startup-value:terms"
+          ],
+          "rationale": "Transferable product responsibility and artifacts"
+        }
+      ]
+    },
+    "F-leave5": {
+      "id": "F-leave5",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 10000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "annual_leave_days": 5,
+        "leave_usable": true,
+        "hours": "Normal"
+      },
+      "observations": [
+        {
+          "signal": "known_context",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:F-leave5:terms"
+          ],
+          "rationale": "Five days actually usable",
+          "topic": "Annual Leave"
+        }
+      ]
+    },
+    "G-leave15": {
+      "id": "G-leave15",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 10000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "annual_leave_days": 15,
+        "leave_usable": true,
+        "hours": "Normal; otherwise same as F"
+      },
+      "observations": [
+        {
+          "signal": "usable_generous_leave",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:G-leave15:terms"
+          ],
+          "rationale": "Fifteen actually usable days is materially preferred to five"
+        }
+      ]
+    },
+    "H-bonus": {
+      "id": "H-bonus",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 8500,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "base_guaranteed_months": 12,
+        "bonus": "Advertised up to 60000/year, not guaranteed",
+        "other_terms": "Comparable to I"
+      },
+      "observations": [
+        {
+          "signal": "contingent_bonus",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:H-bonus:terms"
+          ],
+          "rationale": "Potential bonus useful but not dependable pay"
+        }
+      ]
+    },
+    "I-base": {
+      "id": "I-base",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 10500,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "base_guaranteed_months": 12,
+        "bonus": "UNKNOWN",
+        "other_terms": "Comparable to H"
+      },
+      "observations": [
+        {
+          "signal": "strong_contextual_pay",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:I-base:terms"
+          ],
+          "rationale": "Higher stable base, bonus excluded from guaranteed comparison"
+        }
+      ]
+    },
+    "J-probation-normal": {
+      "id": "J-probation-normal",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 10000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "probation_months": 3,
+        "probation_pay_percent": 80,
+        "conversion": "Clear criteria; no supplied elevated risk",
+        "legal_status": "NOT_ASSESSED"
+      },
+      "observations": [
+        {
+          "signal": "normal_probation_80_percent",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:J-probation-normal:terms"
+          ],
+          "rationale": "Personal acceptance of 80% with otherwise normal scenario conditions"
+        }
+      ]
+    },
+    "K-probation-risk": {
+      "id": "K-probation-risk",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "mid-size",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 10000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "probation_months": 6,
+        "probation_pay_percent": 80,
+        "conversion": "Meaningful elimination risk; unclear criteria",
+        "elimination_rate": "UNKNOWN"
+      },
+      "observations": [
+        {
+          "signal": "long_probation_with_elimination_risk",
+          "reviewed": true,
+          "source_scope": "SYNTHETIC",
+          "refs": [
+            "SYN:K-probation-risk:terms"
+          ],
+          "rationale": "Long probation plus meaningful risk and unclear criteria"
+        }
+      ]
+    },
+    "L-brand-unknown": {
+      "id": "L-brand-unknown",
+      "test_only": true,
+      "context": {
+        "city": "SYNTHETIC City A",
+        "role_family": "early-career product",
+        "recruitment_year": 2027,
+        "company_type": "famous established",
+        "market_status": "MARKET_VERIFY"
+      },
+      "base_salary_rmb_month_gross": 11000,
+      "base_recommendation": "Apply",
+      "capability_fit": "HIGH",
+      "terms": {
+        "manager": "UNKNOWN",
+        "team": "UNKNOWN",
+        "benefits": "UNKNOWN"
+      },
+      "observations": []
+    }
+  },
+  "pay_components": [
+    {
+      "name": "H uncertain bonus",
+      "amount": 60000,
+      "currency": "RMB",
+      "period": "YEAR",
+      "gross_net": "GROSS",
+      "guaranteed": false,
+      "obtainable": "UNKNOWN",
+      "included_in_guaranteed": false,
+      "refs": [
+        "SYN:H-bonus:terms"
+      ]
+    },
+    {
+      "name": "I stable base",
+      "amount": 10500,
+      "currency": "RMB",
+      "period": "MONTH",
+      "gross_net": "GROSS",
+      "guaranteed": true,
+      "obtainable": true,
+      "included_in_guaranteed": true,
+      "refs": [
+        "SYN:I-base:terms"
+      ]
+    }
+  ]
+}

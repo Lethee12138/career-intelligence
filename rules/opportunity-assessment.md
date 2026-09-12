@@ -13,3 +13,7 @@ Group assessment, case interview and impromptu presentation belong to Interview 
 Classify gaps as Capability, Evidence, Experience, Wording, Domain, Eligibility, Timing or Preference. Preserve unsupported/negative items even when recommending preparation.
 
 Recommendations: High Priority Apply, Apply, Strategic Stretch, Explore, Watch, Low Priority, Not Viable Currently. Explain the decisive evidence, gaps, risk, alternatives and what would change the decision. Labels are advice only. Closed/ineligible roles are Not Viable Currently; unresolved identity/critical qualification/source gates stay Explore/Watch without tailoring. Major unproven domain requirements cannot enter the top tier because of city/company/title. One-active-application constraints require checking the existing company record; never create a parallel tracker or reserve/submit a slot.
+
+## Job Quality integration
+
+Apply [Job Quality](job-quality.md) and the referenced Human profile alongside capability analysis. Use the shared job_quality detail for total compensation, sustainable work/rest, performance environment, career value and practical costs; keep the ten dimensions above unchanged. High capability with known poor job quality must materially affect recommendation. Ordinary missing quality details alone do not block preparation; distinguish them from known severe risks and existing source/eligibility gates.

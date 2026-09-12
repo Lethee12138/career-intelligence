@@ -9,3 +9,5 @@
 7. Return ApplicationBrief candidate, checklist and VERIFY items using [contracts](../schemas/contracts.md). Stop before material adoption, canonical Save, login, submission, contact, upload or external action. End with `HUMAN_REVIEW_REQUIRED`; this is not approval.
 
 Core Integration: apply [stretch policy](../rules/stretch.md) for strongest truthful wording and internal L1–L3 defensibility. Only when explicitly requested for historical integration review, a HOLD brief may add separate NOT_FOR_ADOPTION framing_review comparisons; claim_candidates remains empty and no packet is generated. Live gates and default HOLD behavior are unchanged.
+
+Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Carry known serious pay/workload/manager/stability/probation concerns into the brief before further effort. Ordinary UNKNOWN job-quality items alone do not block preparation; preserve existing gates and avoid offer negotiation.

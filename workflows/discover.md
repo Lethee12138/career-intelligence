@@ -14,3 +14,5 @@ Goal: capability/problem/output evidence → plausible responsibilities → role
 6. Return a readable discovery report with counters beside hypotheses, validation plan, and a small next step the Human can choose. ANALYSIS_ONLY ends with hypotheses/search strategies/questions for future JD inspection, not application recommendations. MARKET_VALIDATED reports what changed and why, without bypassing Slice 1 gates. No searches, submissions, CV edits, new projects or automatic profile writeback. Stop questioning when information gain ends.
 
 Core Integration: apply [stretch policy](../rules/stretch.md) to expand plausible responsibilities through explicit bridges from source capabilities. Preserve epistemic status, route lineage, counterevidence and market validation requirements.
+
+Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Use sourced job-quality signals to adjust pursuit priority, retaining capability adjacency. Unknown pay/team conditions require verification, not title/brand stereotypes.

@@ -10,3 +10,5 @@ Goal: existing evidence → Capability Profile → Role Hypothesis Pool. No JD r
 6. Produce one readable review candidate in contract order, surfacing decisive counters/unknowns rather than reciting policy. Ask only material questions under the stop rule; existing evidence may be sufficient with zero questions. End with a bounded validation next step, not a career interview or application package.
 
 Core Integration: apply [stretch policy](../rules/stretch.md) while deriving capabilities. Surface adjacent potential proactively and mark each intended claim/use separately; lack of a formal PM title is not a capability exclusion.
+
+Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Keep the Human profile's preferred environment, performance conditions, lifestyle and first-job priorities beside capability positioning; they do not alter capability evidence.

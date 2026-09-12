@@ -31,6 +31,8 @@ Use [contracts](schemas/contracts.md) for complete outputs. The optional standar
 
 For all four workflows apply the Human-approved [stretch and strategic packaging policy](rules/stretch.md): No Invented Facts, evidence-anchored potential stretch, and strongest truthful framing. Keep use boundaries separate from capability epistemic status and application readiness.
 
+For Job Quality and offer preferences apply [job-quality rules](rules/job-quality.md) and the scoped [current Human profile](references/job-quality-profile.md). Keep capability evidence separate from whether the job is worth pursuing; no salary/culture inference from title or brand.
+
 ## Runtime boundary
 
 Read canonical plan → relevant Master Evidence/project fact cards → existing Job Record → existing CV Base/Field Bank references. Keep source identity, revision and author/provenance. Do not replace facts with polished resume wording. If owners cannot be located, disclose missing coverage and keep preparation limited or blocked.
