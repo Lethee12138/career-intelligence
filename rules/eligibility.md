@@ -9,3 +9,5 @@ Check applicable hard qualifications separately: graduation/award window (includ
 - VERIFY: any applicable hard gate/source applicability is ambiguous or missing.
 
 Graduation-window ELIGIBLE alone is not overall ELIGIBLE. A preferred technical degree gap remains visible in Experience/Domain/Evidence dimensions; it does not become NOT ELIGIBLE. Strong capability cannot override hard eligibility failure. Never label a qualified person capability-fit merely because they are qualified.
+
+For market-specific work-right/sponsorship states and distinct employment-market/company/location fields, apply [global-market rules](global-market.md). A job-specific legal/eligibility failure never negates a capability or permanently excludes its market.

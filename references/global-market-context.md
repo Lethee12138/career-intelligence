@@ -1,0 +1,9 @@
+# Current Human-confirmed market context
+
+ID GLOBAL-HUMAN-20260913; version 1; DIRECT_USER / HUMAN_CONFIRMED. Source: v0.1.2 Global Market & Eligibility Calibration Framework request §§1–6, 14–15; supplied 2026-09-13. Attachment `/Users/luna/.codex/attachments/96756832-f48f-45bc-a62d-b874e0c6af13/pasted-text.txt`; SHA-256 5a6d87f354bba1460f4e46b9049ef844249ce6f94805d844f3203143af651928. This bounded instruction reference does not replace Career canonical or modify historical cases.
+
+Global Opportunity Set by Default. China: ACTIVE / HIGH-ACTIVITY EXECUTION MARKET. UK: ACTIVE, not secondary, inactive, unrealistic or closed by default. Other markets: OPEN / OPPORTUNITY-DRIVEN, including Singapore, individual EU countries, Australia, North America and other viable destinations. Do not invent a single EU/North America work-right regime; resolve the actual country/jurisdiction of each opportunity.
+
+China's current activity is a temporary execution fact/preference, not a permanent role or capability boundary. User-set market preferences, exclusions and temporary execution priorities must carry their own scope/source. No other exclusion is established here. Current physical location or unconfirmed local work rights do not permanently close a country. Work-right/visa facts themselves remain UNKNOWN unless supplied with role-applicable evidence.
+
+The China city order in the accepted assessment remains China-specific. The RMB salary intuitions and China benefit references in the Job Quality profile remain scoped to China; they are not global salary floors, currency-independent pay values or universal benefit priorities. Stable personal preferences (sustainable work/rest, clear support, meaningful ownership, interesting work, mobility, hybrid positive, sales/acquisition pressure negative) continue across markets. Full details remain in the existing Job Quality profile; market evidence cannot silently rewrite them.

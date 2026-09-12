@@ -12,3 +12,5 @@ Goal: existing evidence → Capability Profile → Role Hypothesis Pool. No JD r
 Core Integration: apply [stretch policy](../rules/stretch.md) while deriving capabilities. Surface adjacent potential proactively and mark each intended claim/use separately; lack of a formal PM title is not a capability exclusion.
 
 Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Keep the Human profile's preferred environment, performance conditions, lifestyle and first-job priorities beside capability positioning; they do not alter capability evidence.
+
+Global Market v0.1.2: follow [global-market rules](../rules/global-market.md); capability positioning is market-agnostic. Attach market preferences/feasibility without deleting capabilities for absent work rights.

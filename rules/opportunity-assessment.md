@@ -17,3 +17,5 @@ Recommendations: High Priority Apply, Apply, Strategic Stretch, Explore, Watch, 
 ## Job Quality integration
 
 Apply [Job Quality](job-quality.md) and the referenced Human profile alongside capability analysis. Use the shared job_quality detail for total compensation, sustainable work/rest, performance environment, career value and practical costs; keep the ten dimensions above unchanged. High capability with known poor job quality must materially affect recommendation. Ordinary missing quality details alone do not block preparation; distinguish them from known severe risks and existing source/eligibility gates.
+
+Global scope: the city order above is China-specific, not a global ranking. Apply [global-market rules](global-market.md) for overseas feasibility and market-specific quality; geography alone does not lower priority.

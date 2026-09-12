@@ -46,3 +46,5 @@ Provenance and scoped reuse: [SOURCES](SOURCES.md), [reuse matrix](reuse-matrix.
 ## Default validation
 
 Run `python3 -B scripts/validate.py` from this directory (or invoke the script by absolute path from any directory). This is the canonical dependency-free acceptance path. It checks the supported two-field plain-string frontmatter, unfinished scaffold and local Markdown file links. Full YAML constructs are not used here and are rejected explicitly. General YAML validation via an existing external validator is optional and never required for acceptance; do not install dependencies for it. Run the existing regression suite separately as documented in tests. Slice 2 boundary checks and behavioral review are documented in [Slice 2 tests](tests/SLICE2.md); the optional [discovery guard](scripts/discovery_guard.py) checks grounded assertions only.
+
+Global Market v0.1.2: apply [global-market rules](rules/global-market.md) and [Human market context](references/global-market-context.md). Opportunity discovery is global by default; China is high-activity, UK active, other markets opportunity-driven.

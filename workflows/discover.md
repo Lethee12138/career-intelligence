@@ -16,3 +16,5 @@ Goal: capability/problem/output evidence → plausible responsibilities → role
 Core Integration: apply [stretch policy](../rules/stretch.md) to expand plausible responsibilities through explicit bridges from source capabilities. Preserve epistemic status, route lineage, counterevidence and market validation requirements.
 
 Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Use sourced job-quality signals to adjust pursuit priority, retaining capability adjacency. Unknown pay/team conditions require verification, not title/brand stereotypes.
+
+Global Market v0.1.2: follow [global-market rules](../rules/global-market.md). Generate responsibility hypotheses first, then China/UK/international title variants and specific market checks; UK stays active and other markets remain opportunity-driven.

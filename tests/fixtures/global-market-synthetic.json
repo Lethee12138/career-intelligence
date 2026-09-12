@@ -1,0 +1,408 @@
+{
+  "test_only": true,
+  "as_of": "2026-09-13",
+  "provenance": "Entirely synthetic jobs, work-right records, authority observations and qualification checks. SYN IDs resolve to cases.<role_key> in this fixture. No real candidate visa, sponsor policy or market fact is asserted. Role-scoped reviewed flags simulate evidence checks; no live research.",
+  "profile_ref": "GLOBAL-HUMAN-20260913",
+  "cases": {
+    "CN-domestic": {
+      "role_key": "CN-domestic",
+      "employment_market": "China",
+      "work_location": {
+        "country": "China",
+        "region": "UNKNOWN",
+        "city": "Hangzhou"
+      },
+      "company_type": "Chinese domestic",
+      "role_family": "Workflow / Applied AI Product",
+      "capability_fit": "HIGH",
+      "job_quality": "HIGH (synthetic assumption; not market-derived)",
+      "career_value": "HIGH (synthetic assumption)",
+      "candidate_authorization": {
+        "role_key": "CN-domestic",
+        "market": "China",
+        "reviewed": true,
+        "refs": [
+          "SYN:CN-domestic"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "ALREADY_AUTHORISED",
+        "valid_for_role": true
+      },
+      "employer_sponsorship": {
+        "role_key": "CN-domestic",
+        "market": "China",
+        "reviewed": true,
+        "refs": [
+          "SYN:CN-domestic"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "UNKNOWN",
+        "authority_for_job": false,
+        "candidate_route_conditions_verified": false
+      },
+      "other_route": {
+        "role_key": "CN-domestic",
+        "market": "China",
+        "reviewed": true,
+        "refs": [
+          "SYN:CN-domestic"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_OTHER_ROUTE"
+      },
+      "qualification_checks": [
+        {
+          "hierarchy": "MUST",
+          "result": "PASS",
+          "verified": true,
+          "refs": [
+            "SYN:CN-domestic:all-applicable-role-criteria"
+          ]
+        }
+      ],
+      "qualification_coverage_complete": true
+    },
+    "CN-mnc": {
+      "role_key": "CN-mnc",
+      "employment_market": "China",
+      "work_location": {
+        "country": "China",
+        "region": "UNKNOWN",
+        "city": "Shanghai"
+      },
+      "company_type": "foreign multinational",
+      "role_family": "Workflow / Applied AI Product",
+      "capability_fit": "HIGH",
+      "job_quality": "HIGH (synthetic assumption; not market-derived)",
+      "career_value": "HIGH (synthetic assumption)",
+      "candidate_authorization": {
+        "role_key": "CN-mnc",
+        "market": "China",
+        "reviewed": true,
+        "refs": [
+          "SYN:CN-mnc"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "ALREADY_AUTHORISED",
+        "valid_for_role": true
+      },
+      "employer_sponsorship": {
+        "role_key": "CN-mnc",
+        "market": "China",
+        "reviewed": true,
+        "refs": [
+          "SYN:CN-mnc"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "UNKNOWN",
+        "authority_for_job": false,
+        "candidate_route_conditions_verified": false
+      },
+      "other_route": {
+        "role_key": "CN-mnc",
+        "market": "China",
+        "reviewed": true,
+        "refs": [
+          "SYN:CN-mnc"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_OTHER_ROUTE"
+      },
+      "qualification_checks": [
+        {
+          "hierarchy": "MUST",
+          "result": "PASS",
+          "verified": true,
+          "refs": [
+            "SYN:CN-mnc:all-applicable-role-criteria"
+          ]
+        }
+      ],
+      "qualification_coverage_complete": true
+    },
+    "UK-verify": {
+      "role_key": "UK-verify",
+      "employment_market": "UK",
+      "work_location": {
+        "country": "UK",
+        "region": "UNKNOWN",
+        "city": "London"
+      },
+      "company_type": "Chinese multinational",
+      "role_family": "Workflow / Applied AI Product",
+      "capability_fit": "HIGH",
+      "job_quality": "HIGH (synthetic assumption; not market-derived)",
+      "career_value": "HIGH (synthetic assumption)",
+      "candidate_authorization": {
+        "role_key": "UK-verify",
+        "market": "UK",
+        "reviewed": true,
+        "refs": [
+          "SYN:UK-verify"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_CURRENT_RIGHT",
+        "valid_for_role": false
+      },
+      "employer_sponsorship": {
+        "role_key": "UK-verify",
+        "market": "UK",
+        "reviewed": true,
+        "refs": [
+          "SYN:UK-verify"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "UNKNOWN",
+        "authority_for_job": false,
+        "candidate_route_conditions_verified": false
+      },
+      "other_route": {
+        "role_key": "UK-verify",
+        "market": "UK",
+        "reviewed": true,
+        "refs": [
+          "SYN:UK-verify"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_OTHER_ROUTE"
+      },
+      "qualification_checks": [
+        {
+          "hierarchy": "MUST",
+          "result": "PASS",
+          "verified": true,
+          "refs": [
+            "SYN:UK-verify:all-applicable-role-criteria"
+          ]
+        }
+      ],
+      "qualification_coverage_complete": true
+    },
+    "SG-available": {
+      "role_key": "SG-available",
+      "employment_market": "Singapore",
+      "work_location": {
+        "country": "Singapore",
+        "region": "UNKNOWN",
+        "city": "Singapore"
+      },
+      "company_type": "startup",
+      "role_family": "Workflow / Applied AI Product",
+      "capability_fit": "HIGH",
+      "job_quality": "HIGH (synthetic assumption; not market-derived)",
+      "career_value": "HIGH (synthetic assumption)",
+      "candidate_authorization": {
+        "role_key": "SG-available",
+        "market": "Singapore",
+        "reviewed": true,
+        "refs": [
+          "SYN:SG-available"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_CURRENT_RIGHT",
+        "valid_for_role": false
+      },
+      "employer_sponsorship": {
+        "role_key": "SG-available",
+        "market": "Singapore",
+        "reviewed": true,
+        "refs": [
+          "SYN:SG-available"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "OFFERS",
+        "authority_for_job": true,
+        "candidate_route_conditions_verified": true
+      },
+      "other_route": {
+        "role_key": "SG-available",
+        "market": "Singapore",
+        "reviewed": true,
+        "refs": [
+          "SYN:SG-available"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_OTHER_ROUTE"
+      },
+      "qualification_checks": [
+        {
+          "hierarchy": "MUST",
+          "result": "PASS",
+          "verified": true,
+          "refs": [
+            "SYN:SG-available:all-applicable-role-criteria"
+          ]
+        }
+      ],
+      "qualification_coverage_complete": true
+    },
+    "UK-unavailable": {
+      "role_key": "UK-unavailable",
+      "employment_market": "UK",
+      "work_location": {
+        "country": "UK",
+        "region": "UNKNOWN",
+        "city": "London"
+      },
+      "company_type": "multinational",
+      "role_family": "Workflow / Applied AI Product",
+      "capability_fit": "HIGH",
+      "job_quality": "HIGH (synthetic assumption; not market-derived)",
+      "career_value": "HIGH (synthetic assumption)",
+      "candidate_authorization": {
+        "role_key": "UK-unavailable",
+        "market": "UK",
+        "reviewed": true,
+        "refs": [
+          "SYN:UK-unavailable"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_CURRENT_RIGHT",
+        "valid_for_role": false
+      },
+      "employer_sponsorship": {
+        "role_key": "UK-unavailable",
+        "market": "UK",
+        "reviewed": true,
+        "refs": [
+          "SYN:UK-unavailable"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "DOES_NOT",
+        "authority_for_job": true,
+        "candidate_route_conditions_verified": false
+      },
+      "other_route": {
+        "role_key": "UK-unavailable",
+        "market": "UK",
+        "reviewed": true,
+        "refs": [
+          "SYN:UK-unavailable"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_OTHER_ROUTE"
+      },
+      "qualification_checks": [
+        {
+          "hierarchy": "MUST",
+          "result": "PASS",
+          "verified": true,
+          "refs": [
+            "SYN:UK-unavailable:all-applicable-role-criteria"
+          ]
+        }
+      ],
+      "qualification_coverage_complete": true
+    },
+    "AU-verify": {
+      "role_key": "AU-verify",
+      "employment_market": "Australia",
+      "work_location": {
+        "country": "Australia",
+        "region": "UNKNOWN",
+        "city": "Melbourne"
+      },
+      "company_type": "mid-size",
+      "role_family": "Workflow / Applied AI Product",
+      "capability_fit": "HIGH",
+      "job_quality": "HIGH (synthetic assumption; not market-derived)",
+      "career_value": "HIGH (synthetic assumption)",
+      "candidate_authorization": {
+        "role_key": "AU-verify",
+        "market": "Australia",
+        "reviewed": true,
+        "refs": [
+          "SYN:AU-verify"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_CURRENT_RIGHT",
+        "valid_for_role": false
+      },
+      "employer_sponsorship": {
+        "role_key": "AU-verify",
+        "market": "Australia",
+        "reviewed": true,
+        "refs": [
+          "SYN:AU-verify"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "UNKNOWN",
+        "authority_for_job": false,
+        "candidate_route_conditions_verified": false
+      },
+      "other_route": {
+        "role_key": "AU-verify",
+        "market": "Australia",
+        "reviewed": true,
+        "refs": [
+          "SYN:AU-verify"
+        ],
+        "applicable_as_of": "2026-09-13",
+        "status": "NO_OTHER_ROUTE"
+      },
+      "qualification_checks": [
+        {
+          "hierarchy": "MUST",
+          "result": "PASS",
+          "verified": true,
+          "refs": [
+            "SYN:AU-verify:all-applicable-role-criteria"
+          ]
+        }
+      ],
+      "qualification_coverage_complete": true
+    }
+  },
+  "salary_examples": [
+    {
+      "market": "China",
+      "currency": "RMB",
+      "amount": 15000,
+      "period": "MONTH",
+      "gross_net": "UNKNOWN"
+    },
+    {
+      "market": "UK",
+      "currency": "GBP",
+      "amount": 35000,
+      "period": "YEAR",
+      "gross_net": "UNKNOWN"
+    }
+  ],
+  "benefit_examples": [
+    {
+      "market": "China",
+      "label": "housing fund",
+      "contribution": "UNKNOWN",
+      "eligibility": "UNKNOWN",
+      "access": "UNKNOWN",
+      "local_treatment": "UNKNOWN",
+      "refs": [
+        "SYN:benefit-CN"
+      ]
+    },
+    {
+      "market": "UK",
+      "label": "pension",
+      "contribution": "UNKNOWN",
+      "eligibility": "UNKNOWN",
+      "access": "UNKNOWN",
+      "local_treatment": "UNKNOWN",
+      "refs": [
+        "SYN:benefit-UK"
+      ]
+    }
+  ],
+  "city_preference": {
+    "market": "China",
+    "cities": [
+      "Hangzhou",
+      "Nanjing/Suzhou",
+      "Guangzhou",
+      "Shanghai",
+      "Shenzhen"
+    ],
+    "source_ref": "accepted opportunity-assessment China-specific snapshot"
+  },
+  "market_benchmark": null
+}

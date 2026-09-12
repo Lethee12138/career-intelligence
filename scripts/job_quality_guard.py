@@ -4,6 +4,7 @@ Signal classification, source reliability and living-floor context are reviewed
 inputs, not inferred from title, brand, salary amount or prose. No offer ranking,
 weighted scores, source I/O, legal determination or preparation-gate replacement.
 """
+import re
 from guard import RECOMMENDATIONS
 
 TOPICS = ('Compensation', 'Total Compensation', 'Workload/Rest', 'Annual Leave',
@@ -105,12 +106,12 @@ def hardship_review(proposal):
 
 
 def pay_basis_errors(components):
-    """Validate a proposed stable-pay comparison, not calculate take-home pay."""
+    """Validate component basis (three-letter currency syntax), not market value or cross-market comparability."""
     errors = []
     for c in components:
         if c.get('included_in_guaranteed') is True:
             if c.get('guaranteed') is not True or c.get('obtainable') is not True or not c.get('refs'):
                 errors.append('uncertain component cannot enter guaranteed comparison')
-            if c.get('currency') != 'RMB' or c.get('period') not in {'MONTH', 'YEAR'} or c.get('gross_net') not in {'GROSS', 'NET'}:
+            if not re.fullmatch(r'[A-Z]{3}', str(c.get('currency', ''))) or c.get('period') not in {'MONTH', 'YEAR'} or c.get('gross_net') not in {'GROSS', 'NET'}:
                 errors.append('comparison basis unresolved')
     return errors
