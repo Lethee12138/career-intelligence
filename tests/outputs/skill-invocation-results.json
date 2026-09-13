@@ -1,0 +1,107 @@
+{
+  "date": "2026-09-13",
+  "runtime": "Codex CLI 0.154.0-alpha.6.2 (desktop bundled)",
+  "accepted_source_commit": "bd5b25c96299ed684c725bfcc6fd8191b187bc59",
+  "tested_skill_sha256": "7b5a34150f09133d2c9ccfbdbeb744a587259b37d6c8f1149a5b7099304fcd69",
+  "installed_path": "/Users/luna/.codex/skills/career-intelligence",
+  "canonical_target": "/Users/luna/Luna/career-intelligence",
+  "method": "Six independent codex exec --ephemeral invocations from an empty non-repo directory. No skill-name hint; normal discovered catalog; read-only sandbox, approval never, web disabled. Configured default model. Actual workflow reads and final outputs reviewed.",
+  "invocation_cwd": "/tmp/career-skill-invocation",
+  "catalog_discovery": {
+    "before_present": false,
+    "after_present": true,
+    "mechanism": "codex debug prompt-input"
+  },
+  "cases": [
+    {
+      "id": "A",
+      "prompt": "根据我的项目经历，帮我重新判断我可能适合哪些职业方向。补充测试用背景：我做过交互原型和用户测试。只做简短初步判断；不联网，不写文件，不读取私人记录，不执行外部动作。",
+      "expected_workflow": "position",
+      "result": "PASS",
+      "observed_commands": [
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/SKILL.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/workflows/position.md /Users/luna/.codex/skills/career-intelligence/rules/{discovery,evidence,eligibility,opportunity-assessment,source-and-inference,user-questioning,cv-claims,stretch}.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/schemas/{capability-profile,role-hypothesis}.md'"
+      ],
+      "final_output": "仅按你提供的测试背景——**做过交互原型和用户测试**——初步看，最值得探索的是**交互／UX 设计**，其次是**偏可用性的用户研究**，以及**偏体验的产品岗位**。这是假设性判断，不代表已经验证了你的完整能力。\n\n| 方向 | 与现有经历的联系 | 还需要确认的关键点 |\n|---|---|---|\n| **交互设计／UX 设计** | 原型和用户测试都与设计、验证用户流程直接相关，关联最明确 | 是否自己设计流程，并根据测试发现调整方案；视觉设计水平仍未知 |\n| **用户研究／可用性研究** | 用户测试可成为研究执行和发现体验问题的起点 | 是否参与研究问题制定、任务设计、分析与建议，而不只是协助测试 |\n| **偏体验的产品经理／产品助理** | 原型和测试可迁移到需求澄清、方案验证 | 是否做过需求取舍、优先级判断和推进落地；目前只能视为相邻方向 |\n\n更具体地说：如果你最喜欢**设计并修改方案**，优先探索交互／UX；如果最喜欢**观察用户、分析问题**，探索用户研究；如果最喜欢**决定先解决什么、协调实现**，探索产品方向。\n\n当前依据不足以判断资历级别，也不能从这两项经历推出高水平视觉设计或软件工程能力。以后若要细化，最有价值的补充是一个小案例：**你在测试中发现了什么，以及你亲自据此改了什么。**",
+      "review": "Tentative career directions anchored to supplied prototype and user-test context; role hypotheses remain provisional."
+    },
+    {
+      "id": "B",
+      "prompt": "根据我的职业方向，帮我生成一轮真实岗位搜索计划。测试用方向是工作流产品与产品研究，中国和英国都可考虑；只生成可交接计划，不执行搜索、不联网、不写文件、不读取私人记录。",
+      "expected_workflow": "find-jobs",
+      "result": "PASS",
+      "observed_commands": [
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/SKILL.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/evidence.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/opportunity-assessment.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/schemas/contracts.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/eligibility.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/stretch.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/source-and-inference.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/user-questioning.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/workflows/find-jobs.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/cv-claims.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/market-calibration.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/global-market.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/job-quality.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/workflows/find-jobs.md /Users/luna/.codex/skills/career-intelligence/schemas/search-execution.md /Users/luna/.codex/skills/career-intelligence/rules/source-and-inference.md /Users/luna/.codex/skills/career-intelligence/rules/user-questioning.md /Users/luna/.codex/skills/career-intelligence/rules/stretch.md /Users/luna/.codex/skills/career-intelligence/rules/cv-claims.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/search-execution.md /Users/luna/.codex/skills/career-intelligence/templates/search-execution-handoff.md'"
+      ],
+      "final_output": "以下是一份可直接交给后续搜索执行者的 **SearchExecutionHandoff（岗位搜索交接计划）**。本轮仅使用你提供的测试方向“工作流产品与产品研究、中国和英国都可考虑”；已阅读技能说明，未执行搜索、未联网、未写文件、未读取私人记录。下列职位名称与查询词均为搜索假设，不代表已确认存在招聘需求。\n\n**1. 交接信息与范围**\n\n| 字段 | 内容 |\n|---|---|\n| `schema_version` | SearchExecutionHandoff v0.2 |\n| `search_id` | TEST-WORKFLOW-RESEARCH-CN-UK-20260913-01 |\n| `created_at` | 2026-09-13；具体时刻 UNKNOWN |\n| `executor` | UNKNOWN，待指定外部搜索执行者 |\n| `handoff_state` | 待审阅、未执行 |\n| `external_action` | `false` |\n| `input_refs` | U1：本轮用户消息；作者 DIRECT_USER；范围为测试方向与操作边界；版本/哈希 UNKNOWN |\n| `market_scope` | 中国、英国，本轮均主动覆盖 |\n| `location_scope` | 两国内城市不限，不推定城市排序或搬迁意愿；远程岗位需明确实际雇佣地区 |\n| `target_batch_size` | 建议约 30 条有用原始候选，20–40 条为参考范围，允许不足 |\n| `target_is_advisory` | `true`，不得为凑数收录弱相关岗位 |\n| `existing_pool` / `existing_pool_coverage` | UNKNOWN；未读取已有申请池，不能声称已排除已投岗位 |\n| `human_constraints` | 本轮只交付计划；不搜索、不联网、不写文件、不读私人记录；不创建外部任务 |\n\n学历、毕业时间、工作年限、能力证据、薪资底线、中英工作权及英国签证支持需求均为 `UNKNOWN`。这不妨碍制定搜索计划，但不能据此判断“适合你”或“现在可投”，也不默认只找校招、初级或资深岗位。\n\n**2. 岗位假设与搜索词**\n\n下列假设均由 U1 的方向词推导，属于 `INFERENCE`，只用于搜索。个人能力与项目证据引用均为 `UNKNOWN`。\n\n| 假设 | 要找的实际工作与产出 | 中国名称变体 | 英国名称变体 | 纳入依据与未证明范围 |\n|---|---|---|---|---|\n| H1 工作流产品 | 识别多人协作、任务流转、审批或业务流程问题，形成需求、流程设计与产品迭代 | 工作流产品经理、协同产品经理、企业服务产品经理、平台产品经理 | Product Manager – Workflow / Collaboration / Business Systems / Internal Tools | 直接对应“工作流产品”；未证明个人具有 PM 经历或商业交付能力 |\n| H2 产品研究 | 研究用户需求与使用行为，产出洞察，并支持产品发现、优先级或体验决策 | 用户研究员、产品研究员、用户洞察、体验研究员 | User Researcher / UX Researcher / Product Researcher / Design Researcher | 将“产品研究”暂解释为支持产品决策的用户与体验研究；未证明研究方法与项目经验 |\n| H3 流程与系统改进，补充探索 | 梳理现状流程、识别痛点、提出系统需求并验证改进 | 业务分析师、业务流程分析师、数字化产品经理、业务系统产品经理 | Business Analyst / Business Process Analyst / Business Systems Analyst / Digital Product Manager | 与工作流问题相邻；需查明是否有产品或系统改进职责，未证明行业或系统实施能力 |\n\n按五类词组合查询：\n\n- **职位词**：使用表中名称变体，避免只搜单一标准头衔。\n- **职责词**：流程梳理、需求分析、产品发现、用户访谈、可用性测试；`process mapping`、`requirements discovery`、`product discovery`、`user interviews`、`usability testing`。\n- **问题词**：协作、审批、任务交接、重复操作、用户痛点；`collaboration`、`approval`、`handoff`、`manual tasks`、`user needs`。\n- **产出词**：流程设计、产品需求、研究洞察、迭代建议；`workflow design`、`product requirements`、`research insights`、`recommendations`。\n- **降噪词**：纯销售、纯行政审批、纯证券研究、纯内容运营；依据实际职责判断后降噪，避免首轮用否定词误删跨职能岗位。\n\n需要辨别的名称陷阱：`Product Researcher` 可能是电商选品；`Business Analyst` 可能侧重财务报表；`Product Operations` 可能侧重内容或商家运营；`Workflow` 也可能仅指日常排班。收录时必须说明实际职责与 H1–H3 的关系。\n\n本轮不单列 AI、游戏、创意技术或原型开发方向，因为输入尚未提供相应依据；AI 工作流岗位可在 H1 内按实际职责检查。\n\n**3. 可复制查询组**\n\n每条可拆成更短的查询，以适应不同平台。以下是待执行语句。\n\n| 组别 | 中国 | 英国 |\n|---|---|---|\n| H1 主查询 | `(\"工作流\" OR \"协同\" OR \"业务流程\") (\"产品经理\" OR \"产品专员\") 招聘` | `(\"product manager\" OR \"associate product manager\") (\"workflow\" OR \"collaboration\" OR \"internal tools\") UK` |\n| H1 补充 | `(\"企业服务\" OR \"业务系统\" OR \"平台产品\") (\"需求分析\" OR \"流程设计\") 招聘` | `\"product manager\" (\"business systems\" OR \"workflow automation\") \"United Kingdom\"` |\n| H2 主查询 | `(\"用户研究\" OR \"产品研究\" OR \"体验研究\") (\"产品\" OR \"用户体验\") 招聘` | `(\"user researcher\" OR \"UX researcher\" OR \"product researcher\") (\"product\" OR \"discovery\") UK` |\n| H2 补充 | `(\"用户洞察\" OR \"研究员\") (\"用户访谈\" OR \"可用性测试\") 招聘` | `(\"user researcher\" OR \"design researcher\") (\"user interviews\" OR \"usability testing\") \"United Kingdom\"` |\n| H3 补充探索 | `(\"业务分析师\" OR \"数字化产品经理\") (\"流程优化\" OR \"系统需求\") 招聘` | `(\"business analyst\" OR \"business systems analyst\") (\"process improvement\" OR \"requirements discovery\") UK` |\n\n初步分配为**中国约 15 条、英国约 15 条**；每个市场 H1 约 6 条、H2 约 6 条、H3 约 3 条。这是本轮覆盖建议，不是市场规模或个人适配度判断。行业保持开放，不限定互联网或知名公司。\n\n**4. 执行顺序、来源与停止条件**\n\n后续执行者获得单独执行授权后，按以下顺序开展：\n\n1. 每个市场先覆盖 H1、H2，再用 H3 补充相邻职责。\n2. 来源优先级为：企业官方招聘页、官方 ATS 或招聘公告 → 官方公共就业渠道 → 招聘平台和高校就业网站 → 社区线索。平台与社区结果应追溯到岗位对应的权威来源。\n3. 对每条候选浅读 JD，保留职责证据、硬性资格和关键未知项，不立即开展完整个人匹配分析。\n4. 返回候选批次与覆盖报告，保留不足、重复和无法核验的原因。\n\n达到以下任一条件可结束本轮：\n\n- 已获得约 30 条有用候选，并完成中英两地及 H1、H2 的基本覆盖。\n- 覆盖主要查询与名称变体后，连续两轮变体查询几乎不再出现新的相关职责或岗位身份。\n- 大量结果重复、偏离目标职责，或无法找到岗位级权威来源。\n- 在某条搜索路径中出现普遍且明确的资格限制，记录该路径情况并转向其他路径；不能因单一路径受阻排除整个市场。\n\n不得自行增加“近七天发布”、特定毕业年份、薪资门槛、英国免签证支持等过滤条件。当前目标是核验仍在招聘的岗位，发布日期未知本身不等于关闭。\n\n**5. 权威核验、资格与去重规则**\n\n- **岗位身份**：优先绑定企业/ATS 命名空间下的职位 ID；其次是精确官方 URL。同名职位、同一品牌或相似 JD 不足以合并。\n- **状态**：当前官方明确关闭或招满记为 `CLOSED`；页面打不开、404、来源冲突记为 `VERIFY`。历史页面不能证明今天仍开放。\n- **资格**：分别记录必须条件、优先条件和含糊条件。学历、经验、毕业窗口、到岗时间与工作权须独立检查；个人信息不足时总体资格保留 `VERIFY`。\n- **英国工作权**：分别记录个人现有工作权、是否需要支持、雇主对该岗位/项目的支持政策及适用条件。持有 sponsor licence 不等于该岗位提供 sponsorship；未知支持政策保持 `VERIFY`，不能据此淘汰英国市场。\n- **岗位质量**：薪资、奖金、休假、工时、混合办公等只记有来源的内容，其他填 `UNKNOWN`；不从品牌或职位名称推断待遇。\n- **重复与历史申请**：保留原始变体、来源和冲突记录。申请池未提供，因此仅做批次内部去重；后续取得明确提供的池快照后，再核对已投、关闭及同公司申请限制。\n\n**6. 执行者回传格式与验收**\n\n返回 `JobCandidateBatch`，可用 JSON 或带字段名的 Markdown，无需建立新追踪器。\n\n批次级字段：\n\n```text\nbatch_id\nsearch_id\nexecutor\ncaptured_at\ncoverage_by_market_and_hypothesis\nstop_reason\ncandidates[]\n```\n\n每条候选至少返回：\n\n| 类别 | 必填内容 |\n|---|---|\n| 身份 | candidate_id、公司、职位名、官方职位 ID/ATS 命名空间、官方 URL、部门/项目、招聘类型 |\n| 市场 | 实际雇佣市场、国家、城市、工作安排；公司国别单独记录 |\n| 来源与状态 | 发现 URL/来源等级、权威 URL、抓取时间、实际核验时间、开放状态、截止日期、JD 摘录或引用 |\n| 职责与资格 | 主要职责、必须/优先条件原文或准确位置、工作权与岗位级 sponsorship 信息、未解决资格项 |\n| 质量信息 | 基础薪资及币种/周期、保证收入、浮动收入、福利、工时与休假；无来源填 UNKNOWN |\n| 搜索判断 | 命中的 H1/H2/H3、职责相关理由与 JD 引用、名称陷阱、来源冲突、重复关系、下一步核验动作 |\n\n验收时要求：**每条收录结果都能追溯来源并说明职责相关性；所有未知项显式保留；报告市场与假设覆盖缺口。** 最强个人能力匹配及个人证据引用统一保留 `UNKNOWN`，不制造匹配分数或“可立即申请”结论。\n\n回传后先做身份、来源与去重审阅，再选择少量岗位进入完整分析。若后续允许个人匹配，可建议同时深挖约 3–5 个岗位；本计划不产生投递、联系招聘方或申请状态变更。",
+      "review": "Search Execution Handoff contains hypotheses, multilingual queries, source and stop conditions, return schema and VERIFY boundaries; no actual search."
+    },
+    {
+      "id": "C",
+      "prompt": "帮我看看这个产品岗位值不值得投。测试 JD：应届产品助理，负责用户访谈、原型与需求整理，工作地杭州，薪资和资格细节未知。测试候选人做过交互原型。只做快速初评，不联网、不写文件、不读取私人记录。",
+      "expected_workflow": "analyse-job",
+      "result": "PASS",
+      "observed_commands": [
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/SKILL.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/workflows/analyse-job.md /Users/luna/.codex/skills/career-intelligence/rules/{evidence,eligibility,opportunity-assessment,source-and-inference,user-questioning,cv-claims,stretch,job-quality,global-market,market-calibration}.md'"
+      ],
+      "final_output": "**快速结论：值得进一步了解，暂列「Explore／待核实」，还不足以列为优先投递。** 原型经历与岗位有直接交集，但资格和岗位质量信息缺失。这个结论只针对你提供的测试材料，不代表已确认真实在招。\n\n| 判断项 | 初评与依据 |\n|---|---|\n| 能力匹配 | **部分匹配**。本条消息中的“做过交互原型”支持原型相关经历；复杂度、工具和独立完成程度未知。 |\n| 用户访谈、需求整理 | **未知**。不能从做过原型推导出做过访谈、需求分析或优先级判断；这是证据缺口，不等于不会。 |\n| 应聘资格 | **待核实（VERIFY）**。“应届”范围、学历及其他硬性要求不明，候选人是否满足也未知。 |\n| 地点与实际可行性 | 工作地杭州已知；候选人的地点意愿、通勤或搬迁条件未知，不能直接算加分。 |\n| 成长价值 | **有潜力，属推断**。若能参与“访谈→需求→原型→反馈”，可能积累产品基本功；若只是整理文档、照指令画图，成长价值会弱一些。 |\n| 岗位质量 | **未知**。薪资、工时、带教和团队情况均无依据，不能因“应届产品助理”判断待遇或压力。 |\n\n经验深度、个人兴趣、工作方式偏好、面试风险和所需能力跨度，目前也都不足以判断，不给匹配百分比。\n\n**最省力的下一步是先补三项信息：**\n\n- 应届年份、学历等硬性门槛，确认能否投。\n- 薪资范围与通常工时，确认是否值得投入。\n- 是否有产品经理带教、能否参与真实访谈和需求讨论，确认能学到什么。\n\n若资格满足、待遇与工作安排可接受，并有实际产品参与机会，可升级为「建议投递」。现阶段有相关经历作为切入点，但不值得仅凭这几行 JD 投入大量定制准备。\n\n本次未联网、未写文件，也未读取私人记录。",
+      "review": "Bounded quick JD review, prototype match only; qualification and quality remain VERIFY, without mandatory positioning interview."
+    },
+    {
+      "id": "D",
+      "prompt": "这十几个岗位帮我分一下哪些重点准备、哪些快速投。暂只给两条测试样本：A 工作流产品，职责和项目高度相关但资格未知；B 产品运营，适配合理但官方状态未知。只说明如何分流并给这两条初步路由，不联网、不写文件、不读取私人记录。",
+      "expected_workflow": "route-jobs",
+      "result": "PASS",
+      "observed_commands": [
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/SKILL.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/workflows/route-jobs.md /Users/luna/.codex/skills/career-intelligence/rules/{evidence,eligibility,opportunity-assessment,source-and-inference,user-questioning,cv-claims,stretch}.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/rules/search-execution.md /Users/luna/.codex/skills/career-intelligence/schemas/search-execution.md'"
+      ],
+      "final_output": "**A 优先核验，作为重点准备候选；B 先核验官方状态，作为快速投候选。目前两条都应放在“待核验”，还不能正式进入重点准备或快速投。**\n\n分流时，把“值得投入多少准备”和“是否满足推进条件”分开看：\n\n- **重点准备（TARGETED_PREPARE）**：职责与项目证据高度相关、职业价值较高，值得针对性准备；岗位身份、在招状态和硬资格已核实。\n- **快速投（FAST_APPLY）**：适配合理，可以用现有真实材料做少量调整；同样需要核实岗位状态与硬资格。“快速”指减少准备成本。\n- **待核验（WATCH_VERIFY）**：资格、官方状态或岗位身份存在影响决策的未知。保留潜在去向，先解决关键阻点。\n- **跳过（SKIP）**：有明确证据证明已关闭、不满足硬资格或存在严重不匹配。未知本身不构成跳过理由。\n\n| 样本 | 当前初步路由 | 核验后的潜在去向 | 判断依据与边界 | 下一步人工动作 |\n|---|---|---|---|---|\n| **A：工作流产品** | **WATCH_VERIFY：资格待核验，优先核验** | **重点准备候选** | 按你提供的“职责和项目高度相关”，值得优先解锁；但相关性不能替代资格核验，未提供的官方状态也不能默认通过。 | 对照该岗位官方要求，核对适用的硬资格。 |\n| **B：产品运营** | **WATCH_VERIFY：官方状态待核验** | **快速投候选** | 按你提供的“适配合理”，可考虑控制准备成本；官方状态未知，不能判断目前可投，资格也未获确认。 | 确认对应岗位的官方招聘页面是否仍开放。 |\n\n十几个岗位可以照此处理：先把关键未知单独标出，再给条件满足的岗位分配准备投入；重点准备同时保留约 **3–5 个**，其余排队。A 的优先级是**优先核验以解锁重点准备**，不是现在就开始深度定制。\n\n以上仅为两条测试样本的条件式判断，未联网、未写文件、未读取私人记录，也未验证实际项目证据或真实岗位。",
+      "review": "Two supplied samples retained as WATCH_VERIFY with conditional future lanes; no invented remaining jobs or automatic application."
+    },
+    {
+      "id": "E",
+      "prompt": "这个岗位我准备投了，帮我准备申请。测试背景：工作流产品岗，我有交互原型项目，尚无完整 JD、资格结论或 CV 权限。先给可做的准备与缺口，不联网、不写文件、不读取私人记录，不投递。",
+      "expected_workflow": "prepare-application",
+      "result": "PASS",
+      "observed_commands": [
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/SKILL.md'",
+        "/bin/zsh -lc 'cat /Users/luna/.codex/skills/career-intelligence/workflows/prepare-application.md /Users/luna/.codex/skills/career-intelligence/rules/{evidence,eligibility,opportunity-assessment,source-and-inference,user-questioning,cv-claims,stretch}.md'"
+      ],
+      "final_output": "可以先完成**申请策略与证据准备清单**。当前状态是 `PREPARATION_HOLD`：尚不能进入该岗位的定向 CV 文案或申请材料制作，但不影响先整理准备方向。这不是“不适合”的结论。\n\n本次仅使用你在消息中提供的测试背景和技能规则，未联网、未写文件、未读取私人记录，也未投递。\n\n**目前的判断边界**\n\n- **已知背景**：目标是工作流产品岗；你表示有交互原型项目。这是本轮用户提供的背景，项目内容和个人贡献尚未核验。\n- **能力匹配：UNKNOWN**。交互原型是值得检查的证据入口，但仅凭项目类型，不能认定已具备需求分析、复杂流程设计或上线交付能力。\n- **资格结论：VERIFY**。缺少完整 JD 和适用硬性要求，不能判断符合或不符合。\n- **材料使用权限：UNKNOWN**。本轮没有 CV 访问或使用授权，也没有项目材料的简历使用、公开展示权限结论。\n\n**现在可做的准备**\n\n先围绕现有交互原型，准备一份供后续核验的讲述提纲；以下是检查方向，不是对你经历的断言，也不要求现在补做项目。\n\n| 准备方向 | 从现有项目中寻找的内容 | 后续用途 |\n|---|---|---|\n| 用户与问题 | 谁在什么场景遇到什么问题；问题依据是什么 | 判断能否支持需求理解 |\n| 核心工作流 | 起点、步骤、状态变化、交接和结束条件 | 展示流程拆解思路 |\n| 关键产品决策 | 一个真实取舍：选了什么、为什么、放弃什么 | 支持产品判断的讲述 |\n| 异常与边界 | 如项目涉及：失败、回退、权限、遗漏或重复操作 | 检查流程是否只覆盖理想路径 |\n| 验证与迭代 | 已有反馈、测试记录、修改依据；没有则保留缺口 | 区分设计设想与已验证结果 |\n| 贡献与实现范围 | 个人、团队、AI 分别做了什么；哪些是模拟交互 | 确定后续可使用的事实和措辞 |\n\n可以先按这个顺序组织思路：\n\n**问题与场景 → 核心流程 → 一个关键取舍 → 验证情况 → 个人贡献与项目边界。**\n\n若现有材料确实能证明你将复杂任务拆成可操作流程，后续可以评估它向工作流产品职责迁移的价值；目前这只是待验证方向。原型不能直接支持“商业上线”“效率提升”或“真实用户采用”等成果表述。\n\n**进入定向申请准备前的关键缺口**\n\n| 缺口 | 当前阻塞的判断 | 最小补齐方式 |\n|---|---|---|\n| 确切岗位身份与完整 JD | 实际职责、必须项和偏好项 | 后续提供公司、岗位 ID 或官方链接，以及 JD 正文；链接本身不等于授权联网 |\n| 官方在招状态及来源日期 | 是否仍是有效申请目标 | 后续检查带日期的官方岗位信息；离线旧快照只能说明当时状态 |\n| 适用硬性资格 | 是否达到申请门槛 | 从 JD 提取要求后，仅核对相关项，例如经验、学历、毕业时间或工作权 |\n| 项目证据与个人贡献 | 能否形成可辩护的申请表述 | 后续提供允许使用的脱敏项目摘录，并说明贡献及实现范围 |\n| CV 来源、版本与使用权限 | 能否选择和调整现有简历 | 后续明确允许使用的版本或摘录及操作范围；当前不读取或选用 |\n| 若公司存在单一申请限制 | 是否与其他岗位申请冲突 | 仅在确认该限制适用时核对，不默认存在 |\n\n下一步最有价值的是**完整 JD 与确切岗位身份**：它们决定该突出原型中的哪部分证据，也能避免提前准备不相关材料。当前缺的是信息与证据覆盖，不能据此认定你缺乏能力。\n\n本轮交付限于上述策略与缺口清单；申请文案候选为空，未生成申请包。后续材料采用前的状态为 `HUMAN_REVIEW_REQUIRED`。",
+      "review": "PREPARATION_HOLD with useful bounded evidence and preparation checklist; no invented qualification, CV authorization or submission."
+    },
+    {
+      "id": "F",
+      "prompt": "帮我写一段普通生日祝福。简短自然即可。",
+      "expected_workflow": null,
+      "result": "PASS",
+      "observed_commands": [],
+      "final_output": "生日快乐！愿你新的一岁身体健康、心情愉快，日子过得轻松顺心，多一些开心的小事，也多一些属于自己的时间。",
+      "review": "Ordinary birthday greeting; no Career Skill read or workflow takeover."
+    }
+  ],
+  "summary": "6/6 PASS",
+  "limitations": [
+    "Six bounded synthetic invocation checks, not an independent broad model benchmark.",
+    "Fresh desktop-bundled CLI sessions tested; existing GUI task cache refresh not independently exercised.",
+    "Search-plan response reread some resources; no full dataset or test loading was observed."
+  ]
+}

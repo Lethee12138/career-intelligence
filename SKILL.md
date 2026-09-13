@@ -1,6 +1,6 @@
 ---
 name: career-intelligence
-description: Position Career evidence, discover role hypotheses, generate portable job-search handoffs, intake and route candidates, analyse jobs and prepare evidence-backed strategies for Human Review. Use for /position, /discover, /find-jobs, /route-jobs, /analyse-job and /prepare-application.
+description: Help with career direction, job discovery and search plans, JD fit analysis, candidate-batch prioritization, application preparation, offer quality and work-right or sponsorship questions. Use for natural-language career requests and /position, /discover, /find-jobs, /route-jobs, /analyse-job, /prepare-application. Do not use for unrelated writing or general chat.
 ---
 
 # Career Intelligence v0.2 — Portable Core and Job Search Execution
@@ -9,7 +9,7 @@ Portable, agent-executed positioning, discovery, analysis and preparation. Input
 
 ## Invocation
 
-Load this file, the six linked rules below, and the selected workflow. Accept JD text, URL/snapshot, company information, candidate evidence, preferences/constraints, market/location and an existing Job Record. Missing inputs do not prevent a bounded analysis: retain UNKNOWN and explain what decision is blocked.
+Load this entrypoint and the selected workflow, then only the shared rules and resources relevant to the task. Do not load tests or entire market datasets on normal invocation. Accept JD text, URL/snapshot, company information, candidate evidence, preferences/constraints, market/location and an existing Job Record. Missing inputs do not prevent a bounded analysis: retain UNKNOWN and explain what decision is blocked.
 
 - `/analyse-job`: follow [analyse-job](workflows/analyse-job.md).
 - `/prepare-application`: follow [prepare-application](workflows/prepare-application.md); first check a real job's analysis and preparation gate.
@@ -18,6 +18,20 @@ Load this file, the six linked rules below, and the selected workflow. Accept JD
 - `/find-jobs`: follow [find-jobs](workflows/find-jobs.md); generate a portable external search handoff.
 - `/route-jobs`: follow [route-jobs](workflows/route-jobs.md); intake candidates and propose bounded pool lanes.
 - For positioning/discovery also load [discovery rules](rules/discovery.md) and their linked capability/role contracts.
+
+## Natural-language routing and precedence
+
+Explicit current user instructions override default Skill workflow preferences unless doing so would require inventing facts or violating safety / authority boundaries. Support the requested lawful scope; a quick JD review does not require a full /position, and sufficient supplied context does not trigger a new interview.
+
+- Career direction / “我适合什么工作？” → /position, then /discover when role hypotheses help.
+- Find actionable jobs / “帮我找现在能投的岗位” or generate a search plan → /find-jobs handoff from available direction; external execution requires its own authorized executor.
+- JD fit / “这个岗位值不值得投？” → /analyse-job, scaled to the requested depth.
+- Batch priority / “这几个岗位先投哪个？” → /route-jobs.
+- Prepare an application / “帮我准备这个申请” → /prepare-application with existing gates.
+- Offer pay/work-life quality → relevant Job Quality and market-calibration rules; use /analyse-job for the supplied role context, without inventing a new workflow.
+- UK visa/work-right/sponsorship → eligibility and global-market rules plus the dated UK guide as context; current authority verification is still necessary for current legal conclusions.
+
+This skill is scoped to career planning, discovery/search planning, job analysis, application preparation, quality and eligibility. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
 
 ## Mandatory shared rules
 
