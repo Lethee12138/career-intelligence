@@ -13,3 +13,5 @@ Core Integration: apply [stretch policy](../rules/stretch.md) for strongest trut
 Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Carry known serious pay/workload/manager/stability/probation concerns into the brief before further effort. Ordinary UNKNOWN job-quality items alone do not block preparation; preserve existing gates and avoid offer negotiation.
 
 Global Market v0.1.2: follow [global-market rules](../rules/global-market.md). Worthwhile sponsorship-VERIFY roles can receive STRATEGY_ONLY with explicit qualification/work-right uncertainty and unchanged HOLD; confirmed unavailable sponsorship with no other route stops full materials.
+
+Carry decision-relevant [calibration concerns](../rules/market-calibration.md) into bounded preparation; no new factual claims, readiness bypass or negotiation automation.

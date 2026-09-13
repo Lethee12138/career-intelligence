@@ -1,0 +1,82 @@
+{
+  "human_acceptance": "GLOBAL_JOB_QUALITY_MARKET_CALIBRATION_V01_ACCEPTED",
+  "acceptance_source": "Direct Human instruction in current v0.1.3 integration request; retained source status labels predate acceptance",
+  "classification": "DATED DIRECTIONAL MARKET BENCHMARK",
+  "salary_traceability": {
+    "FULL": 2,
+    "PARTIAL": 58
+  },
+  "artifacts": [
+    {
+      "file": "Global_Job_Quality_Market_Calibration_v0.1.md",
+      "original_path": "/Users/luna/Downloads/Global_Job_Quality_Market_Calibration_v0.1.md",
+      "sha256": "3c537384c84ffba60d3edb74eea3172be4f856bd86ed80025a9caa8c97ade82c",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "market": [
+        "China",
+        "UK"
+      ],
+      "city": "SEE_ROWS_OR_CONTEXT",
+      "role_family": "SEE_ROWS_OR_NOT_APPLICABLE",
+      "confidence": "SEE_ROWS; otherwise UNKNOWN_NOT_SUPPLIED",
+      "traceability_status": "SEE_ROWS; otherwise NOT_ASSESSED",
+      "source_refs": "Retained original text/CSV and report source ledger; incomplete refs remain incomplete",
+      "derivation_type": "BYTE_IDENTICAL_EXTERNAL_REPORT_IMPORT",
+      "limitations": "DATED DIRECTIONAL MARKET BENCHMARK; not Candidate Evidence, legal verification or statistical salary distribution"
+    },
+    {
+      "file": "Salary_Calibration_Matrix_v0.1.csv",
+      "original_path": "/Users/luna/Downloads/Salary_Calibration_Matrix_v0.1.csv",
+      "sha256": "efe3c4ee33980f95a67fcc31a845d4c5ec9948c25e1865fd38230ef0c3e81864",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "market": [
+        "China",
+        "UK"
+      ],
+      "city": "SEE_ROWS_OR_CONTEXT",
+      "role_family": "SEE_ROWS_OR_NOT_APPLICABLE",
+      "confidence": "SEE_ROWS; otherwise UNKNOWN_NOT_SUPPLIED",
+      "traceability_status": "SEE_ROWS; otherwise NOT_ASSESSED",
+      "source_refs": "Retained original text/CSV and report source ledger; incomplete refs remain incomplete",
+      "derivation_type": "BYTE_IDENTICAL_EXTERNAL_REPORT_IMPORT",
+      "limitations": "DATED DIRECTIONAL MARKET BENCHMARK; not Candidate Evidence, legal verification or statistical salary distribution"
+    },
+    {
+      "file": "Benefits_Employment_Conditions_Matrix_v0.1.csv",
+      "original_path": "/Users/luna/Downloads/Benefits_Employment_Conditions_Matrix_v0.1.csv",
+      "sha256": "4266f1ea8244f7197a325036761667838e5a81b1603efc73daa250d795c790f4",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "market": [
+        "China",
+        "UK"
+      ],
+      "city": "SEE_ROWS_OR_CONTEXT",
+      "role_family": "SEE_ROWS_OR_NOT_APPLICABLE",
+      "confidence": "SEE_ROWS; otherwise UNKNOWN_NOT_SUPPLIED",
+      "traceability_status": "SEE_ROWS; otherwise NOT_ASSESSED",
+      "source_refs": "Retained original text/CSV and report source ledger; incomplete refs remain incomplete",
+      "derivation_type": "BYTE_IDENTICAL_EXTERNAL_REPORT_IMPORT",
+      "limitations": "DATED DIRECTIONAL MARKET BENCHMARK; not Candidate Evidence, legal verification or statistical salary distribution"
+    },
+    {
+      "file": "UK_Sponsorship_Work_Right_Verification_Guide_v0.1.md",
+      "original_path": "/Users/luna/Downloads/UK_Sponsorship_Work_Right_Verification_Guide_v0.1.md",
+      "sha256": "0c50acf9add5a02980a1ab6acb4864e323912cd82efbb63c360901158b51de53",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "market": [
+        "UK"
+      ],
+      "city": "SEE_ROWS_OR_CONTEXT",
+      "role_family": "SEE_ROWS_OR_NOT_APPLICABLE",
+      "confidence": "SEE_ROWS; otherwise UNKNOWN_NOT_SUPPLIED",
+      "traceability_status": "SEE_ROWS; otherwise NOT_ASSESSED",
+      "source_refs": "Retained original text/CSV and report source ledger; incomplete refs remain incomplete",
+      "derivation_type": "BYTE_IDENTICAL_EXTERNAL_REPORT_IMPORT",
+      "limitations": "DATED DIRECTIONAL MARKET BENCHMARK; not Candidate Evidence, legal verification or statistical salary distribution"
+    }
+  ]
+}

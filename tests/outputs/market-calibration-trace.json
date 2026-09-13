@@ -1,0 +1,352 @@
+[
+  {
+    "case": "PARTIAL China",
+    "synthetic_role": {
+      "market": "China",
+      "city": "Hangzhou",
+      "route": "Campus/master-oriented",
+      "role_family": "Product / AI Product / Digital Product",
+      "currency_basis": "RMB gross monthly fixed base; bonus excluded",
+      "base": 12000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2026-09-13",
+      "eligibility": "VERIFY"
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-2",
+    "review": {
+      "as_of": "2026-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "USABLE_FOR_CYCLE",
+      "reason": "Synthetic reviewer decision for this recruiting-cycle example"
+    },
+    "as_of": "2026-09-13",
+    "result": {
+      "market_quality_band": "WITHIN_DIRECTIONAL_BAND",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-2",
+      "confidence": "MEDIUM-LOW",
+      "traceability_status": "PARTIAL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "CN-NBS-2025; CN-MASTER-AGG-2026; CN-CITY-NEW-TALENT-2025; CN-CIIC-GRAD-2025; CN-JOBS-PRODUCT-2026",
+      "derivation_type": "MULTI_SOURCE_CALIBRATION",
+      "limitations": "Not statistical percentiles; master-oriented; company/industry spread large",
+      "freshness": "DATED_CONTEXT_ONLY",
+      "actual_base": 12000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "VERIFY",
+      "quality_concerns": [],
+      "reference_use": "DIRECTIONAL_ONLY",
+      "reason": "actual role base compared with dated common interval; no selection threshold"
+    }
+  },
+  {
+    "case": "FULL London Product",
+    "synthetic_role": {
+      "market": "UK",
+      "city": "London",
+      "route": "Graduate scheme/direct-entry",
+      "role_family": "Product / AI Product / Digital Product",
+      "currency_basis": "GBP gross annual fixed base; bonus/equity excluded",
+      "base": 35000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2026-09-13",
+      "eligibility": "VERIFY"
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-44",
+    "review": {
+      "as_of": "2026-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "USABLE_FOR_CYCLE",
+      "reason": "Synthetic reviewer decision for this recruiting-cycle example"
+    },
+    "as_of": "2026-09-13",
+    "result": {
+      "market_quality_band": "WITHIN_DIRECTIONAL_BAND",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-44",
+      "confidence": "MEDIUM",
+      "traceability_status": "FULL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "UK-HF-GRAD-2026; UK-ISE-GRAD-2024; UK-PM-PROSPECTS-2026",
+      "derivation_type": "MULTI_SOURCE_CALIBRATION",
+      "limitations": "Top-employer and broader-market samples differ; PM title often asks experience",
+      "freshness": "DATED_CONTEXT_ONLY",
+      "actual_base": 35000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "VERIFY",
+      "quality_concerns": [],
+      "reference_use": "DIRECTIONAL_ONLY",
+      "reason": "actual role base compared with dated common interval; no selection threshold"
+    }
+  },
+  {
+    "case": "FULL London Research",
+    "synthetic_role": {
+      "market": "UK",
+      "city": "London",
+      "route": "Graduate scheme/direct-entry",
+      "role_family": "User Research / Product Research / Insights / CX",
+      "currency_basis": "GBP gross annual fixed base; bonus/equity excluded",
+      "base": 35000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2026-09-13",
+      "eligibility": "VERIFY"
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-45",
+    "review": {
+      "as_of": "2026-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "USABLE_FOR_CYCLE",
+      "reason": "Synthetic reviewer decision for this recruiting-cycle example"
+    },
+    "as_of": "2026-09-13",
+    "result": {
+      "market_quality_band": "WITHIN_DIRECTIONAL_BAND",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-45",
+      "confidence": "MEDIUM",
+      "traceability_status": "FULL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "UK-ISE-GRAD-2024; UK-UXR-NCS-2026; UK-UXR-PROSPECTS-2026",
+      "derivation_type": "MULTI_SOURCE_CALIBRATION",
+      "limitations": "UXR/consumer insight/market research are adjacent but not identical",
+      "freshness": "DATED_CONTEXT_ONLY",
+      "actual_base": 35000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "VERIFY",
+      "quality_concerns": [],
+      "reference_use": "DIRECTIONAL_ONLY",
+      "reason": "actual role base compared with dated common interval; no selection threshold"
+    }
+  },
+  {
+    "case": "UK visa separation",
+    "synthetic_role": {
+      "market": "UK",
+      "city": "London",
+      "route": "Graduate scheme/direct-entry",
+      "role_family": "Product / AI Product / Digital Product",
+      "currency_basis": "GBP gross annual fixed base; bonus/equity excluded",
+      "base": 35000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2026-09-13",
+      "eligibility": "VERIFY: synthetic salary-path shortfall; other routes open"
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-44",
+    "review": {
+      "as_of": "2026-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "USABLE_FOR_CYCLE",
+      "reason": "Synthetic reviewer decision for this recruiting-cycle example"
+    },
+    "as_of": "2026-09-13",
+    "result": {
+      "market_quality_band": "WITHIN_DIRECTIONAL_BAND",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-44",
+      "confidence": "MEDIUM",
+      "traceability_status": "FULL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "UK-HF-GRAD-2026; UK-ISE-GRAD-2024; UK-PM-PROSPECTS-2026",
+      "derivation_type": "MULTI_SOURCE_CALIBRATION",
+      "limitations": "Top-employer and broader-market samples differ; PM title often asks experience",
+      "freshness": "DATED_CONTEXT_ONLY",
+      "actual_base": 35000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "VERIFY: synthetic salary-path shortfall; other routes open",
+      "quality_concerns": [],
+      "reference_use": "DIRECTIONAL_ONLY",
+      "reason": "actual role base compared with dated common interval; no selection threshold"
+    }
+  },
+  {
+    "case": "High salary / bad workload",
+    "synthetic_role": {
+      "market": "China",
+      "city": "Hangzhou",
+      "route": "Campus/master-oriented",
+      "role_family": "Product / AI Product / Digital Product",
+      "currency_basis": "RMB gross monthly fixed base; bonus excluded",
+      "base": 30000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2026-09-13",
+      "eligibility": "NOT ELIGIBLE: synthetic qualification failure",
+      "quality_concerns": [
+        "persistent overtime",
+        "bad management"
+      ]
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-2",
+    "review": {
+      "as_of": "2026-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "USABLE_FOR_CYCLE",
+      "reason": "Synthetic reviewer decision for this recruiting-cycle example"
+    },
+    "as_of": "2026-09-13",
+    "result": {
+      "market_quality_band": "ABOVE_DIRECTIONAL_BAND",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-2",
+      "confidence": "MEDIUM-LOW",
+      "traceability_status": "PARTIAL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "CN-NBS-2025; CN-MASTER-AGG-2026; CN-CITY-NEW-TALENT-2025; CN-CIIC-GRAD-2025; CN-JOBS-PRODUCT-2026",
+      "derivation_type": "MULTI_SOURCE_CALIBRATION",
+      "limitations": "Not statistical percentiles; master-oriented; company/industry spread large",
+      "freshness": "DATED_CONTEXT_ONLY",
+      "actual_base": 30000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "NOT ELIGIBLE: synthetic qualification failure",
+      "quality_concerns": [
+        "persistent overtime",
+        "bad management"
+      ],
+      "reference_use": "DIRECTIONAL_ONLY",
+      "reason": "actual role base compared with dated common interval; no selection threshold"
+    }
+  },
+  {
+    "case": "Sparse Product Prototyping",
+    "synthetic_role": {
+      "market": "UK",
+      "city": "London",
+      "route": "Graduate scheme/direct-entry",
+      "role_family": "Product Prototyping / 0→1 Product Builder",
+      "currency_basis": "GBP gross annual fixed base; bonus/equity excluded",
+      "base": 38000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2026-09-13",
+      "eligibility": "VERIFY"
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-49",
+    "review": {
+      "as_of": "2026-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "USABLE_FOR_CYCLE",
+      "reason": "Synthetic reviewer decision for this recruiting-cycle example"
+    },
+    "as_of": "2026-09-13",
+    "result": {
+      "market_quality_band": "INSUFFICIENT_REFERENCE_DATA",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-49",
+      "confidence": "LOW",
+      "traceability_status": "PARTIAL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "UK-CREATIVETECH-2026",
+      "derivation_type": "INSUFFICIENT_DATA",
+      "limitations": "No stable title or adequate city-level sample; assess each opening",
+      "freshness": "DATED_CONTEXT_ONLY",
+      "actual_base": 38000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "VERIFY",
+      "quality_concerns": [],
+      "reference_use": "DIRECTIONAL_ONLY",
+      "reason": "sparse family; adjacent figures are not an exact benchmark"
+    }
+  },
+  {
+    "case": "Stale calibration",
+    "synthetic_role": {
+      "market": "China",
+      "city": "Hangzhou",
+      "route": "Campus/master-oriented",
+      "role_family": "Product / AI Product / Digital Product",
+      "currency_basis": "RMB gross monthly fixed base; bonus excluded",
+      "base": 12000,
+      "refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "role_source_reviewed": true,
+      "role_key": "SYNTHETIC:role",
+      "observed_as_of": "2027-09-13",
+      "eligibility": "VERIFY"
+    },
+    "reference_row": "Salary_Calibration_Matrix_v0.1.csv:row-2",
+    "review": {
+      "as_of": "2027-09-13",
+      "captured_date": "2026-09-13",
+      "decision": "STALE",
+      "reason": "Synthetic next recruiting cycle: prior band not rechecked"
+    },
+    "as_of": "2027-09-13",
+    "result": {
+      "market_quality_band": "INSUFFICIENT_REFERENCE_DATA",
+      "reference_id": "Salary_Calibration_Matrix_v0.1.csv:row-2",
+      "confidence": "MEDIUM-LOW",
+      "traceability_status": "PARTIAL",
+      "captured_date": "2026-09-13",
+      "last_verified": null,
+      "source_refs": "CN-NBS-2025; CN-MASTER-AGG-2026; CN-CITY-NEW-TALENT-2025; CN-CIIC-GRAD-2025; CN-JOBS-PRODUCT-2026",
+      "derivation_type": "MULTI_SOURCE_CALIBRATION",
+      "limitations": "Not statistical percentiles; master-oriented; company/industry spread large",
+      "freshness": "STALE_RECHECK_REQUIRED",
+      "actual_base": 12000,
+      "actual_source_refs": [
+        "SYNTHETIC:official-role"
+      ],
+      "automatic_action": null,
+      "percentile": null,
+      "candidate_evidence": false,
+      "eligibility": "VERIFY",
+      "quality_concerns": [],
+      "reference_use": "HISTORICAL_ONLY",
+      "reason": "dated reference requires cycle/age review"
+    }
+  }
+]

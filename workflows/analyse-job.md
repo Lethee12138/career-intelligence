@@ -14,3 +14,5 @@ Core Integration: apply [stretch policy](../rules/stretch.md) at matching and as
 Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Add job_quality detail under the shared contract; compare compensation, sustainability, performance environment and career return separately from Capability Fit. Explain any material recommendation downgrade or conditional trade-off.
 
 Global Market v0.1.2: follow [global-market rules](../rules/global-market.md); separately record employment market, company type, work location, authorization, sponsorship, qualification and contextual Job Quality. Preserve capability evidence when a specific job fails eligibility.
+
+Use [dated calibration](../rules/market-calibration.md) after current role-specific facts; show confidence, traceability, capture date and recheck state. Market pay quality and visa salary gates stay separate.
