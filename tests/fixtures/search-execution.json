@@ -1,0 +1,3277 @@
+{
+  "test_only": true,
+  "as_of": "2026-09-13",
+  "verification_mode": "SYNTHETIC_LIVE_CONTROL",
+  "boundary": "All companies, URLs, candidate evidence, qualifications, sponsorship and source-inspection assertions are synthetic. No vacancy or real candidate fact asserted.",
+  "discovery": {
+    "input_refs": [
+      "SYN-CAPABILITY-PROFILE"
+    ],
+    "role_hypotheses": [
+      {
+        "id": "H1",
+        "family": "Product / AI Product / Digital Product",
+        "epistemic_status": "POTENTIAL",
+        "capability_refs": [
+          "C1"
+        ],
+        "evidence_refs": [
+          "SYN-E1"
+        ],
+        "bridge": "Bounded prototype decisions can inform adjacent product workflow work",
+        "unsupported_scope": "No production AI, commercial outcomes or engineering expertise proven",
+        "search_terms": {
+          "China": {
+            "title": [
+              {
+                "term": "Workflow Product",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "prototype review flow",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          },
+          "UK": {
+            "title": [
+              {
+                "term": "Workflow Product",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "prototype review flow",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          },
+          "Other": {
+            "title": [
+              {
+                "term": "Workflow Product",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "prototype review flow",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "H2",
+        "family": "Product Ops / Systems / Workflow / Transformation",
+        "epistemic_status": "POTENTIAL",
+        "capability_refs": [
+          "C1"
+        ],
+        "evidence_refs": [
+          "SYN-E1"
+        ],
+        "bridge": "Bounded prototype decisions can inform adjacent product workflow work",
+        "unsupported_scope": "No production AI, commercial outcomes or engineering expertise proven",
+        "search_terms": {
+          "China": {
+            "title": [
+              {
+                "term": "Product Operations",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "improve internal workflow",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          },
+          "UK": {
+            "title": [
+              {
+                "term": "Product Operations",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "improve internal workflow",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          },
+          "Other": {
+            "title": [
+              {
+                "term": "Product Operations",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "improve internal workflow",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "H3",
+        "family": "AI Evaluation / HITL Product & Experience Operations",
+        "epistemic_status": "POTENTIAL",
+        "capability_refs": [
+          "C1"
+        ],
+        "evidence_refs": [
+          "SYN-E1"
+        ],
+        "bridge": "Bounded prototype decisions can inform adjacent product workflow work",
+        "unsupported_scope": "No production AI, commercial outcomes or engineering expertise proven",
+        "search_terms": {
+          "China": {
+            "title": [
+              {
+                "term": "AI Evaluation",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "design human review checkpoints",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          },
+          "UK": {
+            "title": [
+              {
+                "term": "AI Evaluation",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "design human review checkpoints",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          },
+          "Other": {
+            "title": [
+              {
+                "term": "AI Evaluation",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "responsibility": [
+              {
+                "term": "design human review checkpoints",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "problem": [
+              {
+                "term": "unclear human decision boundaries",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "output": [
+              {
+                "term": "reviewable prototype and test findings",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ],
+            "negative": [
+              {
+                "term": "quota-carrying presales",
+                "why": "SYN-E1 output/decision scope; validate actual duties, not title equivalence"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "human_constraints": [
+      "Keep Candidate Evidence private",
+      "China and UK active"
+    ]
+  },
+  "evidence": {
+    "SYN-E1": {
+      "project_id": "SYNTHETIC_REVIEW_TOOL",
+      "source": "execution-fixture",
+      "source_location": "execution-fixture evidence SYN-E1",
+      "inspected": true,
+      "completion_at_cutoff": "COMPLETED",
+      "ownership_scope": "Synthetic candidate built a review flow; no real-person claim",
+      "result_or_output": "Review checkpoint prototype and a recorded usability decision",
+      "resume_use_boundary": "ALLOWED",
+      "public_use_boundary": "UNKNOWN"
+    }
+  },
+  "batch": {
+    "search_id": "SYN-SEARCH-01",
+    "batch_id": "SYN-BATCH-01",
+    "executor": "MANUAL_IMPORT",
+    "captured_at": "2026-09-13",
+    "coverage_by_market_and_hypothesis": "China, UK, Singapore; three grounded example families; remaining catalog families not exercised",
+    "stop_reason": "Bounded synthetic batch for structural review",
+    "candidates": [
+      {
+        "candidate_id": "raw-sz",
+        "role_key": "SYN:sz",
+        "company": "Synthetic sz",
+        "role_title": "Workflow Steward",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sz"
+          ],
+          "official_job_id": "sz",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/sz"
+        },
+        "discovery_source": "https://example.invalid/careers/sz",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/sz#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:sz",
+            "ref": "https://example.invalid/careers/sz",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:sz",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sz"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/sz"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:sz",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:sz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:sz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:sz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/sz"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:sz",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sz",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-sz-linkedin",
+        "role_key": "SYN:sz",
+        "company": "Synthetic sz",
+        "role_title": "Workflow Steward",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sz"
+          ],
+          "official_job_id": "sz",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/sz"
+        },
+        "discovery_source": "https://example.invalid/linkedin/sz",
+        "discovery_source_tier": 3,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/sz#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [],
+        "work_right_review": {
+          "role_key": "SYN:sz",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:sz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:sz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:sz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/sz"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ]
+      },
+      {
+        "candidate_id": "raw-hz",
+        "role_key": "SYN:hz",
+        "company": "Synthetic hz",
+        "role_title": "Product Operations Associate",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Hangzhou",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/hz"
+          ],
+          "official_job_id": "hz",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/hz"
+        },
+        "discovery_source": "https://example.invalid/careers/hz",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/hz#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:hz",
+            "ref": "https://example.invalid/careers/hz",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:hz",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/hz"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/hz"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:hz",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:hz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/hz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:hz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/hz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:hz",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/hz"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/hz"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product Ops / Systems / Workflow / Transformation",
+        "matched_role_hypothesis": "H2",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:hz",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/hz",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/hz",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "REASONABLE",
+          "career_value": "REASONABLE",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-uk",
+        "role_key": "SYN:uk",
+        "company": "Synthetic uk",
+        "role_title": "Product Operations Associate",
+        "employment_market": "UK",
+        "country": "UK",
+        "city": "London",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/uk"
+          ],
+          "official_job_id": "uk",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/uk"
+        },
+        "discovery_source": "https://example.invalid/careers/uk",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/uk#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:uk",
+            "ref": "https://example.invalid/careers/uk",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:uk",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/uk"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/uk"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:uk",
+          "employment_market": "UK",
+          "candidate_authorization": {
+            "role_key": "SYN:uk",
+            "market": "UK",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/uk"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_CURRENT_RIGHT",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:uk",
+            "market": "UK",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/uk"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:uk",
+            "market": "UK",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/uk"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/uk"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:uk",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/uk",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/uk",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-sg",
+        "role_key": "SYN:sg",
+        "company": "Synthetic sg",
+        "role_title": "Product Operations Associate",
+        "employment_market": "Singapore",
+        "country": "Singapore",
+        "city": "Singapore",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sg"
+          ],
+          "official_job_id": "sg",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/sg"
+        },
+        "discovery_source": "https://example.invalid/careers/sg",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/sg#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:sg",
+            "ref": "https://example.invalid/careers/sg",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:sg",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sg"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/sg"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:sg",
+          "employment_market": "Singapore",
+          "candidate_authorization": {
+            "role_key": "SYN:sg",
+            "market": "Singapore",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sg"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_CURRENT_RIGHT",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:sg",
+            "market": "Singapore",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sg"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "OFFERS",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": true
+          },
+          "other_route": {
+            "role_key": "SYN:sg",
+            "market": "Singapore",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/sg"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/sg"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "AI Evaluation / HITL Product & Experience Operations",
+        "matched_role_hypothesis": "H3",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:sg",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/sg",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/sg",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-closed",
+        "role_key": "SYN:closed",
+        "company": "Synthetic closed",
+        "role_title": "Product Operations Associate",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/closed"
+          ],
+          "official_job_id": "closed",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/closed"
+        },
+        "discovery_source": "https://example.invalid/platform/closed",
+        "discovery_source_tier": 3,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/closed#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:closed",
+            "ref": "https://example.invalid/careers/closed",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "CLOSED"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:closed",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/closed"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/closed"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:closed",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:closed",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/closed"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:closed",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/closed"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:closed",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/closed"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/closed"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:closed",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/closed",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/closed",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-bad",
+        "role_key": "SYN:bad",
+        "company": "Synthetic bad",
+        "role_title": "Product Operations Associate",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/bad"
+          ],
+          "official_job_id": "bad",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/bad"
+        },
+        "discovery_source": "https://example.invalid/careers/bad",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/bad#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:bad",
+            "ref": "https://example.invalid/careers/bad",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:bad",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/bad"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/bad"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:bad",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:bad",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/bad"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:bad",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/bad"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:bad",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/bad"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/bad"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:bad",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/bad",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/bad",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": [
+            {
+              "signal": "structural_overtime",
+              "reviewed": true,
+              "refs": [
+                "https://example.invalid/careers/bad#snapshot-in-this-fixture"
+              ],
+              "source_scope": "SYNTHETIC",
+              "rationale": "Synthetic supplied team evidence of routine late nights",
+              "basis": "ROLE_EVIDENCE"
+            }
+          ]
+        }
+      },
+      {
+        "candidate_id": "raw-trap",
+        "role_key": "SYN:trap",
+        "company": "Synthetic trap",
+        "role_title": "AI Product Manager",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/trap"
+          ],
+          "official_job_id": "trap",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/trap"
+        },
+        "discovery_source": "https://example.invalid/careers/trap",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/trap#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Own presales quota and customer acquisition"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:trap",
+            "ref": "https://example.invalid/careers/trap",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:trap",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/trap"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/trap"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:trap",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:trap",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/trap"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:trap",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/trap"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:trap",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/trap"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/trap"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:trap",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/trap",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/trap",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": [],
+          "severe_mismatch": "WORK_STYLE",
+          "mismatch_reason": "Actual daily presales/acquisition quota contradicts scoped preference",
+          "mismatch_refs": [
+            "https://example.invalid/careers/trap#snapshot-in-this-fixture"
+          ]
+        }
+      },
+      {
+        "candidate_id": "raw-applied",
+        "role_key": "SYN:applied",
+        "company": "Synthetic applied",
+        "role_title": "Product Operations Associate",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/applied"
+          ],
+          "official_job_id": "applied",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/applied"
+        },
+        "discovery_source": "https://example.invalid/careers/applied",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/applied#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:applied",
+            "ref": "https://example.invalid/careers/applied",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:applied",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/applied"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/applied"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:applied",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:applied",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/applied"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:applied",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/applied"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:applied",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/applied"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/applied"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:applied",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/applied",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-similar",
+        "role_key": "SYN:similar",
+        "company": "Synthetic sz",
+        "role_title": "Workflow Steward",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shanghai",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "research",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/similar"
+          ],
+          "official_job_id": "similar",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/similar"
+        },
+        "discovery_source": "https://example.invalid/careers/similar",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/similar#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:similar",
+            "ref": "https://example.invalid/careers/similar",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:similar",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/similar"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/similar"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:similar",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:similar",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/similar"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:similar",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/similar"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:similar",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/similar"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/similar"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:similar",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/similar",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/similar",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        }
+      },
+      {
+        "candidate_id": "raw-partial",
+        "role_key": "SYN:partial",
+        "company": "Synthetic partial",
+        "role_title": "Product Operations Associate",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Nanjing",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/partial"
+          ],
+          "official_job_id": "partial",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/partial"
+        },
+        "discovery_source": "https://example.invalid/careers/partial",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/partial#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:partial",
+            "ref": "https://example.invalid/careers/partial",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:partial",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/partial"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/partial"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:partial",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:partial",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/partial"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:partial",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/partial"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:partial",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/partial"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/partial"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:partial",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/partial",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/partial",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "REASONABLE",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": [],
+          "calibration_context": {
+            "traceability_status": "PARTIAL",
+            "comparison": "BELOW_DIRECTIONAL_BAND",
+            "captured_date": "2026-09-13",
+            "source": "accepted dated calibration; SYN salary input",
+            "automatic_action": null
+          }
+        }
+      },
+      {
+        "candidate_id": "raw-weak",
+        "company": "Synthetic weak",
+        "role_title": "Unknown role",
+        "discovery_source": "https://example.invalid/community",
+        "discovery_source_tier": 4,
+        "source_capture_date": "2026-09-13"
+      }
+    ]
+  },
+  "pool": {
+    "pool_id": "SYN-POOL",
+    "captured_at": "2026-09-13",
+    "entries": [
+      {
+        "candidate_id": "raw-applied",
+        "role_key": "SYN:applied",
+        "company": "Synthetic applied",
+        "role_title": "Product Operations Associate",
+        "employment_market": "China",
+        "country": "China",
+        "city": "Shenzhen",
+        "company_type": "synthetic multinational",
+        "recruitment_route": "graduate",
+        "business_unit": "workflow",
+        "programme": "graduate-2027",
+        "identity": {
+          "official_binding_reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/applied"
+          ],
+          "official_job_id": "applied",
+          "namespace": "example.invalid",
+          "official_url": "https://example.invalid/careers/applied"
+        },
+        "discovery_source": "https://example.invalid/careers/applied",
+        "discovery_source_tier": 1,
+        "source_capture_date": "2026-09-13",
+        "official_published_date": "UNKNOWN",
+        "deadline": "UNKNOWN",
+        "jd_ref": "https://example.invalid/careers/applied#snapshot-in-this-fixture",
+        "responsibilities": [
+          "Prototype human review checkpoints",
+          "Evaluate user workflow and record gaps"
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Produce reviewable workflow prototypes",
+            "hierarchy": "MUST"
+          },
+          {
+            "id": "R2",
+            "text": "Production model evaluation experience preferred",
+            "hierarchy": "STRONG PREFERENCE"
+          }
+        ],
+        "opening_status": "OPEN",
+        "observations": [
+          {
+            "role_key": "SYN:applied",
+            "ref": "https://example.invalid/careers/applied",
+            "authority_for_role": true,
+            "inspected_original": true,
+            "observed_at": "2026-09-13",
+            "status": "OPEN"
+          }
+        ],
+        "qualification_review": {
+          "role_key": "SYN:applied",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/applied"
+          ],
+          "checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/applied"
+              ]
+            }
+          ],
+          "coverage_complete": true
+        },
+        "work_right_review": {
+          "role_key": "SYN:applied",
+          "employment_market": "China",
+          "candidate_authorization": {
+            "role_key": "SYN:applied",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/applied"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "ALREADY_AUTHORISED",
+            "valid_for_role": true
+          },
+          "employer_sponsorship": {
+            "role_key": "SYN:applied",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/applied"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "UNKNOWN",
+            "authority_for_job": true,
+            "candidate_route_conditions_verified": false
+          },
+          "other_route": {
+            "role_key": "SYN:applied",
+            "market": "China",
+            "reviewed": true,
+            "refs": [
+              "https://example.invalid/careers/applied"
+            ],
+            "applicable_as_of": "2026-09-13",
+            "status": "NO_OTHER_ROUTE"
+          },
+          "qualification_checks": [
+            {
+              "hierarchy": "MUST",
+              "result": "PASS",
+              "verified": true,
+              "refs": [
+                "https://example.invalid/careers/applied"
+              ]
+            }
+          ],
+          "qualification_coverage_complete": true
+        },
+        "base_salary": "UNKNOWN",
+        "guaranteed_cash": "UNKNOWN",
+        "variable": "UNKNOWN",
+        "benefits": "UNKNOWN",
+        "workload_signals": "UNKNOWN",
+        "leave": "UNKNOWN",
+        "hybrid": "UNKNOWN",
+        "probation": "UNKNOWN",
+        "stability_signals": "UNKNOWN",
+        "role_family": "Product / AI Product / Digital Product",
+        "matched_role_hypothesis": "H1",
+        "strongest_capability_match": "Bounded human-review prototype decisions",
+        "strongest_evidence_refs": [
+          "SYN-E1"
+        ],
+        "main_gaps": [
+          "production model evaluation not demonstrated"
+        ],
+        "screen": {
+          "role_key": "SYN:applied",
+          "as_of": "2026-09-13",
+          "reviewed": true,
+          "refs": [
+            "https://example.invalid/careers/applied",
+            "SYN-E1"
+          ],
+          "dimensions": {
+            "Capability Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Capability Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Evidence Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Evidence Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Experience Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Experience Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Eligibility Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Eligibility Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Practical Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "City scoped to local preferences; relocation/cost can matter but cannot erase Career Value",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Career Value": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Career Value evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interest / Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interest / Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Work-style Preference Fit": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Work-style Preference Fit evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Interview Process Risk": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Interview Process Risk evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            },
+            "Stretch Level": {
+              "judgment": "REVIEWED_SYNTHETIC",
+              "rationale": "SYN scope: Stretch Level evaluated independently; no score or title-based inference",
+              "refs": [
+                "https://example.invalid/careers/applied",
+                "SYN-E1"
+              ],
+              "unknowns": []
+            }
+          },
+          "evidence_refs": [
+            "SYN-E1"
+          ],
+          "responsibility_match": "STRONG",
+          "career_value": "HIGH",
+          "application_cost": "LOW",
+          "critical_unknowns": [],
+          "company_constraint": "CLEAR",
+          "quality_observations": []
+        },
+        "pool_id": "POOL-APPLIED",
+        "application_status": "APPLIED",
+        "lane": "FAST",
+        "queue_state": "DONE"
+      }
+    ],
+    "company_constraints": {}
+  },
+  "targeted_limit": 4
+}

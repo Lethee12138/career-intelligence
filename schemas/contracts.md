@@ -62,3 +62,7 @@ Cross-market comparison context: periods, taxes where relevant, living/rent cost
 ## Dated Calibration extension v0.1.3
 
 Optional market_benchmark reference imports follow [calibration rules](../rules/market-calibration.md). Preserve salary CSV fields verbatim including route, all four bands, currency_basis, confidence, captured_date, important_limitations, traceability_status, source_refs/types/capture_dates, sample_count/scope, salary_transparent_postings, derivation_type/note and separate visa_salary_gate/visa_source_refs. Reference identity = file + row + import SHA-256. Add last_verified (nullable), category, recheck state and reviewer as_of/captured_date/decision/reason; never infer last_verified from capture. Comparison records actual role base/source separately, market_quality_band, visible provenance and freshness; no automatic_action or percentile. Benefits context uses separate market cells, original volatility and missing-metadata markers. Volatile legal/policy values are historical only until fresh authority verification. This extends the existing optional market_benchmark rather than creating candidate evidence or a new workflow.
+
+## Job Search Execution v0.2
+
+Use [execution contracts](search-execution.md) for SearchExecutionHandoff, JobCandidateBatch, JobCandidate and Application Pool proposals. Intake/route does not replace JobAnalysis/ApplicationBrief, qualification, evidence-use permissions or application status.

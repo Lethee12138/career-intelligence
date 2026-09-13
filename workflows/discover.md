@@ -20,3 +20,5 @@ Job Quality v0.1.1: apply [job-quality rules](../rules/job-quality.md). Use sour
 Global Market v0.1.2: follow [global-market rules](../rules/global-market.md). Generate responsibility hypotheses first, then China/UK/international title variants and specific market checks; UK stays active and other markets remain opportunity-driven.
 
 Use [dated calibration](../rules/market-calibration.md) only as market context; retain role hypotheses and capability evidence independently.
+
+For an explicitly requested search execution plan, pass the existing hypotheses and references to [/find-jobs](find-jobs.md). This does not authorize external search or make taxonomy current market evidence.
