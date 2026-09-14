@@ -19,7 +19,11 @@ IDENTITY = ('company', 'role_title', 'employment_market', 'country', 'city', 'co
 DETAILS = ('official_published_date', 'deadline', 'jd_ref', 'responsibilities', 'requirements',
            'base_salary', 'guaranteed_cash', 'variable', 'benefits', 'workload_signals',
            'leave', 'hybrid', 'probation', 'stability_signals', 'role_family',
+           'industry', 'ai_involvement', 'technical_depth_requirement', 'candidate_zone',
            'matched_role_hypothesis', 'strongest_capability_match', 'strongest_evidence_refs', 'main_gaps')
+AI_INVOLVEMENT = {'NONE', 'AI-ENABLED', 'AI-CORE', 'AGENT-CORE'}
+TECHNICAL_DEPTH = {'LOW', 'MODERATE', 'HIGH', 'ENGINEERING-CORE'}
+CANDIDATE_ZONE = {'CORE_COMFORT', 'ADJACENT_GROWTH', 'STRATEGIC_STRETCH', 'CURRENTLY_TOO_FAR'}
 
 
 def present(value):
@@ -48,7 +52,8 @@ def make_handoff(discovery, search_id, created_at, pool=None, target_batch_size=
     coverage_gaps = [m for m in ('China', 'UK') if not any(q['market'] == m and q['axis'] in {'responsibility', 'problem', 'output'} for q in queries)]
     safe_pool = {k: deepcopy((pool or {}).get(k, 'UNKNOWN')) for k in ('pool_id', 'captured_at', 'company_constraints')}
     safe_pool['entries'] = [{k: deepcopy(e[k]) for k in IDENTITY + ('identity', 'business_unit', 'programme', 'pool_id', 'application_status', 'lane', 'queue_state') if k in e} for e in (pool or {}).get('entries', [])]
-    return {'schema_version': '0.2', 'search_id': search_id, 'created_at': created_at,
+    coverage_plan = deepcopy(discovery.get('coverage_plan', {}))
+    return {'schema_version': '0.2.1', 'search_id': search_id, 'created_at': created_at,
             'executor': executor, 'market_scope': deepcopy(MARKETS), 'role_hypotheses': hypotheses,
             'location_scope': deepcopy(discovery.get('location_scope', ['China preferred cities', 'UK', 'Other opportunity-driven'])),
             'query_sets': queries, 'query_method': 'Combine title + responsibility/problem/output; negative terms are reviewed traps, not automatic exclusions',
@@ -61,8 +66,14 @@ def make_handoff(discovery, search_id, created_at, pool=None, target_batch_size=
             'dedupe_rules': ['Scoped official ID', 'Exact official URL', 'Complete official identity tuple',
                              'No fuzzy merge; keep variants and conflicts; compare current pool'],
             'target_batch_size': target_batch_size, 'target_is_advisory': True,
-            'stop_conditions': ['duplicate-heavy', 'no new responsibility patterns', 'authority unavailable',
-                'mostly hard-constraint violations', 'enough useful Targeted/Fast candidates', 'advisory target or agreed search window reached'],
+            'discovery_mode': 'HIGH_RECALL', 'selection_mode': 'SEPARATE_DOWNSTREAM_SCREEN',
+            'ai_neutral_by_default': True, 'coverage_plan': coverage_plan,
+            'coverage_rules': ['Audit role family, industry, company, city/market, AI involvement and source accessibility',
+                'Soft coverage targets guide search; they are not market-distribution claims or hard quotas',
+                'Two or three strong Targeted candidates do not complete broad discovery'],
+            'stop_conditions': ['duplicate-heavy after coverage expansion', 'no new responsibility patterns across relevant capability roots',
+                'authority unavailable', 'mostly hard-constraint violations after broad search',
+                'coverage plan explored and marginal useful patterns diminished', 'advisory target or agreed search window reached'],
             'human_constraints': deepcopy(discovery.get('human_constraints', [])) + [
                 'No submission, login, recruiter contact or invented fields', 'No candidate private evidence upload',
                 'Return partial coverage and stop reasons; no fabricated vacancies to meet quota'],
@@ -72,6 +83,56 @@ def make_handoff(discovery, search_id, created_at, pool=None, target_batch_size=
             'handoff_state': ('READ_EXISTING_DISCOVERY' if not hypotheses or not queries else
                               'EXPAND_ACTIVE_MARKET_QUERIES' if coverage_gaps else 'READY_FOR_EXECUTOR_REVIEW'),
             'external_action': False}
+
+
+def coverage_audit(candidates, coverage_targets=None, coverage_reviewed=False):
+    """Describe returned-batch concentration; never infer market distribution."""
+    def city_market(candidate):
+        values = (candidate.get('employment_market'), candidate.get('city'))
+        return values if all(present(value) for value in values) else None
+
+    def source_domains(candidate):
+        sources = candidate.get('discovery_source', [])
+        if isinstance(sources, str):
+            sources = [sources]
+        domains = tuple(sorted({urlsplit(source).netloc for source in sources if url(source)}))
+        return domains or None
+
+    axes = {
+        'role_family': lambda c: c.get('role_family'),
+        'industry': lambda c: c.get('industry'),
+        'company': lambda c: c.get('company'),
+        'city_market': city_market,
+        'ai_involvement': lambda c: c.get('ai_involvement'),
+        'source_accessibility': source_domains,
+    }
+    biases, distributions = [], {}
+    for axis, getter in axes.items():
+        values = [getter(c) for c in candidates]
+        values = [v for v in values if present(v) and v != ('',)]
+        counts = {}
+        for value in values:
+            key = json.dumps(value, ensure_ascii=False, sort_keys=True)
+            counts[key] = counts.get(key, 0) + 1
+        distributions[axis] = counts
+        if len(values) >= 3 and counts:
+            top, count = max(counts.items(), key=lambda item: item[1])
+            if count > len(values) / 2:
+                biases.append({'axis': axis, 'dominant_value': json.loads(top),
+                               'observed_count': count, 'known_count': len(values),
+                               'meaning': 'RESULT_SET_CONCENTRATION_ONLY'})
+    missing = []
+    for axis, expected in (coverage_targets or {}).items():
+        if axis not in distributions or not isinstance(expected, list):
+            continue
+        observed = set(distributions[axis])
+        missing.extend({'axis': axis, 'area': item} for item in expected
+                       if json.dumps(item, ensure_ascii=False, sort_keys=True) not in observed)
+    state = ('COVERAGE_BIAS_DETECTED' if biases else
+             'COVERAGE_SUFFICIENT' if coverage_reviewed and not missing else 'COVERAGE_UNREVIEWED')
+    return {'coverage_state': state, 'biases': biases, 'missing_relevant_areas': missing,
+            'distributions': distributions,
+            'interpretation': 'Observed search-result coverage only; not market distribution'}
 
 
 def identity_keys(record):
@@ -109,6 +170,42 @@ def same_identity(a, b):
 def review_bound(review, role_key, as_of):
     return (isinstance(review, dict) and review.get('reviewed') is True and review.get('role_key') == role_key
             and review.get('as_of') == as_of and bool(review.get('refs')))
+
+
+def candidate_context_state(intake):
+    """Return a task-local grounding state; never creates a candidate SSOT."""
+    context = intake.get('candidate_context')
+    candidates = intake.get('candidates', [])
+    relevant = [c for c in candidates if c.get('intake_state') != 'CLOSED']
+    grounded = []
+    for candidate in relevant:
+        screen = candidate.get('screen', {})
+        dimensions = screen.get('dimensions', {}) if isinstance(screen, dict) else {}
+        candidate_fields = all(
+            isinstance(dimensions.get(name), dict)
+            and present(dimensions[name].get('judgment'))
+            for name in ('Evidence Fit', 'Experience Fit', 'Eligibility Fit'))
+        if (candidate.get('strongest_evidence_refs') not in ('UNKNOWN', [], None)
+                and screen.get('evidence_refs') and candidate_fields):
+            grounded.append(candidate)
+    surface_grounded = bool(relevant) and len(grounded) * 2 >= len(relevant)
+    if isinstance(context, dict):
+        safe_context = deepcopy(context)
+        if context.get('new_ssot') is not False:
+            safe_context['validation_issue'] = 'Candidate context cannot create a new SSOT'
+        safe_context['new_ssot'] = False
+        valid = (context.get('new_ssot') is False and bool(context.get('provenance'))
+                 and iso(context.get('as_of')) is not None and present(context.get('scope'))
+                 and bool(context.get('evidence_refs')) and surface_grounded)
+        return ('GROUNDED' if valid else 'PRELIMINARY_CONTEXT_REQUIRED'), safe_context
+    if surface_grounded:
+        refs = sorted({ref for c in grounded for ref in c['screen']['evidence_refs']})
+        return 'GROUNDED', {'new_ssot': False, 'provenance': 'EMBEDDED_REVIEWED_SCREEN',
+                            'as_of': intake.get('as_of'), 'scope': 'THIS_ROUTING_RUN_ONLY',
+                            'evidence_refs': refs}
+    return 'PRELIMINARY_CONTEXT_REQUIRED', {'new_ssot': False, 'provenance': 'MISSING_OR_INCOMPLETE',
+                                            'as_of': intake.get('as_of'), 'scope': 'THIS_ROUTING_RUN_ONLY',
+                                            'evidence_refs': []}
 
 
 def intake_batch(batch, as_of, mode='HISTORICAL_SNAPSHOT'):
@@ -202,6 +299,11 @@ def intake_batch(batch, as_of, mode='HISTORICAL_SNAPSHOT'):
             errors.append('actual responsibilities VERIFY')
         if not isinstance(out['requirements'], list) or not out['requirements'] or out['jd_ref'] == 'UNKNOWN':
             errors.append('JD requirements/snapshot VERIFY')
+        for field, allowed in (('ai_involvement', AI_INVOLVEMENT),
+                               ('technical_depth_requirement', TECHNICAL_DEPTH),
+                               ('candidate_zone', CANDIDATE_ZONE)):
+            if out[field] != 'UNKNOWN' and out[field] not in allowed:
+                errors.append('invalid ' + field)
         state = 'DISCOVERED'
         if fresh and not errors:
             state = 'AUTHORITY_VERIFIED'
@@ -237,8 +339,11 @@ def intake_batch(batch, as_of, mode='HISTORICAL_SNAPSHOT'):
         if c['candidate_id'] in seen:
             c['candidate_id'] += '-conflict-' + str(len(seen))
         seen.add(c['candidate_id'])
+    audit = coverage_audit(candidates, batch.get('coverage_targets'), batch.get('coverage_reviewed') is True)
     return {'batch_id': batch.get('batch_id', 'UNKNOWN'), 'as_of': as_of, 'verification_mode': mode,
-            'raw_count': len(raw_candidates), 'candidate_count': len(candidates), 'candidates': candidates}
+            'raw_count': len(raw_candidates), 'candidate_count': len(candidates), 'candidates': candidates,
+            'candidate_context': deepcopy(batch.get('candidate_context')),
+            'coverage_audit': audit}
 
 
 def route_pool(intake, pool=None, targeted_limit=4):
@@ -247,6 +352,7 @@ def route_pool(intake, pool=None, targeted_limit=4):
         raise ValueError('Human-adjustable positive Targeted WIP limit required')
     pool = pool or {}
     existing = pool.get('entries', [])
+    context_state, context = candidate_context_state(intake)
     active = sum(e.get('lane') == 'TARGETED' and e.get('queue_state') == 'ACTIVE' for e in existing)
     output = []
     for c in intake['candidates']:
@@ -254,7 +360,10 @@ def route_pool(intake, pool=None, targeted_limit=4):
              'route': 'WATCH_VERIFY', 'lane': 'NONE', 'queue_state': 'WATCH', 'next_human_action': 'REVIEW_ROLE',
              'priority_rationale': [], 'external_action': False, 'application_status': 'NOT_SET_BY_ROUTING',
              'dimensions': deepcopy(c['screen'].get('dimensions', {})), 'job_quality': {},
-             'work_right_friction': c['sponsorship'], 'pool_coverage': 'SUPPLIED' if pool else 'UNKNOWN'}
+             'work_right_friction': c['sponsorship'], 'pool_coverage': 'SUPPLIED' if pool else 'UNKNOWN',
+             'ai_involvement': c.get('ai_involvement', 'UNKNOWN'),
+             'technical_depth_requirement': c.get('technical_depth_requirement', 'UNKNOWN'),
+             'candidate_zone': c.get('candidate_zone', 'UNKNOWN')}
         def decide(route, action, reason, lane='NONE', queue='WATCH'):
             r.update(route=route, next_human_action=action, lane=lane, queue_state=queue, priority_rationale=[reason])
         duplicates = [e for e in existing if any(same_identity(e, v) for v in c['raw_variants'])]
@@ -263,6 +372,10 @@ def route_pool(intake, pool=None, targeted_limit=4):
             decide('WATCH_VERIFY', 'HOLD', 'Exact existing pool identity; retain Applied/Closed/active status, no new work', queue='EXISTING_POOL')
         elif c['intake_state'] == 'CLOSED':
             decide('SKIP', 'SKIP', 'Inspected current official posting CLOSED; discovery mirror cannot reopen it', queue='CLOSED')
+        elif context_state != 'GROUNDED':
+            decide('WATCH_VERIFY', 'READ_CANDIDATE_CONTEXT',
+                   'Candidate evidence/experience/eligibility context is not grounded for formal routing',
+                   queue='PRELIMINARY_CONTEXT_REQUIRED')
         elif c['intake_issues']:
             decide('WATCH_VERIFY', 'REVIEW_ROLE', '; '.join(c['intake_issues']))
         elif c['qualification_status'] == 'NOT ELIGIBLE':
@@ -308,6 +421,27 @@ def route_pool(intake, pool=None, targeted_limit=4):
                 else:
                     decide('WATCH_VERIFY', 'REVIEW_ROLE', 'Value/effort trade-off needs Human review')
         output.append(r)
-    return {'candidate_status': 'HUMAN_REVIEW_REQUIRED', 'targeted_limit': targeted_limit,
+    continuity = []
+    for entry in existing:
+        if any(any(same_identity(entry, variant) for variant in candidate['raw_variants'])
+               for candidate in intake['candidates']):
+            continue
+        pool_ref = entry.get('pool_id', 'UNKNOWN')
+        closed = entry.get('application_status') == 'CLOSED' or entry.get('queue_state') == 'CLOSED'
+        continuity.append({'pool_id': pool_ref, 'candidate_id': entry.get('candidate_id', 'UNKNOWN'),
+                           'company': entry.get('company', 'UNKNOWN'), 'role_title': entry.get('role_title', 'UNKNOWN'),
+                           'continuity_state': 'CLOSED' if closed else 'NEEDS_REVALIDATION',
+                           'previous_lane': entry.get('lane', 'UNKNOWN'),
+                           'reason': ('Previously closed record retained for history' if closed else
+                                      'Existing pool candidate absent from latest batch; restore to comparison after current revalidation')})
+    targeted = [r for r in output if r['route'] == 'TARGETED_PREPARE']
+    fast = [r for r in output if r['route'] == 'FAST_APPLY']
+    return {'candidate_status': 'HUMAN_REVIEW_REQUIRED', 'routing_state': context_state,
+            'candidate_context': context, 'targeted_limit': targeted_limit,
+            'targeted_wip_applies_to': 'DEEP_ANALYSIS_AND_MATERIAL_PREPARATION_ONLY',
+            'opportunity_pool_count': len(output) + len(continuity),
+            'targeted_candidate_count': len(targeted),
+            'targeted_active_count': sum(r.get('queue_state') == 'ACTIVE' for r in targeted),
+            'fast_lane_count': len(fast), 'existing_pool_continuity': continuity,
             'allocation_order': 'supplied batch order; Human may reorder by explained dimensions, no total score',
-            'routes': output, 'external_action': False}
+            'ai_neutral_by_default': True, 'routes': output, 'external_action': False}

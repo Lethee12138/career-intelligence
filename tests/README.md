@@ -45,3 +45,13 @@ Read [walkthroughs](walkthroughs.md) for this author's manual execution of the S
 - Source hash comparison runs for available local sources; portability does not require the author's Downloads folder. It must not be reported as original-source verification on another machine.
 
 For future behavior regression, load SKILL.md and give an evaluator only each fixture's source-derived inputs (hide `expected` and walkthroughs), request both workflows, then compare evidence labels, unsupported rows, dimensions, gate and claim boundaries. Use an isolated output directory; do not touch real owners. Only request deeper missing evidence when it could change the decision. Keep technical PASS separate from Human acceptance.
+
+## v0.2.1 broad discovery and funnel correction
+
+Run the nine focused Pilot regressions separately or as part of full discovery:
+
+```sh
+python3 -B -m unittest tests.test_broad_discovery -v
+```
+
+They cover AI-neutral full-root discovery, media/communication cross-domain recovery, result-set concentration, Discovery/Fast/Targeted separation, candidate-context gating, technical MUST gates, non-AI priority and existing-pool continuity. The fixtures are synthetic structured controls. They verify guard behavior and contracts, not live market breadth or independent semantic generation.

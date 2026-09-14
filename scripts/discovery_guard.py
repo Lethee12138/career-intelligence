@@ -7,6 +7,7 @@ from guard import iso, known
 
 STATUSES = {'SELF_IDENTIFIED', 'DEMONSTRATED', 'INFERRED', 'POTENTIAL'}
 CONFIDENCE = {'STRONG', 'MODERATE', 'TENTATIVE'}
+AI_INVOLVEMENT = {'NONE', 'AI-ENABLED', 'AI-CORE', 'AGENT-CORE'}
 
 
 def capability_errors(capability, records):
@@ -72,6 +73,58 @@ def route_errors(route, bridge, capabilities, records):
                     and known(records[r].get('context'))}
         if len(contexts) < 2:
             errors.append('repeated problem trace required')
+    return errors
+
+
+def discovery_coverage_errors(report):
+    """Check coverage of declared capability roots without inventing role quotas.
+
+    The caller supplies a Human-reviewed discovery report. This guard checks that
+    recent AI evidence has not become an admission gate and that each declared
+    relevant root was actually considered. It does not generate roles or assert
+    market demand.
+    """
+    errors = []
+    roots = report.get('capability_roots_considered', [])
+    hypotheses = report.get('role_hypotheses', [])
+    if report.get('ai_neutral_by_default') is not True:
+        errors.append('AI_NEUTRAL_BY_DEFAULT required')
+    if not isinstance(roots, list) or not roots:
+        errors.append('capability roots required')
+        roots = []
+    if not isinstance(hypotheses, list) or not hypotheses:
+        errors.append('role hypotheses required')
+        hypotheses = []
+    covered = {ref for h in hypotheses if isinstance(h, dict)
+               for ref in h.get('capability_root_refs', [])}
+    for root in roots:
+        if isinstance(root, dict) and root.get('relevant') is True and root.get('id') not in covered:
+            errors.append('relevant capability root omitted: ' + str(root.get('id', 'UNKNOWN')))
+    for h in hypotheses:
+        if not isinstance(h, dict):
+            errors.append('malformed role hypothesis')
+            continue
+        if not all(h.get(k) for k in ('id', 'role_or_family', 'why_generated',
+                                      'actual_work_and_outputs', 'capability_root_refs')):
+            errors.append('unbounded role hypothesis: ' + str(h.get('id', 'UNKNOWN')))
+        if h.get('ai_involvement') not in AI_INVOLVEMENT:
+            errors.append('invalid AI involvement: ' + str(h.get('id', 'UNKNOWN')))
+    if report.get('recent_evidence_ai_heavy') is True and hypotheses and not any(
+            h.get('ai_involvement') == 'NONE' for h in hypotheses if isinstance(h, dict)):
+        errors.append('AI-heavy evidence narrowed discovery to AI roles')
+    media_roots = {r.get('id') for r in roots if isinstance(r, dict) and r.get('relevant') is True
+                   and r.get('category') in {'MEDIA', 'COMMUNICATION'}}
+    if media_roots:
+        adjacent_axes = {'DIGITAL', 'PRODUCT', 'RESEARCH', 'AUDIENCE', 'CONTENT',
+                         'TECHNOLOGY', 'WORKFLOW'}
+        media_crossing = any(
+            media_roots.intersection(h.get('capability_root_refs', []))
+            and {'MEDIA', 'COMMUNICATION'}.intersection(h.get('cross_domain_axes', []))
+            and adjacent_axes.intersection(h.get('cross_domain_axes', []))
+            and h.get('traditional_media_only') is not True
+            for h in hypotheses if isinstance(h, dict))
+        if not media_crossing:
+            errors.append('media/communication roots lack adjacent cross-domain hypothesis')
     return errors
 
 

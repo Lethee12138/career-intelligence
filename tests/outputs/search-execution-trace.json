@@ -367,7 +367,7 @@
     "evidence_boundary": "All companies, URLs, candidate evidence, qualifications, sponsorship and source-inspection assertions are synthetic. No vacancy or real candidate fact asserted."
   },
   "handoff": {
-    "schema_version": "0.2",
+    "schema_version": "0.2.1",
     "search_id": "SYN-SEARCH-01",
     "created_at": "2026-09-13",
     "executor": "OTHER_SEARCH_EXECUTOR",
@@ -1084,6 +1084,10 @@
       "probation",
       "stability_signals",
       "role_family",
+      "industry",
+      "ai_involvement",
+      "technical_depth_requirement",
+      "candidate_zone",
       "matched_role_hypothesis",
       "strongest_capability_match",
       "strongest_evidence_refs",
@@ -1097,12 +1101,21 @@
     ],
     "target_batch_size": 30,
     "target_is_advisory": true,
+    "discovery_mode": "HIGH_RECALL",
+    "selection_mode": "SEPARATE_DOWNSTREAM_SCREEN",
+    "ai_neutral_by_default": true,
+    "coverage_plan": {},
+    "coverage_rules": [
+      "Audit role family, industry, company, city/market, AI involvement and source accessibility",
+      "Soft coverage targets guide search; they are not market-distribution claims or hard quotas",
+      "Two or three strong Targeted candidates do not complete broad discovery"
+    ],
     "stop_conditions": [
-      "duplicate-heavy",
-      "no new responsibility patterns",
+      "duplicate-heavy after coverage expansion",
+      "no new responsibility patterns across relevant capability roots",
       "authority unavailable",
-      "mostly hard-constraint violations",
-      "enough useful Targeted/Fast candidates",
+      "mostly hard-constraint violations after broad search",
+      "coverage plan explored and marginal useful patterns diminished",
       "advisory target or agreed search window reached"
     ],
     "human_constraints": [
@@ -1158,6 +1171,62 @@
     "verification_mode": "LIVE",
     "raw_count": 12,
     "candidate_count": 11,
+    "candidate_context": null,
+    "coverage_audit": {
+      "coverage_state": "COVERAGE_BIAS_DETECTED",
+      "biases": [
+        {
+          "axis": "role_family",
+          "dominant_value": "Product / AI Product / Digital Product",
+          "observed_count": 8,
+          "known_count": 10,
+          "meaning": "RESULT_SET_CONCENTRATION_ONLY"
+        },
+        {
+          "axis": "source_accessibility",
+          "dominant_value": [
+            "example.invalid"
+          ],
+          "observed_count": 11,
+          "known_count": 11,
+          "meaning": "RESULT_SET_CONCENTRATION_ONLY"
+        }
+      ],
+      "missing_relevant_areas": [],
+      "distributions": {
+        "role_family": {
+          "\"Product / AI Product / Digital Product\"": 8,
+          "\"Product Ops / Systems / Workflow / Transformation\"": 1,
+          "\"AI Evaluation / HITL Product & Experience Operations\"": 1
+        },
+        "industry": {},
+        "company": {
+          "\"Synthetic sz\"": 2,
+          "\"Synthetic hz\"": 1,
+          "\"Synthetic uk\"": 1,
+          "\"Synthetic sg\"": 1,
+          "\"Synthetic closed\"": 1,
+          "\"Synthetic bad\"": 1,
+          "\"Synthetic trap\"": 1,
+          "\"Synthetic applied\"": 1,
+          "\"Synthetic partial\"": 1,
+          "\"Synthetic weak\"": 1
+        },
+        "city_market": {
+          "[\"China\", \"Shenzhen\"]": 5,
+          "[\"China\", \"Hangzhou\"]": 1,
+          "[\"UK\", \"London\"]": 1,
+          "[\"Singapore\", \"Singapore\"]": 1,
+          "[\"China\", \"Shanghai\"]": 1,
+          "[\"China\", \"Nanjing\"]": 1
+        },
+        "ai_involvement": {},
+        "source_accessibility": {
+          "[\"example.invalid\"]": 11
+        }
+      },
+      "interpretation": "Observed search-result coverage only; not market distribution"
+    },
     "candidates": [
       {
         "company": "Synthetic sz",
@@ -1198,6 +1267,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -1322,6 +1395,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product Ops / Systems / Workflow / Transformation",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H2",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -1439,6 +1516,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -1560,6 +1641,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "AI Evaluation / HITL Product & Experience Operations",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H3",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -1677,6 +1762,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -1794,6 +1883,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -1910,6 +2003,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -2027,6 +2124,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -2144,6 +2245,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -2261,6 +2366,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "Product / AI Product / Digital Product",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "H1",
         "strongest_capability_match": "Bounded human-review prototype decisions",
         "strongest_evidence_refs": [
@@ -2364,6 +2473,10 @@
         "probation": "UNKNOWN",
         "stability_signals": "UNKNOWN",
         "role_family": "UNKNOWN",
+        "industry": "UNKNOWN",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "matched_role_hypothesis": "UNKNOWN",
         "strongest_capability_match": "UNKNOWN",
         "strongest_evidence_refs": "UNKNOWN",
@@ -2421,8 +2534,25 @@
   },
   "routed_pool": {
     "candidate_status": "HUMAN_REVIEW_REQUIRED",
+    "routing_state": "GROUNDED",
+    "candidate_context": {
+      "new_ssot": false,
+      "provenance": "EMBEDDED_REVIEWED_SCREEN",
+      "as_of": "2026-09-13",
+      "scope": "THIS_ROUTING_RUN_ONLY",
+      "evidence_refs": [
+        "SYN-E1"
+      ]
+    },
     "targeted_limit": 4,
+    "targeted_wip_applies_to": "DEEP_ANALYSIS_AND_MATERIAL_PREPARATION_ONLY",
+    "opportunity_pool_count": 11,
+    "targeted_candidate_count": 3,
+    "targeted_active_count": 3,
+    "fast_lane_count": 2,
+    "existing_pool_continuity": [],
     "allocation_order": "supplied batch order; Human may reorder by explained dimensions, no total score",
+    "ai_neutral_by_default": true,
     "routes": [
       {
         "candidate_id": "JC-636158068480",
@@ -2556,6 +2686,9 @@
         },
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": "UNKNOWN",
         "targeted_state": "ACTIVE"
       },
@@ -2691,6 +2824,9 @@
         },
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": "UNKNOWN"
       },
       {
@@ -2800,7 +2936,10 @@
         },
         "job_quality": {},
         "work_right_friction": "SPONSORSHIP_VERIFY",
-        "pool_coverage": "SUPPLIED"
+        "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN"
       },
       {
         "candidate_id": "JC-7fe2c6c8e567",
@@ -2934,6 +3073,9 @@
         },
         "work_right_friction": "SPONSORSHIP_AVAILABLE",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": "UNKNOWN",
         "targeted_state": "ACTIVE"
       },
@@ -3044,7 +3186,10 @@
         },
         "job_quality": {},
         "work_right_friction": "ALREADY_AUTHORISED",
-        "pool_coverage": "SUPPLIED"
+        "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN"
       },
       {
         "candidate_id": "JC-aa9792d553f0",
@@ -3187,6 +3332,9 @@
         },
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": "UNKNOWN"
       },
       {
@@ -3321,6 +3469,9 @@
         },
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": "UNKNOWN"
       },
       {
@@ -3431,6 +3582,9 @@
         "job_quality": {},
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "existing_pool_refs": [
           "POOL-APPLIED"
         ]
@@ -3567,6 +3721,9 @@
         },
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": "UNKNOWN",
         "targeted_state": "ACTIVE"
       },
@@ -3702,6 +3859,9 @@
         },
         "work_right_friction": "ALREADY_AUTHORISED",
         "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN",
         "calibration_context": {
           "traceability_status": "PARTIAL",
           "comparison": "BELOW_DIRECTIONAL_BAND",
@@ -3726,7 +3886,10 @@
         "dimensions": {},
         "job_quality": {},
         "work_right_friction": "SPONSORSHIP_VERIFY",
-        "pool_coverage": "SUPPLIED"
+        "pool_coverage": "SUPPLIED",
+        "ai_involvement": "UNKNOWN",
+        "technical_depth_requirement": "UNKNOWN",
+        "candidate_zone": "UNKNOWN"
       }
     ],
     "external_action": false
