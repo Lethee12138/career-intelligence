@@ -53,7 +53,7 @@ def make_handoff(discovery, search_id, created_at, pool=None, target_batch_size=
     safe_pool = {k: deepcopy((pool or {}).get(k, 'UNKNOWN')) for k in ('pool_id', 'captured_at', 'company_constraints')}
     safe_pool['entries'] = [{k: deepcopy(e[k]) for k in IDENTITY + ('identity', 'business_unit', 'programme', 'pool_id', 'application_status', 'lane', 'queue_state') if k in e} for e in (pool or {}).get('entries', [])]
     coverage_plan = deepcopy(discovery.get('coverage_plan', {}))
-    return {'schema_version': '0.2.1', 'search_id': search_id, 'created_at': created_at,
+    return {'schema_version': '0.2.2', 'search_id': search_id, 'created_at': created_at,
             'executor': executor, 'market_scope': deepcopy(MARKETS), 'role_hypotheses': hypotheses,
             'location_scope': deepcopy(discovery.get('location_scope', ['China preferred cities', 'UK', 'Other opportunity-driven'])),
             'query_sets': queries, 'query_method': 'Combine title + responsibility/problem/output; negative terms are reviewed traps, not automatic exclusions',
@@ -315,6 +315,7 @@ def intake_batch(batch, as_of, mode='HISTORICAL_SNAPSHOT'):
             state = 'CLOSED'
         out.update(candidate_id=cid, role_key=key, identity=deepcopy(selected.get('identity', {})), source_status=status, intake_state=state,
                    qualification_status=qstatus, work_right=wr, sponsorship=wr['resolution_state'],
+                   work_right_risks=deepcopy(wr.get('risk_flags', [])),
                    last_verified=as_of if fresh else 'UNKNOWN', opening_status=status['status'],
                    source_capture_date=selected.get('source_capture_date', 'UNKNOWN'),
                    discovery_source=[v.get('discovery_source', 'UNKNOWN') for v in variants],
@@ -361,6 +362,9 @@ def route_pool(intake, pool=None, targeted_limit=4):
              'priority_rationale': [], 'external_action': False, 'application_status': 'NOT_SET_BY_ROUTING',
              'dimensions': deepcopy(c['screen'].get('dimensions', {})), 'job_quality': {},
              'work_right_friction': c['sponsorship'], 'pool_coverage': 'SUPPLIED' if pool else 'UNKNOWN',
+             'work_right_risks': deepcopy(c.get('work_right_risks', [])),
+             'work_right_readiness': c.get('work_right', {}).get('routing_readiness', 'STANDARD_REVIEW'),
+             'readiness_state': c.get('work_right', {}).get('routing_readiness', 'STANDARD_REVIEW'),
              'ai_involvement': c.get('ai_involvement', 'UNKNOWN'),
              'technical_depth_requirement': c.get('technical_depth_requirement', 'UNKNOWN'),
              'candidate_zone': c.get('candidate_zone', 'UNKNOWN')}
@@ -381,8 +385,14 @@ def route_pool(intake, pool=None, targeted_limit=4):
         elif c['qualification_status'] == 'NOT ELIGIBLE':
             decide('SKIP', 'SKIP', 'Verified job-specific hard qualification/work-right failure; family remains open', queue='EXCLUDED')
         elif c['qualification_status'] != 'ELIGIBLE':
-            action = 'VERIFY_SPONSORSHIP' if c['sponsorship'] in {'SPONSORSHIP_VERIFY','OTHER_ROUTE_VERIFY'} else 'VERIFY_ELIGIBILITY'
+            action = ('VERIFY_CURRENT_WORK_RIGHT' if c.get('work_right', {}).get('current_work_right') == 'UNKNOWN' else
+                      'VERIFY_SPONSORSHIP' if c['sponsorship'] in {'SPONSORSHIP_VERIFY','OTHER_ROUTE_VERIFY'} else
+                      'VERIFY_ELIGIBILITY')
             decide('WATCH_VERIFY', action, 'Work-right/qualification remains open; no geography penalty')
+            if action == 'VERIFY_CURRENT_WORK_RIGHT':
+                r['readiness_state'] = 'WATCH_VERIFY_CURRENT_WORK_RIGHT'
+            elif c.get('work_right_risks'):
+                r['readiness_state'] = 'LONG_TERM_ELIGIBILITY_RISK'
         else:
             s = c['screen']
             dimensions = s.get('dimensions', {})
@@ -418,6 +428,7 @@ def route_pool(intake, pool=None, targeted_limit=4):
                         active += 1
                 elif s.get('responsibility_match') in {'STRONG','REASONABLE','DEFENSIBLE_STRETCH'} and s.get('application_cost') == 'LOW':
                     decide('FAST_APPLY', 'FAST_APPLICATION_REVIEW', 'Viable honest evidence match, reasonable value and low application cost', 'FAST', 'REVIEW')
+                    r['readiness_state'] = 'FAST_READY'
                 else:
                     decide('WATCH_VERIFY', 'REVIEW_ROLE', 'Value/effort trade-off needs Human review')
         output.append(r)

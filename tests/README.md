@@ -55,3 +55,13 @@ python3 -B -m unittest tests.test_broad_discovery -v
 ```
 
 They cover AI-neutral full-root discovery, media/communication cross-domain recovery, result-set concentration, Discovery/Fast/Targeted separation, candidate-context gating, technical MUST gates, non-AI priority and existing-pool continuity. The fixtures are synthetic structured controls. They verify guard behavior and contracts, not live market breadth or independent semantic generation.
+
+## v0.2.2 UK work-right routing fix
+
+Run the six focused synthetic routing checks:
+
+```sh
+python3 -B -m unittest tests.test_uk_work_right_routing -v
+```
+
+They confirm current-right PASS plus future-sponsorship UNKNOWN can remain Fast-ready, sponsor capability does not become exact-role sponsorship, permanent-right and explicit no-sponsorship gates still apply, unknown current right stays Watch, and confirmed role sponsorship cannot override another qualification failure. They are routing controls, not immigration or employer-policy verification.

@@ -10,6 +10,10 @@ Employment market is the actual labor/employment jurisdiction; company nationali
 
 Record candidate current work authorization and its scope/conditions/expiry, employer sponsorship policy for the exact job/program, other possible routes, and separate qualification rows (graduation, degree, language, citizenship only where an applicable hard criterion is established, program, experience, location and other requirements). References must bind to the same role, employment market, version/as-of and candidate context. Sponsor registration or company-wide past sponsorship alone does not establish sponsorship for this job. An offer to sponsor is not visa issuance or candidate route eligibility.
 
+For UK routing keep six signals independent: CURRENT_WORK_RIGHT, PERMANENT_UNRESTRICTED_RIGHT_REQUIREMENT, EXPLICIT_NO_SPONSORSHIP, FUTURE_SPONSORSHIP_NEED, EMPLOYER_SPONSOR_CAPABILITY and EXACT_ROLE_SPONSORSHIP. Current applicable work right can pass while future sponsorship remains UNKNOWN. In that case, absent an applicable permanent-right hard gate or explicit no-sponsorship conflict, future uncertainty is `LONG_TERM_IMMIGRATION_RISK / FUTURE_SPONSORSHIP_VERIFY`; it does not by itself block a grounded Fast route. Sponsor capability or licence is company-level context, never exact-role sponsorship.
+
+An explicit permanent unrestricted-right requirement remains a qualification gate according to its application/start/future timing and whether the candidate satisfies it. Explicit no sponsorship plus a confirmed need for continuing right during the role is `LONG_TERM_ELIGIBILITY_RISK` and may be VERIFY or NOT ELIGIBLE according to exact timing. Unknown current work right is `WATCH_VERIFY_CURRENT_WORK_RIGHT`. Exact-role sponsorship may be recorded as `ROLE_SPONSORSHIP_CONFIRMED`, but cannot override another failed qualification gate.
+
 Use a work-right resolution summary alongside the separate fields:
 
 - ALREADY_AUTHORISED: sourced current authorization applicable to this job.
