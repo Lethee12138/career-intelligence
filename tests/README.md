@@ -64,4 +64,12 @@ Run the six focused synthetic routing checks:
 python3 -B -m unittest tests.test_uk_work_right_routing -v
 ```
 
+## v0.2.3 UK residence/work-territory regressions
+
+```bash
+python3 -B -m unittest tests.test_uk_residence_work_territory -v
+```
+
+The focused controls cover Home Based versus explicit UK-only authority, outside-UK residence with unknown or impossible relocation, explicit no sponsorship with future need, explicit global remote permission, current-right versus territory separation, Capability/Evidence preservation and the `/prepare-application` material-uncertainty gate. Inputs are synthetic and do not encode or verify a real employer.
+
 They confirm current-right PASS plus future-sponsorship UNKNOWN can remain Fast-ready, sponsor capability does not become exact-role sponsorship, permanent-right and explicit no-sponsorship gates still apply, unknown current right stays Watch, and confirmed role sponsorship cannot override another qualification failure. They are routing controls, not immigration or employer-policy verification.

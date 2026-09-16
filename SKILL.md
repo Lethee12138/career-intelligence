@@ -3,7 +3,7 @@ name: career-intelligence
 description: Help with career direction, job discovery and search plans, JD fit analysis, candidate-batch prioritization, application preparation, offer quality and work-right or sponsorship questions. Use for natural-language career requests and /position, /discover, /find-jobs, /route-jobs, /analyse-job, /prepare-application. Do not use for unrelated writing or general chat.
 ---
 
-# Career Intelligence v0.2.2 — Portable Core and UK Work-right Routing Fix
+# Career Intelligence v0.2.3 — UK Residence and Work-territory Feasibility Fix
 
 Portable, agent-executed positioning, discovery, analysis and preparation. Inputs are read-only references to the existing Career owners. Outputs are review candidates, never a new Evidence Bank, CV Base lifecycle or application tracker.
 
@@ -70,3 +70,5 @@ Market Calibration v0.1.3: consume approved dated benchmarks through [calibratio
 Broad Discovery v0.2.1: discovery is high recall and selection is downstream. Apply AI_NEUTRAL_BY_DEFAULT, full capability-root coverage, result-set concentration audit, task-local candidate-context gating, existing-pool continuity and the strict separation between Opportunity Pool, Fast Lane and Targeted preparation WIP.
 
 UK Work-right v0.2.2: separate current applicable work right from permanent-right requirements, explicit no-sponsorship, future need, employer sponsor capability and exact-role sponsorship. Future sponsorship UNKNOWN is a visible long-term risk, not an automatic Fast blocker when current right and ordinary gates pass.
+
+UK Residence v0.2.3: keep current residence, required work territory, residence timing, overseas-remote permission, relocation feasibility and work-right at the required location/start date separate from current work right. Home Based/Remote/Hybrid wording does not imply global remote. Material territory uncertainty blocks expensive preparation unless Human explicitly accepts proceeding.

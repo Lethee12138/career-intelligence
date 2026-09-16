@@ -53,7 +53,7 @@ def make_handoff(discovery, search_id, created_at, pool=None, target_batch_size=
     safe_pool = {k: deepcopy((pool or {}).get(k, 'UNKNOWN')) for k in ('pool_id', 'captured_at', 'company_constraints')}
     safe_pool['entries'] = [{k: deepcopy(e[k]) for k in IDENTITY + ('identity', 'business_unit', 'programme', 'pool_id', 'application_status', 'lane', 'queue_state') if k in e} for e in (pool or {}).get('entries', [])]
     coverage_plan = deepcopy(discovery.get('coverage_plan', {}))
-    return {'schema_version': '0.2.2', 'search_id': search_id, 'created_at': created_at,
+    return {'schema_version': '0.2.3', 'search_id': search_id, 'created_at': created_at,
             'executor': executor, 'market_scope': deepcopy(MARKETS), 'role_hypotheses': hypotheses,
             'location_scope': deepcopy(discovery.get('location_scope', ['China preferred cities', 'UK', 'Other opportunity-driven'])),
             'query_sets': queries, 'query_method': 'Combine title + responsibility/problem/output; negative terms are reviewed traps, not automatic exclusions',
@@ -62,7 +62,11 @@ def make_handoff(discovery, search_id, created_at, pool=None, target_batch_size=
             'authority_verification_rules': ['Resolve exact official job/programme and eligibility/sponsor source',
                 'Capture inspected content, exact identity, dates and unresolved conflicts; missing authority remains VERIFY'],
             'candidate_fields_required': list(IDENTITY) + ['candidate_id', 'discovery_source', 'discovery_source_tier',
-                'authority_source', 'official_url', 'source_capture_date', 'last_verified', 'opening_status'] + list(DETAILS),
+                'authority_source', 'official_url', 'source_capture_date', 'last_verified', 'opening_status'] + list(DETAILS) + [
+                'work_right_review.current_residence', 'work_right_review.required_work_territory',
+                'work_right_review.residence_requirement', 'work_right_review.overseas_remote_allowed',
+                'work_right_review.relocation_before_start',
+                'work_right_review.work_right_at_required_location_and_start_date'],
             'dedupe_rules': ['Scoped official ID', 'Exact official URL', 'Complete official identity tuple',
                              'No fuzzy merge; keep variants and conflicts; compare current pool'],
             'target_batch_size': target_batch_size, 'target_is_advisory': True,
@@ -316,6 +320,8 @@ def intake_batch(batch, as_of, mode='HISTORICAL_SNAPSHOT'):
         out.update(candidate_id=cid, role_key=key, identity=deepcopy(selected.get('identity', {})), source_status=status, intake_state=state,
                    qualification_status=qstatus, work_right=wr, sponsorship=wr['resolution_state'],
                    work_right_risks=deepcopy(wr.get('risk_flags', [])),
+                   work_territory_risks=deepcopy(wr.get('territory_risks', [])),
+                   work_territory_readiness=wr.get('territory_readiness', 'NOT_ASSESSED'),
                    last_verified=as_of if fresh else 'UNKNOWN', opening_status=status['status'],
                    source_capture_date=selected.get('source_capture_date', 'UNKNOWN'),
                    discovery_source=[v.get('discovery_source', 'UNKNOWN') for v in variants],
@@ -363,6 +369,8 @@ def route_pool(intake, pool=None, targeted_limit=4):
              'dimensions': deepcopy(c['screen'].get('dimensions', {})), 'job_quality': {},
              'work_right_friction': c['sponsorship'], 'pool_coverage': 'SUPPLIED' if pool else 'UNKNOWN',
              'work_right_risks': deepcopy(c.get('work_right_risks', [])),
+             'work_territory_risks': deepcopy(c.get('work_territory_risks', [])),
+             'work_territory_readiness': c.get('work_territory_readiness', 'NOT_ASSESSED'),
              'work_right_readiness': c.get('work_right', {}).get('routing_readiness', 'STANDARD_REVIEW'),
              'readiness_state': c.get('work_right', {}).get('routing_readiness', 'STANDARD_REVIEW'),
              'ai_involvement': c.get('ai_involvement', 'UNKNOWN'),
@@ -383,14 +391,25 @@ def route_pool(intake, pool=None, targeted_limit=4):
         elif c['intake_issues']:
             decide('WATCH_VERIFY', 'REVIEW_ROLE', '; '.join(c['intake_issues']))
         elif c['qualification_status'] == 'NOT ELIGIBLE':
-            decide('SKIP', 'SKIP', 'Verified job-specific hard qualification/work-right failure; family remains open', queue='EXCLUDED')
+            if c.get('work_right', {}).get('territory_readiness') == 'NOT_VIABLE_CURRENTLY':
+                decide('SKIP', 'SKIP', 'Required work territory/residence is not viable with the supplied candidate constraints; family remains open', queue='EXCLUDED')
+                r['readiness_state'] = 'NOT_VIABLE_CURRENTLY'
+            else:
+                decide('SKIP', 'SKIP', 'Verified job-specific hard qualification/work-right failure; family remains open', queue='EXCLUDED')
         elif c['qualification_status'] != 'ELIGIBLE':
             action = ('VERIFY_CURRENT_WORK_RIGHT' if c.get('work_right', {}).get('current_work_right') == 'UNKNOWN' else
+                      'VERIFY_RELOCATION_OR_START_LOCATION' if c.get('work_right', {}).get('territory_readiness') == 'RELOCATION_OR_START_LOCATION_VERIFY' else
+                      'VERIFY_WORK_TERRITORY' if c.get('work_right', {}).get('territory_readiness') == 'WORK_TERRITORY_VERIFY' else
                       'VERIFY_SPONSORSHIP' if c['sponsorship'] in {'SPONSORSHIP_VERIFY','OTHER_ROUTE_VERIFY'} else
                       'VERIFY_ELIGIBILITY')
-            decide('WATCH_VERIFY', action, 'Work-right/qualification remains open; no geography penalty')
+            reason = ('Work territory/residence feasibility remains open; no capability/evidence history is changed'
+                      if action in {'VERIFY_RELOCATION_OR_START_LOCATION', 'VERIFY_WORK_TERRITORY'}
+                      else 'Work-right/qualification remains open; no geography penalty')
+            decide('WATCH_VERIFY', action, reason)
             if action == 'VERIFY_CURRENT_WORK_RIGHT':
                 r['readiness_state'] = 'WATCH_VERIFY_CURRENT_WORK_RIGHT'
+            elif action in {'VERIFY_RELOCATION_OR_START_LOCATION', 'VERIFY_WORK_TERRITORY'}:
+                r['readiness_state'] = c.get('work_right', {}).get('territory_readiness', 'WORK_TERRITORY_VERIFY')
             elif c.get('work_right_risks'):
                 r['readiness_state'] = 'LONG_TERM_ELIGIBILITY_RISK'
         else:

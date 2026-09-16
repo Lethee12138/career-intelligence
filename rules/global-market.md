@@ -14,6 +14,10 @@ For UK routing keep six signals independent: CURRENT_WORK_RIGHT, PERMANENT_UNRES
 
 An explicit permanent unrestricted-right requirement remains a qualification gate according to its application/start/future timing and whether the candidate satisfies it. Explicit no sponsorship plus a confirmed need for continuing right during the role is `LONG_TERM_ELIGIBILITY_RISK` and may be VERIFY or NOT ELIGIBLE according to exact timing. Unknown current work right is `WATCH_VERIFY_CURRENT_WORK_RIGHT`. Exact-role sponsorship may be recorded as `ROLE_SPONSORSHIP_CONFIRMED`, but cannot override another failed qualification gate.
 
+For UK roles, current work right is separate from residence/work territory. Record `CURRENT_RESIDENCE`, `REQUIRED_WORK_TERRITORY` (`UK_ONLY`, `SPECIFIC_COUNTRY`, `SPECIFIC_REGION`, `GLOBAL_REMOTE`, `UNKNOWN`), `RESIDENCE_REQUIREMENT` (including application/start/during-employment timing), `OVERSEAS_REMOTE_ALLOWED`, `RELOCATION_BEFORE_START`, and `WORK_RIGHT_AT_REQUIRED_LOCATION_AND_START_DATE`. `Remote`, `Home Based`, `Work from Home` and `Flexible Location` do not establish `GLOBAL_REMOTE`; the exact authority text must establish territory. Current residence outside the UK is not by itself `NOT ELIGIBLE`.
+
+If UK residence is required by start or during employment and relocation is unknown, use `WATCH_VERIFY` with `RELOCATION_OR_START_LOCATION_VERIFY`. If the candidate confirms they cannot relocate or otherwise cannot satisfy the required territory, use `NOT_VIABLE_CURRENTLY`. Explicit global remote permission may clear a UK residence requirement only when the role authority actually supports it. A territory/residence gate does not reduce Capability Fit or Evidence Fit. Material territory uncertainty must remain before expensive application-material preparation unless Human explicitly accepts the uncertainty.
+
 Use a work-right resolution summary alongside the separate fields:
 
 - ALREADY_AUTHORISED: sourced current authorization applicable to this job.

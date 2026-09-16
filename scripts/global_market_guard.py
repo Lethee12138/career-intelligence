@@ -6,6 +6,25 @@ country exclusion, financial calculator or replacement of existing live gates.
 from guard import iso, qualification
 
 
+TERRITORY_FIELDS = ('current_residence', 'required_work_territory',
+                    'residence_requirement', 'overseas_remote_allowed',
+                    'relocation_before_start',
+                    'work_right_at_required_location_and_start_date')
+TERRITORY_STATUSES = {
+    'current_residence': {'UK', 'OUTSIDE_UK', 'UNKNOWN'},
+    'required_work_territory': {'UK_ONLY', 'SPECIFIC_COUNTRY', 'SPECIFIC_REGION',
+                                'GLOBAL_REMOTE', 'UNKNOWN'},
+    'residence_requirement': {'MUST_BE_UK_BASED_AT_APPLICATION',
+                              'MUST_BE_UK_BASED_BY_START_DATE',
+                              'MUST_REMAIN_UK_BASED_DURING_EMPLOYMENT',
+                              'NO_SPECIFIC_RESIDENCE_REQUIREMENT', 'UNKNOWN'},
+    'overseas_remote_allowed': {'YES', 'NO', 'UNKNOWN'},
+    'relocation_before_start': {'CONFIRMED_POSSIBLE', 'CONFIRMED_NOT_POSSIBLE',
+                                'CANDIDATE_DECISION_REQUIRED', 'UNKNOWN'},
+    'work_right_at_required_location_and_start_date': {'PASS', 'VERIFY', 'FAIL'},
+}
+
+
 def bound(record, job, as_of):
     day = iso(as_of)
     return (bool(job.get('role_key')) and job.get('role_key') != 'UNKNOWN'
@@ -14,6 +33,146 @@ def bound(record, job, as_of):
             and record.get('market') == job.get('employment_market')
             and record.get('reviewed') is True and bool(record.get('refs'))
             and record.get('applicable_as_of') == as_of and day is not None)
+
+
+def _signal(job, field, as_of):
+    """Return a reviewed territory signal without treating absence as a fact."""
+    record = job.get(field)
+    if not isinstance(record, dict):
+        return 'UNKNOWN', False, {}
+    if not bound(record, job, as_of):
+        return 'UNKNOWN', True, record
+    value = record.get('status')
+    if value not in TERRITORY_STATUSES[field]:
+        value = 'UNKNOWN'
+    return value, True, record
+
+
+def territory_review(job, as_of, current_work_right='UNKNOWN'):
+    """Review role territory/residence separately from immigration sponsorship.
+
+    No explicit territory records means NOT_ASSESSED for backward compatibility.
+    A reviewed but unknown material signal remains VERIFY; remote wording alone
+    never supplies GLOBAL_REMOTE.
+    """
+    is_uk = job.get('employment_market') == 'UK'
+    values, records, material = {}, {}, False
+    for field in TERRITORY_FIELDS:
+        value, present, record = _signal(job, field, as_of)
+        values[field] = value
+        records[field] = record
+        material = material or present
+    base = {
+        **values,
+        'territory_gate': 'ELIGIBLE',
+        'territory_status': 'NOT_ASSESSED',
+        'territory_risks': [],
+        'territory_readiness': 'NOT_ASSESSED',
+        'territory_material': material,
+    }
+    if not is_uk or not material:
+        return base
+
+    territory = values['required_work_territory']
+    residence = values['residence_requirement']
+    overseas = values['overseas_remote_allowed']
+    current_residence = values['current_residence']
+    relocation = values['relocation_before_start']
+    reported_location_right = values['work_right_at_required_location_and_start_date']
+    risks = []
+    reasons = []
+    target_country = records['required_work_territory'].get('country', 'UK')
+    residence_country = records['current_residence'].get('country', 'UNKNOWN')
+
+    # Explicit global permission is the only way to clear a cross-border remote
+    # requirement. A bare Remote/Home Based label never reaches this branch.
+    if territory == 'GLOBAL_REMOTE' and overseas == 'YES':
+        base['territory_status'] = 'PASS'
+        base['territory_readiness'] = 'GLOBAL_REMOTE_ALLOWED'
+        base['work_right_at_required_location_and_start_date'] = (
+            reported_location_right if reported_location_right != 'UNKNOWN'
+            else 'PASS' if current_work_right == 'PASS' else current_work_right)
+        return base
+
+    if (territory == 'NO_SPECIFIC_RESIDENCE_REQUIREMENT'
+            or residence == 'NO_SPECIFIC_RESIDENCE_REQUIREMENT'):
+        if overseas == 'YES':
+            base['territory_status'] = 'PASS'
+            base['territory_readiness'] = 'GLOBAL_REMOTE_ALLOWED'
+            base['work_right_at_required_location_and_start_date'] = (
+                reported_location_right if reported_location_right != 'UNKNOWN'
+                else 'PASS' if current_work_right == 'PASS' else current_work_right)
+            return base
+
+    # A specific territory without a precise residence/remote rule is material
+    # uncertainty. Keep it visible instead of treating a title or arrangement
+    # label as a global location permission.
+    if 'UNKNOWN' in {territory, residence, overseas, current_residence}:
+        risks.append('WORK_TERRITORY_OR_RESIDENCE_VERIFY')
+        reasons.append('required work territory, residence or overseas remote scope unresolved')
+        base.update(territory_gate='VERIFY', territory_status='VERIFY',
+                    territory_risks=risks, territory_readiness='WORK_TERRITORY_VERIFY',
+                    reasons=reasons)
+        return base
+
+    required_uk = territory == 'UK_ONLY' or target_country == 'UK'
+    if not required_uk:
+        # This framework does not invent a foreign-country residence rule from
+        # a generic market label; retain the reviewed work-right result.
+        base['territory_status'] = 'PASS' if current_residence != 'UNKNOWN' else 'VERIFY'
+        base['territory_gate'] = 'ELIGIBLE' if base['territory_status'] == 'PASS' else 'VERIFY'
+        base['territory_readiness'] = 'STANDARD_REVIEW' if base['territory_gate'] == 'ELIGIBLE' else 'WORK_TERRITORY_VERIFY'
+        return base
+
+    if overseas == 'YES' and territory == 'UK_ONLY':
+        risks.append('CONFLICTING_TERRITORY_REMOTE_ASSERTIONS')
+        reasons.append('UK-only territory conflicts with an overseas-remote permission')
+        base.update(territory_gate='VERIFY', territory_status='VERIFY',
+                    territory_risks=risks, territory_readiness='WORK_TERRITORY_VERIFY',
+                    reasons=reasons)
+        return base
+
+    at_application = residence == 'MUST_BE_UK_BASED_AT_APPLICATION'
+    at_start = residence == 'MUST_BE_UK_BASED_BY_START_DATE'
+    during_role = residence == 'MUST_REMAIN_UK_BASED_DURING_EMPLOYMENT'
+    already_in_uk = current_residence == 'UK' or residence_country == 'UK'
+
+    if already_in_uk:
+        location_right = 'PASS' if current_work_right == 'PASS' else current_work_right
+    elif relocation == 'CONFIRMED_POSSIBLE':
+        location_right = 'PASS' if current_work_right == 'PASS' else current_work_right
+    elif relocation == 'CONFIRMED_NOT_POSSIBLE':
+        location_right = 'FAIL'
+    else:
+        location_right = 'VERIFY'
+    base['work_right_at_required_location_and_start_date'] = (
+        reported_location_right if reported_location_right != 'UNKNOWN' else location_right)
+    location_right = base['work_right_at_required_location_and_start_date']
+
+    if location_right == 'FAIL' and (at_application or at_start or during_role):
+        risks.append('REQUIRED_UK_RESIDENCE_NOT_VIABLE_CURRENTLY')
+        reasons.append('candidate cannot satisfy the required UK residence/territory condition')
+        base.update(territory_gate='NOT ELIGIBLE', territory_status='NOT_VIABLE_CURRENTLY',
+                    territory_risks=risks, territory_readiness='NOT_VIABLE_CURRENTLY',
+                    reasons=reasons)
+    elif (location_right == 'PASS' and not already_in_uk
+          and relocation == 'CONFIRMED_POSSIBLE'
+          and (at_application or at_start or during_role)):
+        risks.append('RELOCATION_OR_START_LOCATION_VERIFY')
+        reasons.append('relocation is possible but required UK residence at the applicable time is not yet confirmed')
+        base.update(territory_gate='VERIFY', territory_status='VERIFY',
+                    territory_risks=risks, territory_readiness='RELOCATION_OR_START_LOCATION_VERIFY',
+                    reasons=reasons)
+    elif location_right != 'PASS':
+        risks.append('RELOCATION_OR_START_LOCATION_VERIFY')
+        reasons.append('UK residence/territory feasibility needs relocation or start-location verification')
+        base.update(territory_gate='VERIFY', territory_status='VERIFY',
+                    territory_risks=risks, territory_readiness='RELOCATION_OR_START_LOCATION_VERIFY',
+                    reasons=reasons)
+    else:
+        base['territory_status'] = 'PASS'
+        base['territory_readiness'] = 'STANDARD_REVIEW'
+    return base
 
 
 def authorization_review(job, as_of):
@@ -89,10 +248,16 @@ def authorization_review(job, as_of):
             reasons.append('job-specific sponsorship unresolved')
     else:
         reasons.append('candidate current work rights unresolved')
+    territory = territory_review(job, as_of, current_right)
+    reasons.extend(territory.get('reasons', []))
     other_gate = qualification(job.get('qualification_checks', []), job.get('qualification_coverage_complete') is True)
-    overall = ('NOT ELIGIBLE' if 'NOT ELIGIBLE' in (gate, other_gate)
-               else 'ELIGIBLE' if gate == other_gate == 'ELIGIBLE' else 'VERIFY')
+    territory_gate = territory['territory_gate']
+    overall = ('NOT ELIGIBLE' if 'NOT ELIGIBLE' in (gate, other_gate, territory_gate)
+               else 'ELIGIBLE' if gate == other_gate == territory_gate == 'ELIGIBLE' else 'VERIFY')
+    risks.extend(territory.get('territory_risks', []))
     routing_readiness = ('WATCH_VERIFY_CURRENT_WORK_RIGHT' if current_right == 'UNKNOWN' else
+                         'NOT_VIABLE_CURRENTLY' if territory_gate == 'NOT ELIGIBLE' else
+                         territory['territory_readiness'] if territory_gate == 'VERIFY' else
                          'NOT_ELIGIBLE_PERMANENT_RIGHT_REQUIREMENT' if gate == 'NOT ELIGIBLE' and permanent_status == 'YES' else
                          'NOT_ELIGIBLE_FUTURE_CONTINUING_RIGHT' if gate == 'NOT ELIGIBLE' and 'LONG_TERM_ELIGIBILITY_RISK' in risks else
                          'LONG_TERM_ELIGIBILITY_RISK' if is_uk and gate == 'VERIFY' and current_right == 'PASS' else
@@ -100,6 +265,19 @@ def authorization_review(job, as_of):
                          'ROLE_SPONSORSHIP_CONFIRMED' if exact_role_sponsorship == 'CONFIRMED' else 'STANDARD_REVIEW')
     return {'sponsorship_need': need, 'resolution_state': state, 'work_right_gate': gate,
             'other_qualification': other_gate, 'qualification': overall, 'reasons': reasons,
+            'territory_gate': territory_gate,
+            'territory_status': territory.get('territory_status', 'NOT_ASSESSED'),
+            'territory_reasons': territory.get('reasons', []),
+            'territory_risks': territory.get('territory_risks', []),
+            'territory_readiness': territory.get('territory_readiness', 'NOT_ASSESSED'),
+            'territory_material': territory.get('territory_material', False),
+            'current_residence': territory.get('current_residence', 'UNKNOWN'),
+            'required_work_territory': territory.get('required_work_territory', 'UNKNOWN'),
+            'residence_requirement': territory.get('residence_requirement', 'UNKNOWN'),
+            'overseas_remote_allowed': territory.get('overseas_remote_allowed', 'UNKNOWN'),
+            'relocation_before_start': territory.get('relocation_before_start', 'UNKNOWN'),
+            'work_right_at_required_location_and_start_date': territory.get(
+                'work_right_at_required_location_and_start_date', 'UNKNOWN'),
             'current_work_right': current_right,
             'permanent_unrestricted_right_requirement': permanent_status,
             'explicit_no_sponsorship': explicit_no,

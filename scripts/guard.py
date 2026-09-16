@@ -148,6 +148,16 @@ def preparation_gate(analysis):
         reasons.append("current authority revalidation required")
     if analysis.get("qualification") != "ELIGIBLE":
         reasons.append("hard qualification unresolved or failed")
+    territory = analysis.get("work_territory")
+    if not isinstance(territory, dict):
+        territory = analysis.get("work_right", {})
+    if isinstance(territory, dict) and territory.get("territory_material"):
+        territory_gate = territory.get("territory_gate", "VERIFY")
+        human_accepts = analysis.get("human_accepts_territory_uncertainty") is True
+        if territory_gate == "NOT ELIGIBLE":
+            reasons.append("required work territory/residence is not viable currently")
+        elif territory_gate != "ELIGIBLE" and not human_accepts:
+            reasons.append("work territory/residence feasibility VERIFY")
     if analysis.get("evidence_justifies_preparation") is not True:
         reasons.append("evidence does not justify preparation")
     if analysis.get("recommendation") not in {"High Priority Apply", "Apply", "Strategic Stretch"}:
