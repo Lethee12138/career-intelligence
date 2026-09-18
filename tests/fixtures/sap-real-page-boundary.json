@@ -1,0 +1,10 @@
+{
+  "source_type": "official",
+  "adapter": "sap",
+  "verification": [
+    "OPEN_VERIFIED",
+    "NEEDS_VERIFY",
+    "STRUCTURE_CHANGED"
+  ],
+  "decision_layer": "Career Intelligence"
+}
