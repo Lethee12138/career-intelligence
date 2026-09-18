@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "company": "SAP",
+      "source_type": "official",
+      "status": "OPEN_VERIFIED"
+    },
+    {
+      "company": "Tencent",
+      "source_type": "official",
+      "status": "NEEDS_VERIFY"
+    },
+    {
+      "company": "Kuaishou",
+      "source_type": "official",
+      "status": "NEEDS_VERIFY"
+    }
+  ]
+}
