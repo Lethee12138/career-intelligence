@@ -1,0 +1,16 @@
+{
+  "name": "career-intelligence",
+  "version": "0.2.3",
+  "description": "Evidence-first career intelligence for positioning, job discovery, role analysis, application preparation, job quality, and work-right or sponsorship checks.",
+  "author": {
+    "name": "Yixuan Wang"
+  },
+  "interface": {
+    "displayName": "Career Intelligence",
+    "shortDescription": "Evidence-first career planning and application workflows",
+    "longDescription": "Use Career Intelligence for career direction, job discovery, JD analysis, candidate routing, application preparation, job quality, and work-right or sponsorship questions. It preserves evidence boundaries and requires human review before external action.",
+    "developerName": "Yixuan Wang",
+    "category": "Productivity",
+    "capabilities": ["Read"]
+  }
+}
