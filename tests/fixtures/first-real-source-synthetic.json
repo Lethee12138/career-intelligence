@@ -1,0 +1,13 @@
+{
+  "source": {
+    "name": "sap-careers-mock",
+    "source_type": "official",
+    "authority_level": "HIGH",
+    "requires_login": false
+  },
+  "expected": {
+    "status": "OPEN_VERIFIED",
+    "fit_decision": null,
+    "application_decision": null
+  }
+}
