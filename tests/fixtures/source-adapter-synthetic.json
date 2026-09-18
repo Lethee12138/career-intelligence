@@ -1,0 +1,14 @@
+{
+  "sources": {
+    "official": {
+      "source_type": "official",
+      "authority_level": "HIGH",
+      "expected_status": "OPEN_VERIFIED"
+    },
+    "public_listing": {
+      "source_type": "third_party",
+      "authority_level": "MEDIUM",
+      "expected_status": "NEEDS_VERIFY"
+    }
+  }
+}
