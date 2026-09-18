@@ -1,0 +1,16 @@
+{
+  "discovery_candidates": [
+    {
+      "company": "Example Tech",
+      "role": "AI Product Manager",
+      "source_type": "public_search",
+      "expected_status": "DISCOVERED"
+    },
+    {
+      "company": "Example Enterprise",
+      "role": "Digital Solution Consultant",
+      "source_type": "third_party",
+      "expected_status": "NEEDS_VERIFY"
+    }
+  ]
+}

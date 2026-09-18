@@ -79,3 +79,43 @@ Results:
 - NEW
 - EXACT_DUPLICATE
 - POSSIBLE_DUPLICATE
+
+
+# Official Career Adapter Prototype
+
+## Purpose
+
+Read publicly available official career pages and transform verified job information into Job Source Records.
+
+## Authority
+
+Default authority level:
+
+HIGH
+
+## Supported Actions
+
+- discover
+- extract
+- verify
+
+## Verification Requirements
+
+Before OPEN_VERIFIED:
+
+- official company domain confirmed
+- job page accessible
+- role identity captured
+- location captured
+
+## Examples
+
+Supported future adapters:
+
+- Tencent Career
+- Kuaishou Career
+- ByteDance Career
+- SAP Career
+- Schneider Career
+
+The adapter does not decide candidate fit or application priority.
