@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "name": "official_career_mock",
+      "source_type": "official",
+      "authority_level": "HIGH",
+      "job_status": "OPEN_VERIFIED"
+    },
+    {
+      "name": "third_party_mock",
+      "source_type": "third_party",
+      "authority_level": "MEDIUM",
+      "job_status": "NEEDS_VERIFY"
+    }
+  ]
+}
