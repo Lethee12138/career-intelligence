@@ -1,0 +1,12 @@
+{
+  "source": {
+    "company": "SAP",
+    "source_type": "official",
+    "authority_level": "HIGH"
+  },
+  "job": {
+    "title": "Product Role Example",
+    "location": "Shanghai",
+    "status": "OPEN_VERIFIED"
+  }
+}
