@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "name": "official-career-example",
+      "source_type": "official",
+      "expected": "OPEN_VERIFIED"
+    },
+    {
+      "name": "changed-page-example",
+      "source_type": "official",
+      "expected": "NEEDS_VERIFY"
+    }
+  ]
+}
