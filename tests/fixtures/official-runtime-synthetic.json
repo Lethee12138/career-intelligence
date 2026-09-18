@@ -1,0 +1,12 @@
+{
+  "source": {
+    "company": "Example Company",
+    "source_type": "official",
+    "authority_level": "HIGH"
+  },
+  "job": {
+    "title": "Product Manager",
+    "location": "Hangzhou",
+    "status": "OPEN_VERIFIED"
+  }
+}
