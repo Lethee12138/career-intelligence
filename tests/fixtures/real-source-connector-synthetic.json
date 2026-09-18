@@ -1,0 +1,13 @@
+{
+  "source": {
+    "type": "official",
+    "authority": "HIGH",
+    "company": "Example Career Page",
+    "status": "OPEN_VERIFIED"
+  },
+  "invalid_source": {
+    "type": "third_party",
+    "authority": "MEDIUM",
+    "status": "NEEDS_VERIFY"
+  }
+}
