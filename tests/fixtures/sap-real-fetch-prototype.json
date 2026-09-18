@@ -1,0 +1,12 @@
+{
+  "source_type": "official",
+  "adapter": "sap",
+  "fetch_status": "SUCCESS",
+  "verification_status": "OPEN_VERIFIED",
+  "fields": [
+    "company",
+    "role",
+    "location",
+    "job_id"
+  ]
+}
