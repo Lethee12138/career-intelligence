@@ -1,0 +1,14 @@
+{
+  "official_job": {
+    "company": "Example Company",
+    "source_type": "official",
+    "authority_level": "HIGH",
+    "expected_status": "OPEN_VERIFIED"
+  },
+  "missing_status": {
+    "company": "Example Company",
+    "source_type": "official",
+    "authority_level": "HIGH",
+    "expected_status": "NEEDS_VERIFY"
+  }
+}
