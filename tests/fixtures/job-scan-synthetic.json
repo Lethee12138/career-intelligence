@@ -1,0 +1,24 @@
+{
+  "jobs": {
+    "ai-product-hangzhou": {
+      "role": "AI Product Manager",
+      "location": "Hangzhou",
+      "signals": [
+        "user research",
+        "workflow design",
+        "prototype validation"
+      ],
+      "expected_route": "FAST_LANE"
+    },
+    "digital-sales-risk": {
+      "role": "Digital Solution Consultant",
+      "location": "Shanghai",
+      "signals": [
+        "client acquisition",
+        "sales target",
+        "business negotiation"
+      ],
+      "expected_route": "WATCH"
+    }
+  }
+}
