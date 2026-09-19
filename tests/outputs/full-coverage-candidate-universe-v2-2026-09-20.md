@@ -142,3 +142,26 @@ No application is authorised.
 ## v2.1 thin-lane supplement
 
 Strategy/Innovation, Content/Creator, and Transformation coverage was rechecked on 2026-09-20. Additional retained signals: CMB credit-card product family (strategy/product/app operation; exact sub-role verify), Bilibili strategy internship signal (not promoted to full-time candidate), TikTok 2027 product/operations/user-research family (exact China role verify), Faben ERP Product Manager, eSign SaaS Product Manager, Kingdee Product/AI Product/AI Product Experience, Ping An Technology Product Manager, Hikvision Product Management, Inovance UX/information-design family. Coverage result: Strategy/Innovation=moderate; Content/Creator=moderate; Transformation/Business Improvement=moderate-to-strong. No evidence supports narrowing the universe to AI Product Manager or excluding AI-core roles.
+
+## Tiering rule for Current Working Pool
+
+Do not impose a fixed shortlist size such as 12–18.
+
+Retain every role that survives the basic qualification / evidence / preference screen, then classify by current suitability:
+
+### Tier 1 — STRONGEST CURRENT FIT
+Use when the role has strong overlap with demonstrated capability, realistic qualification, acceptable practical fit, and credible day-to-day interest potential. Minor gaps are allowed if they are learnable rather than structural.
+
+### Tier 2 — GOOD FIT / WORTH PURSUING
+Use when the role is substantively relevant but has one or more meaningful uncertainties or gaps, such as domain ramp-up, data-tool requirements, exact qualification ambiguity, less-preferred city, or work-content uncertainty.
+
+### Tier 3 — PLAUSIBLE / SELECTIVE
+Use when the role is a real match to some capability roots but is noticeably more stretched, less interesting, less practical, or lower-value than Tier 1–2. Retain if there is a credible reason to revisit.
+
+### WATCH / VERIFY
+Keep separate from fit tiers when the blocking issue is source/eligibility/role-identity uncertainty rather than substantive fit.
+
+### CLOSE / DEPRIORITIZE
+Use only for clear hard mismatch, strong work-style conflict, unrealistic seniority/qualification, or low career value relative to alternatives.
+
+Tiering is not a numeric score and must not force a quota. If 25 roles genuinely belong in Tier 1–3, retain all 25 and group them by role family / company type / city for readability.
