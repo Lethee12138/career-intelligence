@@ -76,6 +76,19 @@ def _pool_view(scan: dict[str, Any], pool_mode: str) -> dict[str, Any]:
             or f"{candidate.get('company')}:{candidate.get('external_job_id')}"
             for candidate in rows
         ],
+        "candidates": [
+            {
+                "company": candidate.get("company"),
+                "external_job_id": candidate.get("external_job_id"),
+                "role": candidate.get("role"),
+                "location": candidate.get("location"),
+                "verification_status": candidate.get("verification_status"),
+                "screening_state": (candidate.get("screening") or {}).get("state"),
+                "screening_reasons": (candidate.get("screening") or {}).get("reasons"),
+                "source_url": candidate.get("source_url"),
+            }
+            for candidate in rows
+        ],
         "source_scope_changed": False,
     }
 

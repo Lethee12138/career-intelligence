@@ -173,6 +173,11 @@ class CareerScanEntrypointTests(unittest.TestCase):
         self.assertFalse(focused["pool_view"]["source_scope_changed"])
         self.assertEqual(broad["pool_view"]["retained_candidate_count"], 2)
         self.assertEqual(focused["pool_view"]["retained_candidate_count"], 1)
+        self.assertEqual(len(broad["pool_view"]["candidates"]), 2)
+        self.assertEqual(
+            broad["pool_view"]["candidates"][0]["screening_state"],
+            "REVIEW_PRIORITY",
+        )
 
     def test_configured_mode_rejects_caller_source_override(self):
         with self.assertRaisesRegex(
