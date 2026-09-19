@@ -126,16 +126,16 @@ City coverage:
 - Shanghai: strong
 - Shenzhen: strong
 
-## Next compression target
+## Next working-pool organisation
 
-Do not analyse all 67 entries equally. First compress to 12–18 roles by:
-1. exact source quality
-2. qualification plausibility
-3. daily-work interest potential
-4. capability/evidence transfer
-5. city practical fit
-6. work-style negative-risk
-7. job quality / sustainable career value
+Do not analyse every universe entry equally and do not impose a fixed shortlist size.
+
+Retain all roles that survive the basic screen. Separate:
+- substantive Fit Tier (Tier 1 / Tier 2 / Tier 3)
+- verification state (CONFIRMED / VERIFY / SOURCE_GAP)
+- current action (PREPARE / ANALYSE / UNDERSTAND_FIRST / WATCH)
+
+Source uncertainty must not masquerade as low fit, and high fit must not masquerade as verified qualification.
 
 No application is authorised.
 
