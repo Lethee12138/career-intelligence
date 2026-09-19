@@ -71,7 +71,7 @@ Global Market v0.1.2: apply [global-market rules](rules/global-market.md) and [H
 
 Market Calibration v0.1.3: consume approved dated benchmarks through [calibration rules](rules/market-calibration.md); preserve traceability, freshness and role-level override.
 
-Broad Discovery v0.2.1: discovery is high recall and selection is downstream. Apply AI_NEUTRAL_BY_DEFAULT, full capability-root coverage, result-set concentration audit, task-local candidate-context gating, existing-pool continuity and the strict separation between Opportunity Pool, Fast Lane and Targeted preparation WIP.
+Broad Discovery v0.2.1: discovery is high recall and selection is downstream. Apply AI_NEUTRAL_BY_DEFAULT plus AI_ENABLED_MIDDLE_LANE_REQUIRED: explicitly cover roles where AI is embedded in ordinary Product / Research / Workflow / Transformation / Content / Experience work, not only pure-AI roles or roles with no AI. Apply full capability-root coverage, result-set concentration audit, task-local candidate-context gating, existing-pool continuity and the strict separation between Opportunity Pool, Fast Lane and Targeted preparation WIP.
 
 UK Work-right v0.2.2: separate current applicable work right from permanent-right requirements, explicit no-sponsorship, future need, employer sponsor capability and exact-role sponsorship. Future sponsorship UNKNOWN is a visible long-term risk, not an automatic Fast blocker when current right and ordinary gates pass.
 
