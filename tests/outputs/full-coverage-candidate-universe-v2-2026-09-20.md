@@ -138,3 +138,7 @@ Do not analyse all 67 entries equally. First compress to 12–18 roles by:
 7. job quality / sustainable career value
 
 No application is authorised.
+
+## v2.1 thin-lane supplement
+
+Strategy/Innovation, Content/Creator, and Transformation coverage was rechecked on 2026-09-20. Additional retained signals: CMB credit-card product family (strategy/product/app operation; exact sub-role verify), Bilibili strategy internship signal (not promoted to full-time candidate), TikTok 2027 product/operations/user-research family (exact China role verify), Faben ERP Product Manager, eSign SaaS Product Manager, Kingdee Product/AI Product/AI Product Experience, Ping An Technology Product Manager, Hikvision Product Management, Inovance UX/information-design family. Coverage result: Strategy/Innovation=moderate; Content/Creator=moderate; Transformation/Business Improvement=moderate-to-strong. No evidence supports narrowing the universe to AI Product Manager or excluding AI-core roles.
