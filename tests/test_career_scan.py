@@ -119,7 +119,7 @@ class CareerScanEntrypointTests(unittest.TestCase):
         self.assertIn("scripts/career_scan.py", canonical)
         self.assertIn("one-shot scan entrypoint", plugin)
         self.assertIn("scan_and_review()", contract)
-        self.assertEqual(manifest["version"], "0.2.4")
+        self.assertEqual(manifest["version"], "0.2.5")
 
     def test_boundary_explicitly_blocks_material_actions(self):
         with patch("scripts.career_scan.run_batch") as scan_mock, patch(

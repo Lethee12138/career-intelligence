@@ -3,7 +3,7 @@ name: career-intelligence
 description: Help with career direction, live public job scanning, job discovery and search plans, JD fit analysis, candidate-batch prioritization, application preparation, offer quality and work-right or sponsorship questions. Use for natural-language career requests and /position, /discover, /find-jobs, /scan-jobs, /route-jobs, /analyse-job, /prepare-application. Do not use for unrelated writing or general chat.
 ---
 
-# Career Intelligence v0.2.4 — Live Scan Review Entrypoint
+# Career Intelligence v0.2.5 — Private Remote MCP Surface
 
 Portable, agent-executed positioning, discovery, analysis and preparation. Inputs are read-only references to the existing Career owners. Outputs are review candidates, never a new Evidence Bank, CV Base lifecycle or application tracker.
 
@@ -16,7 +16,7 @@ Load this entrypoint and the selected workflow, then only the shared rules and r
 - `/position`: follow [position](workflows/position.md); no JD required.
 - `/discover`: follow [discover](workflows/discover.md); no exact title or live search required.
 - `/find-jobs`: follow [find-jobs](workflows/find-jobs.md); generate a portable external search handoff.
-- `/scan-jobs`: follow [scan-jobs](workflows/scan-jobs.md) with [job-scanning rules](rules/job-scanning.md) and [job-scan schema](schemas/job-scan.md); perform bounded, on-demand public vacancy scanning through an available read-only executor. When this package's local Python executor is available, prefer the one-shot [career scan entrypoint](scripts/career_scan.py) so one invocation produces both the Candidate Pool and exact-role Career review packets.
+- `/scan-jobs`: follow [scan-jobs](workflows/scan-jobs.md) with [job-scanning rules](rules/job-scanning.md) and [job-scan schema](schemas/job-scan.md); perform bounded, on-demand public vacancy scanning through an available read-only executor. When this package's local Python executor is available, prefer the one-shot [career scan entrypoint](scripts/career_scan.py) so one invocation produces both the Candidate Pool and exact-role Career review packets. When an MCP host is available, the same operation is exposed read-only through the [Career MCP server](mcp/career-mcp-http-server.mjs) as `career.scan_and_review`.
 - `/route-jobs`: follow [route-jobs](workflows/route-jobs.md); intake candidates and propose bounded pool lanes.
 - For positioning/discovery also load [discovery rules](rules/discovery.md) and their linked capability/role contracts.
 

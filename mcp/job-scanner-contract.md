@@ -29,7 +29,11 @@ Provide the ChatGPT/agent-facing high-level operation for one bounded scan cycle
 
 Reference implementation:
 
-`scripts/career_scan.py`
+- Core orchestration: `scripts/career_scan.py`
+- Private MCP HTTP surface: `mcp/career-mcp-http-server.mjs`
+- Secure Tunnel helper: `scripts/career-mcp-tunnel.sh`
+
+The MCP server binds only to `127.0.0.1:8797` and is stateless. Personal Career context is request-scoped and is not persisted by the server. Tunnel ID and runtime credentials remain external to the repository; Career must not reuse PAW's tunnel ID, local MCP port, or credential file.
 
 Input:
 
