@@ -33,9 +33,9 @@ Optional:
 
 ## Process
 
-1. Discover public job sources.
-2. Normalize job information.
-3. Verify source and vacancy status.
+1. Discover public job sources; discovery-only leads remain `NEEDS_VERIFY`.
+2. Normalize source facts through the [official source runtime](../mcp/official-source-runtime.md) when an official adapter is available.
+3. Verify source and vacancy status. The standard-library [job source runtime](../scripts/job_source_runtime.py) is the current executable boundary for supported public sources.
 4. Assess:
    - Eligibility Fit
    - Capability Fit

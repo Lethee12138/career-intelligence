@@ -6,7 +6,7 @@ Map Kuaishou official recruitment sources into the common official source runtim
 
 ## Current Stage
 
-Blueprint only. No live scraping or application action.
+Mapped to the common runtime with verified official host `zhaopin.kuaishou.cn`. A Kuaishou-specific live parser is not enabled yet. No application action.
 
 ## Expected Fields
 

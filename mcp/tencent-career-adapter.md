@@ -6,7 +6,7 @@ Map Tencent official recruitment sources into the common official source runtime
 
 ## Current Stage
 
-Blueprint only. No live scraping or application action.
+Mapped to the common runtime. The verified official host is `join.qq.com`; a Tencent-specific live parser is not enabled yet. No application action.
 
 ## Expected Fields
 

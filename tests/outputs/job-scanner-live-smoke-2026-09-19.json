@@ -1,0 +1,55 @@
+{
+  "live_smoke": "PASS",
+  "discovery": {
+    "source_url": "https://jobs.sap.com/search/?q=AI&locationsearch=China",
+    "count": 12,
+    "sample_roles": [
+      "SAP China iXp Intern - Intern Queue Manager for Technial Support - Dalian",
+      "SAP Student Training & Rotation Program(VT/STAR) Intern (IT Services) - 2028 Graduates",
+      "SAP China iXp Interns - Quality Engineer Intern - Cloud Native and Micro-Delivery Focus",
+      "iXP - SAP China AI Marketing Intern",
+      "SAP Student Training & Rotation Program(VT/STAR) Intern (Application Engineer) - 2028 Graduates",
+      "Head of Government Affairs GC"
+    ]
+  },
+  "selected_candidate": {
+    "company": "SAP",
+    "role": "iXP - SAP China AI Marketing Intern",
+    "source_url": "https://jobs.sap.com/job/Beijing-iXP-SAP-China-AI-Marketing-Intern-100016/1426364433/",
+    "source_type": "official",
+    "authority_level": "HIGH",
+    "adapter_name": "sap",
+    "source_page_id": "1426364433",
+    "verification_status": "NEEDS_VERIFY"
+  },
+  "detail": {
+    "source_identity": "career-url:https://jobs.sap.com/job/Beijing-iXP-SAP-China-AI-Marketing-Intern-100016/1426364433/",
+    "company": "SAP",
+    "url": "https://jobs.sap.com/job/Beijing-iXP-SAP-China-AI-Marketing-Intern-100016/1426364433/",
+    "source_url": "https://jobs.sap.com/job/Beijing-iXP-SAP-China-AI-Marketing-Intern-100016/1426364433/",
+    "source_type": "official",
+    "authority_level": "HIGH",
+    "captured_at": "2026-09-19T10:40:00+08:00",
+    "adapter_name": "sap",
+    "extraction_method": "official-html",
+    "external_job_id": "457795",
+    "role": "iXP - SAP China AI Marketing Intern",
+    "location": "Beijing, CN, 100016",
+    "department": "Administration",
+    "posted_date": "Sep 12, 2026",
+    "career_status": "Student",
+    "employment_type": "Limited Full Time",
+    "verification_status": "OPEN_VERIFIED",
+    "verification_evidence": {
+      "detail_page_accessible": true,
+      "apply_cta_present": true,
+      "closed_marker_present": false
+    }
+  },
+  "boundary": {
+    "login": false,
+    "application": false,
+    "upload": false,
+    "fit_decision": false
+  }
+}
