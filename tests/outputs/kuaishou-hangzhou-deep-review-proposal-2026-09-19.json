@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1",
+  "status": "HUMAN_REVIEW_REQUIRED",
+  "canonical_write": false,
+  "application": false,
+  "cv_edit": false,
+  "portfolio_edit": false,
+  "source_scan": "LIVE-CONFIGURED-20260919",
+  "roles": [
+    {
+      "company": "Kuaishou",
+      "external_job_id": "31750",
+      "role": "用户产品经理实习生（直播间方向）-【电商】",
+      "location": [
+        "Hangzhou"
+      ],
+      "qualification": "CONDITIONAL_VERIFY",
+      "hard_gates": [
+        "at least 3 continuous months",
+        "5 days/week attendance"
+      ],
+      "unresolved_human_facts": [
+        "earliest realistic start date",
+        "whether 3 continuous months × 5 days/week in Hangzhou is feasible"
+      ],
+      "capability_fit": "MIXED_HIGH",
+      "evidence_route": [
+        "DNEG",
+        "Circular Flow",
+        "AR Seedlings+"
+      ],
+      "key_gaps": [
+        "basic SQL/data analysis",
+        "direct e-commerce PM internship",
+        "commercial product data experience"
+      ],
+      "proposed_route": "WATCH_VERIFY",
+      "promotion_condition": "TARGETED_READY only after internship availability is confirmed",
+      "relative_order": 1
+    },
+    {
+      "company": "Kuaishou",
+      "external_job_id": "31523",
+      "role": "商城用户产品经理实习生（导购方向）-【电商】",
+      "location": [
+        "Hangzhou"
+      ],
+      "qualification": "CONDITIONAL_VERIFY",
+      "hard_gates": [
+        "at least 3 continuous months",
+        "5 days/week attendance",
+        "SQL-supported business analysis"
+      ],
+      "unresolved_human_facts": [
+        "earliest realistic start date",
+        "whether 3 continuous months × 5 days/week in Hangzhou is feasible"
+      ],
+      "capability_fit": "MIXED",
+      "evidence_route": [
+        "DNEG",
+        "Circular Flow",
+        "AI Survival Game"
+      ],
+      "key_gaps": [
+        "SQL business analysis",
+        "merchant supply-side product work",
+        "e-commerce conversion ownership"
+      ],
+      "proposed_route": "WATCH_VERIFY",
+      "relative_order": 2
+    },
+    {
+      "company": "Kuaishou",
+      "external_job_id": "32370",
+      "role": "用户产品经理（基础体验方向）-【电商】",
+      "location": [
+        "Hangzhou"
+      ],
+      "qualification": "PROVISIONAL_PASS_VERIFY_RECRUITMENT_NATURE",
+      "candidate_student_status_match": true,
+      "capability_fit": "LOW_MIXED",
+      "evidence_route": [
+        "DNEG",
+        "Circular Flow"
+      ],
+      "key_gaps": [
+        "buyer growth analytics",
+        "subsidy strategy",
+        "A/B experiment ownership",
+        "core metric decomposition",
+        "algorithm/recommendation strategy validation"
+      ],
+      "proposed_route": "LOW_PRIORITY_WATCH_VERIFY",
+      "promotion_conditions": [
+        "verified quantitative product analysis evidence",
+        "verified lower analytics bar than currently visible"
+      ],
+      "relative_order": 3
+    }
+  ],
+  "continuity": {
+    "existing_kuaishou_primary": "13299",
+    "rule": "Do not silently displace the existing Kuaishou campus primary role.",
+    "application_constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME remains verified only for the 2027 campus scope; cross-process applicability remains VERIFY."
+  }
+}
