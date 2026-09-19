@@ -44,6 +44,16 @@ Do not automatically reject:
 - user interviews
 - cross-functional collaboration
 
+## Source-scope immutability
+
+For the ChatGPT MCP path, the configured source preset is authoritative for a scan run. The caller cannot replace adapters, widen queries, change URLs, or raise limits through `career.scan_and_review`.
+
+`BROAD` and `FOCUSED` are post-discovery retention/display modes only. A pool-mode choice must never change the source-scope fingerprint or trigger additional discovery. If broader source coverage is desired, that is a separate Human-reviewed source-configuration change.
+
+## Current Career context
+
+Exact-role continuity and stable preferences come from the local read-only Career context provider. Do not reconstruct current role state from chat memory when the provider is available. Request overlays may add or clarify facts but cannot silently delete existing exact roles. Missing provider state is an execution error, not permission to guess.
+
 ## First-pass screening boundary
 
 The multi-source batch may triage verified and unverified vacancies for review. It must not fabricate a fit percentage or treat keyword matching as a final assessment.

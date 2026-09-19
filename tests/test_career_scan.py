@@ -61,9 +61,25 @@ class CareerScanEntrypointTests(unittest.TestCase):
             "review_packet_count": 0,
             "review_state_counts": {},
         }
-        result = run_scan_review({"scan_id": "scan-1"}, {"candidate_context": {}})
+        custom = {
+            "scan_id": "scan-1",
+            "sources": [
+                {
+                    "adapter": "sap",
+                    "mode": "discover",
+                    "url": "https://jobs.sap.com/search/",
+                }
+            ],
+        }
+        result = run_scan_review(
+            custom,
+            {"candidate_context": {}},
+            use_configured_sources=False,
+            use_current_career_context=False,
+        )
         self.assertEqual(result["operation"], "SCAN_AND_REVIEW")
         self.assertEqual(result["candidate_status"], "HUMAN_REVIEW_REQUIRED")
+        self.assertEqual(result["schema_version"], "0.3")
         self.assertFalse(result["boundary"]["application"])
         self.assertFalse(result["boundary"]["canonical_write"])
         run_batch_mock.assert_called_once()
@@ -99,6 +115,76 @@ class CareerScanEntrypointTests(unittest.TestCase):
         }
         self.assertEqual(resolve_scan_config(custom, {}), custom)
 
+    @patch("scripts.career_scan.build_review_packets")
+    @patch("scripts.career_scan.run_batch")
+    def test_broad_and_focused_never_change_source_scope(
+        self, run_batch_mock, review_mock
+    ):
+        run_batch_mock.return_value = {
+            "scan_id": "same-scan",
+            "candidate_pool": [
+                {
+                    "company": "A",
+                    "external_job_id": "1",
+                    "screening": {"state": "REVIEW_PRIORITY"},
+                },
+                {
+                    "company": "B",
+                    "external_job_id": "2",
+                    "screening": {"state": "DEPRIORITIZE"},
+                },
+            ],
+            "source_results": [],
+            "raw_record_count": 2,
+            "deduped_count": 2,
+            "screening_counts": {
+                "REVIEW_PRIORITY": 1,
+                "DEPRIORITIZE": 1,
+            },
+        }
+        review_mock.return_value = {
+            "review_packet_count": 1,
+            "review_state_counts": {},
+        }
+        custom = {
+            "scan_id": "custom",
+            "sources": [
+                {
+                    "adapter": "sap",
+                    "mode": "discover",
+                    "url": "https://jobs.sap.com/search/?q=Product&locationsearch=China",
+                    "limit": 10,
+                }
+            ],
+        }
+        broad = run_scan_review(
+            custom, {}, use_configured_sources=False,
+            use_current_career_context=False, pool_mode="BROAD"
+        )
+        focused = run_scan_review(
+            custom, {}, use_configured_sources=False,
+            use_current_career_context=False, pool_mode="FOCUSED"
+        )
+        self.assertEqual(
+            broad["source_scope"]["fingerprint"],
+            focused["source_scope"]["fingerprint"],
+        )
+        self.assertFalse(broad["pool_view"]["source_scope_changed"])
+        self.assertFalse(focused["pool_view"]["source_scope_changed"])
+        self.assertEqual(broad["pool_view"]["retained_candidate_count"], 2)
+        self.assertEqual(focused["pool_view"]["retained_candidate_count"], 1)
+
+    def test_configured_mode_rejects_caller_source_override(self):
+        with self.assertRaisesRegex(
+            ValueError, "pool mode never changes source scope"
+        ):
+            run_scan_review(
+                {"sources": [{"adapter": "sap"}]},
+                {},
+                use_configured_sources=True,
+                use_current_career_context=False,
+            )
+
     def test_plugin_surface_points_to_one_shot_entrypoint(self):
         root = Path(__file__).resolve().parents[1]
         canonical = (root / "SKILL.md").read_text()
@@ -108,7 +194,7 @@ class CareerScanEntrypointTests(unittest.TestCase):
         self.assertIn("scripts/career_scan.py", canonical)
         self.assertIn("one-shot scan entrypoint", plugin)
         self.assertIn("scan_and_review()", contract)
-        self.assertEqual(manifest["version"], "0.2.6")
+        self.assertEqual(manifest["version"], "0.2.7")
 
     def test_boundary_explicitly_blocks_material_actions(self):
         with patch("scripts.career_scan.run_batch") as scan_mock, patch(
@@ -125,7 +211,20 @@ class CareerScanEntrypointTests(unittest.TestCase):
                 "review_packet_count": 0,
                 "review_state_counts": {},
             }
-            result = run_scan_review({}, {})
+            result = run_scan_review(
+                {
+                    "sources": [
+                        {
+                            "adapter": "sap",
+                            "mode": "discover",
+                            "url": "https://jobs.sap.com/search/",
+                        }
+                    ]
+                },
+                {},
+                use_configured_sources=False,
+                use_current_career_context=False,
+            )
         for key in (
             "canonical_write",
             "application",

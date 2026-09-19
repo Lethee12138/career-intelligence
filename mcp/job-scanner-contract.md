@@ -33,17 +33,17 @@ Reference implementation:
 - Private MCP HTTP surface: `mcp/career-mcp-http-server.mjs`
 - Secure Tunnel helper: `scripts/career-mcp-tunnel.sh`
 
-The MCP server binds only to `127.0.0.1:8797` and is stateless. Personal Career context is request-scoped and is not persisted by the server. Tunnel ID and runtime credentials remain external to the repository; Career must not reuse PAW's tunnel ID, local MCP port, or credential file.
+The MCP server binds only to `127.0.0.1:8797`. Tool execution is stateless and performs no Career-context writes, while current exact-role continuity is read from a private local context snapshot outside the repository through `scripts/career_context_provider.py`. Tunnel ID and runtime credentials remain external to the repository; Career must not reuse PAW's tunnel ID, local MCP port, or credential file.
 
 Input:
 
-- `useConfiguredSources=true` by default
-- omit `scanConfig` for the current configured source preset
-- optional explicit, schema-validated custom `scanConfig` only for intentional source overrides
-- ephemeral Career context referencing existing owners
-- optional current exact-role records / constraints
+- `poolMode = BROAD | FOCUSED`
+- optional request-scoped `careerContext` overlay
+- `detailLevel = summary | review | full`
 
-The MCP surface must advertise concrete custom-source fields (`adapter`, `mode`, `url` / `urls`, optional query/location and bounded limits) plus a stable output schema. Invalid custom input returns a descriptive contract error; raw `KeyError` or other implementation exceptions are not part of the public contract.
+The current local Career context provider is always enabled on the public ChatGPT tool surface; callers cannot disable or replace it.
+
+The public ChatGPT MCP surface deliberately does **not** expose `scanConfig`, source adapters, URLs, discovery queries or source limits. `BROAD` / `FOCUSED` can only change the post-discovery pool view. The output includes the immutable source scope/fingerprint and current Career-context source/version so callers can detect scope or continuity drift. Invalid runtime state returns a descriptive contract error; raw implementation exceptions are not part of the public contract.
 
 Execution:
 

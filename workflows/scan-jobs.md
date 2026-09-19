@@ -16,42 +16,43 @@ It does not:
 
 ## Inputs
 
-Required:
+Required runtime context:
 
-- Capability Profile
-- Evidence references
-- Preference Profile
-- Job Quality Profile
+- current configured source preset
+- current read-only Career context provider
+- Capability / Evidence / Preference / Job Quality references reachable from current Career context
 
-Optional:
+Optional request overlay:
 
-- Market
-- Location
-- Industry
-- Role family
-- Time window
+- `poolMode = BROAD | FOCUSED`
+- bounded Career-context clarifications that do not replace current exact-role continuity
+
+For the ChatGPT MCP surface, source adapters, URLs, queries and limits are not caller inputs.
 
 ## Process
 
-1. Discover a bounded set of public job sources; discovery-only leads remain `NEEDS_VERIFY`.
-2. Normalize source facts through the [official source runtime](../mcp/official-source-runtime.md) when an official adapter is available.
-3. Verify source and vacancy status. The standard-library [job source runtime](../scripts/job_source_runtime.py) is the executable source boundary for supported public sources.
-4. Combine supported sources with the [multi-source scan batch](../scripts/job_scan_batch.py), deduplicate by stable source identity / official job ID, and preserve failed verification as `NEEDS_VERIFY` rather than inventing closure.
-5. Apply transparent first-pass screening signals only:
+1. Freeze the configured source scope before discovery. Compute/retain its source-scope identity. `BROAD` / `FOCUSED` never modifies adapters, URLs, queries, locations or limits.
+2. Load the current read-only Career context provider before exact-role continuity. A request overlay may add or update matching role facts but cannot silently remove existing exact roles.
+3. Discover the bounded configured public job sources; discovery-only leads remain `NEEDS_VERIFY`.
+4. Normalize source facts through the [official source runtime](../mcp/official-source-runtime.md) when an official adapter is available.
+5. Verify source and vacancy status. The standard-library [job source runtime](../scripts/job_source_runtime.py) is the executable source boundary for supported public sources.
+6. Combine supported sources with the [multi-source scan batch](../scripts/job_scan_batch.py), deduplicate by stable source identity / official job ID, and preserve failed verification as `NEEDS_VERIFY` rather than inventing closure.
+7. Apply transparent first-pass screening signals only:
    - location preference signal
    - role-family term signal
    - capability-language signal
    - explicit preference-risk terms
    - visible student / graduate / experience requirements
    - Job Quality remains UNKNOWN unless the vacancy itself supplies relevant evidence
-6. Career Intelligence then assesses:
+8. Career Intelligence then assesses:
    - Eligibility Fit
    - Capability Fit
    - Preference Fit
    - Job Quality
    - Interview Process Risk
-7. Build exact-role review packets with the [scan review bridge](../scripts/job_scan_review_bridge.py). Existing exact roles become continuity packets rather than duplicates; visible internship/experience/language/quant gates are surfaced before high-effort analysis.
-8. Send only bounded new candidates into `/analyse-job`; roles already in the Application Pool reuse their existing state. Route only after Career Intelligence review.
+9. Build exact-role review packets with the [scan review bridge](../scripts/job_scan_review_bridge.py). Existing exact roles become continuity packets rather than duplicates; visible internship/experience/language/quant gates are surfaced before high-effort analysis.
+10. Build the requested post-discovery pool view: `BROAD` retains more discovered candidates for layered review; `FOCUSED` keeps the higher-priority review set. The source-scope fingerprint MUST remain identical across pool modes.
+11. Send only bounded new candidates into `/analyse-job`; roles already in the Application Pool reuse their existing state. Route only after Career Intelligence review.
 
 ## Output
 

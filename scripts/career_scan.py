@@ -14,15 +14,70 @@ from pathlib import Path
 from typing import Any
 
 try:
+    from scripts.career_context_provider import load_current_career_context
     from scripts.job_scan_batch import run_batch
     from scripts.job_scan_review_bridge import build_review_packets
 except ModuleNotFoundError:  # direct execution from repository root
+    from career_context_provider import load_current_career_context
     from job_scan_batch import run_batch
     from job_scan_review_bridge import build_review_packets
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SCAN_PRESET = ROOT / "config/current-job-scan-preset.json"
+
+
+POOL_RETAIN_STATES = {
+    "BROAD": ("REVIEW_PRIORITY", "REVIEW", "VERIFY", "DEPRIORITIZE"),
+    "FOCUSED": ("REVIEW_PRIORITY", "REVIEW"),
+}
+
+
+def _source_scope(config: dict[str, Any]) -> dict[str, Any]:
+    rows = []
+    for source in config.get("sources") or []:
+        rows.append(
+            {
+                "adapter": source.get("adapter"),
+                "mode": source.get("mode", "discover"),
+                "url": source.get("url"),
+                "urls": source.get("urls"),
+                "query": source.get("query"),
+                "location": source.get("location"),
+                "limit": source.get("limit"),
+                "verify_limit": source.get("verify_limit"),
+            }
+        )
+    canonical = json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    import hashlib
+    return {
+        "immutable_for_pool_mode": True,
+        "sources": rows,
+        "fingerprint": hashlib.sha256(canonical.encode()).hexdigest(),
+    }
+
+
+def _pool_view(scan: dict[str, Any], pool_mode: str) -> dict[str, Any]:
+    mode = str(pool_mode or "BROAD").upper()
+    if mode not in POOL_RETAIN_STATES:
+        raise ValueError("poolMode must be BROAD or FOCUSED")
+    retain = set(POOL_RETAIN_STATES[mode])
+    rows = [
+        candidate
+        for candidate in scan.get("candidate_pool") or []
+        if (candidate.get("screening") or {}).get("state") in retain
+    ]
+    return {
+        "mode": mode,
+        "retained_states": list(POOL_RETAIN_STATES[mode]),
+        "retained_candidate_count": len(rows),
+        "candidate_keys": [
+            candidate.get("dedupe_identity")
+            or f"{candidate.get('company')}:{candidate.get('external_job_id')}"
+            for candidate in rows
+        ],
+        "source_scope_changed": False,
+    }
 
 
 def _load_json(path: str | Path) -> dict[str, Any]:
@@ -117,25 +172,59 @@ def build_summary(
 
 def run_scan_review(
     scan_config: dict[str, Any] | None,
-    career_context: dict[str, Any],
+    career_context: dict[str, Any] | None,
     *,
     use_configured_sources: bool = True,
+    use_current_career_context: bool = True,
+    pool_mode: str = "BROAD",
 ) -> dict[str, Any]:
+    if use_configured_sources and scan_config is not None:
+        raise ValueError(
+            "scanConfig must be omitted when useConfiguredSources is true; "
+            "pool mode never changes source scope"
+        )
+    if use_current_career_context:
+        resolved_context = load_current_career_context(career_context or {})
+    else:
+        resolved_context = copy.deepcopy(career_context or {})
+
     resolved = resolve_scan_config(
         scan_config,
-        career_context,
+        resolved_context,
         use_configured_sources=use_configured_sources,
     )
+    scope_before = _source_scope(resolved)
     scan = run_batch(resolved)
-    review = build_review_packets(scan, career_context)
+    scope_after = _source_scope(resolved)
+    if scope_before["fingerprint"] != scope_after["fingerprint"]:
+        raise RuntimeError("source scope mutated during scan execution")
+
+    review = build_review_packets(scan, resolved_context)
+    pool_view = _pool_view(scan, pool_mode)
+    summary = build_summary(scan, review)
+    summary["pool_mode"] = pool_view["mode"]
+    summary["retained_candidate_count"] = pool_view["retained_candidate_count"]
+    summary["career_context_source"] = (
+        (resolved_context.get("_context_provider") or {}).get("source")
+        if use_current_career_context
+        else "CALLER_ONLY"
+    )
+    summary["career_context_version"] = (
+        (resolved_context.get("_context_provider") or {}).get("version")
+        if use_current_career_context
+        else None
+    )
+
     return {
-        "schema_version": "0.2",
+        "schema_version": "0.3",
         "operation": "SCAN_AND_REVIEW",
         "candidate_status": "HUMAN_REVIEW_REQUIRED",
         "scan_config_source": (
             "CURRENT_CONFIGURED_SOURCES" if scan_config is None else "CALLER_SUPPLIED"
         ),
-        "summary": build_summary(scan, review),
+        "source_scope": scope_before,
+        "pool_view": pool_view,
+        "summary": summary,
         "scan": scan,
         "review": review,
         "boundary": {
@@ -154,8 +243,10 @@ def run_scan_review(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--scan-config")
-    parser.add_argument("--career-context", required=True)
+    parser.add_argument("--career-context")
     parser.add_argument("--no-configured-sources", action="store_true")
+    parser.add_argument("--no-current-career-context", action="store_true")
+    parser.add_argument("--pool-mode", choices=["BROAD", "FOCUSED"], default="BROAD")
     parser.add_argument("--output")
     parser.add_argument(
         "--summary-only",
@@ -165,11 +256,13 @@ def main() -> int:
     args = parser.parse_args()
 
     scan_config = _load_json(args.scan_config) if args.scan_config else None
-    career_context = _load_json(args.career_context)
+    career_context = _load_json(args.career_context) if args.career_context else {}
     result = run_scan_review(
         scan_config,
         career_context,
         use_configured_sources=not args.no_configured_sources,
+        use_current_career_context=not args.no_current_career_context,
+        pool_mode=args.pool_mode,
     )
 
     payload = json.dumps(result, ensure_ascii=False, indent=2) + "\n"

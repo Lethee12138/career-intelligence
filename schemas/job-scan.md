@@ -59,6 +59,38 @@ Optional runtime fields:
   - default UNKNOWN unless supported by vacancy evidence
 - screening.final_fit_decision = false
 
+## Source scope and pool view
+
+The ChatGPT MCP surface uses the configured source preset and exposes an immutable source-scope record:
+
+- source_scope.immutable_for_pool_mode = true
+- source_scope.sources
+- source_scope.fingerprint
+
+Pool mode is post-discovery only:
+
+- pool_view.mode
+  - BROAD
+  - FOCUSED
+- pool_view.retained_states
+- pool_view.retained_candidate_count
+- pool_view.candidate_keys
+- pool_view.candidates
+- pool_view.source_scope_changed = false
+
+BROAD may retain REVIEW_PRIORITY, REVIEW, VERIFY and DEPRIORITIZE candidates for layered Human review. FOCUSED retains the higher-priority review set. Neither mode may alter adapters, URLs, queries, locations or source limits.
+
+## Current Career context provider
+
+The public MCP scan uses the private local read-only current Career context provider by default. Request-scoped careerContext is an additive/clarifying overlay only.
+
+Runtime summary exposes:
+
+- career_context_source
+- career_context_version
+
+Missing provider state is an execution error; do not reconstruct current exact-role state from chat memory.
+
 ## Review packet bridge
 
 Optional downstream review-packet fields:

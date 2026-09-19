@@ -94,13 +94,13 @@ class CareerMcpHttpTests(unittest.TestCase):
 
         scan_tool = next(tool for tool in tools if tool["name"] == "career.scan_and_review")
         properties = scan_tool["inputSchema"]["properties"]
-        self.assertIn("useConfiguredSources", properties)
-        self.assertIn("scanConfig", properties)
-        self.assertNotIn("scanConfig", scan_tool["inputSchema"].get("required", []))
-        source_props = properties["scanConfig"]["properties"]["sources"]["items"]["properties"]
-        self.assertIn("adapter", source_props)
-        self.assertIn("mode", source_props)
-        self.assertIn("url", source_props)
+        self.assertNotIn("scanConfig", properties)
+        self.assertNotIn("useConfiguredSources", properties)
+        self.assertNotIn("useCurrentCareerContext", properties)
+        self.assertIn("poolMode", properties)
+        self.assertIn("careerContext", properties)
+        pool_schema = properties["poolMode"]
+        self.assertEqual(set(pool_schema["enum"]), {"BROAD", "FOCUSED"})
 
     def test_server_info_is_stateless_and_non_persistent(self):
         response = _mcp_post(
@@ -117,31 +117,10 @@ class CareerMcpHttpTests(unittest.TestCase):
         )
         value = response["result"]["structuredContent"]
         self.assertTrue(value["stateless"])
-        self.assertFalse(value["persistence"])
+        self.assertEqual(value["contextProvider"], "CURRENT_LOCAL_CONTEXT")
+        self.assertFalse(value["contextPersistenceWrites"])
         self.assertFalse(value["application"])
         self.assertFalse(value["canonicalWrite"])
-
-    def test_scan_tool_rejects_missing_config_when_default_is_disabled(self):
-        response = _mcp_post(
-            self.port,
-            {
-                "jsonrpc": "2.0",
-                "id": 3,
-                "method": "tools/call",
-                "params": {
-                    "name": "career.scan_and_review",
-                    "arguments": {
-                        "useConfiguredSources": False,
-                        "careerContext": {},
-                        "detailLevel": "summary",
-                    },
-                },
-            },
-        )
-        result = response["result"]
-        self.assertTrue(result["isError"])
-        text = result["content"][0]["text"]
-        self.assertIn("scanConfig is required", text)
 
 
 if __name__ == "__main__":

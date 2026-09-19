@@ -29,7 +29,7 @@ class CareerTunnelContractTests(unittest.TestCase):
         self.assertIn('career.scan_and_review', server)
         self.assertIn('readOnlyHint: true', server)
         self.assertIn('stateless: true', server)
-        self.assertIn('persistence: false', server)
+        self.assertIn('contextPersistenceWrites: false', server)
         self.assertNotIn("writeFile", server)
         self.assertNotIn("exec(", server)
 

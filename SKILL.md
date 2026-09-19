@@ -3,7 +3,7 @@ name: career-intelligence
 description: Help with career direction, live public job scanning, job discovery and search plans, JD fit analysis, candidate-batch prioritization, application preparation, offer quality and work-right or sponsorship questions. Use for natural-language career requests and /position, /discover, /find-jobs, /scan-jobs, /route-jobs, /analyse-job, /prepare-application. Do not use for unrelated writing or general chat.
 ---
 
-# Career Intelligence v0.2.6 — Configured Scan Contract
+# Career Intelligence v0.2.7 — Locked Scope + Current Context Provider
 
 Portable, agent-executed positioning, discovery, analysis and preparation. Inputs are read-only references to the existing Career owners. Outputs are review candidates, never a new Evidence Bank, CV Base lifecycle or application tracker.
 
@@ -16,7 +16,7 @@ Load this entrypoint and the selected workflow, then only the shared rules and r
 - `/position`: follow [position](workflows/position.md); no JD required.
 - `/discover`: follow [discover](workflows/discover.md); no exact title or live search required.
 - `/find-jobs`: follow [find-jobs](workflows/find-jobs.md); generate a portable external search handoff.
-- `/scan-jobs`: follow [scan-jobs](workflows/scan-jobs.md) with [job-scanning rules](rules/job-scanning.md) and [job-scan schema](schemas/job-scan.md); perform bounded, on-demand public vacancy scanning through an available read-only executor. When this package's local Python executor is available, prefer the one-shot [career scan entrypoint](scripts/career_scan.py) so one invocation produces both the Candidate Pool and exact-role Career review packets. When an MCP host is available, the same operation is exposed read-only through the [Career MCP server](mcp/career-mcp-http-server.mjs) as `career.scan_and_review`.
+- `/scan-jobs`: follow [scan-jobs](workflows/scan-jobs.md) with [job-scanning rules](rules/job-scanning.md) and [job-scan schema](schemas/job-scan.md); perform bounded, on-demand public vacancy scanning through an available read-only executor. When this package's local Python executor is available, prefer the one-shot [career scan entrypoint](scripts/career_scan.py). When an MCP host is available, use the read-only [Career MCP server](mcp/career-mcp-http-server.mjs) tool `career.scan_and_review`: its public ChatGPT surface always uses the current configured source preset, and `poolMode` only changes the post-discovery Candidate Pool view.
 - `/route-jobs`: follow [route-jobs](workflows/route-jobs.md); intake candidates and propose bounded pool lanes.
 - For positioning/discovery also load [discovery rules](rules/discovery.md) and their linked capability/role contracts.
 
@@ -33,7 +33,7 @@ Explicit current user instructions override default Skill workflow preferences u
 - Offer pay/work-life quality → relevant Job Quality and market-calibration rules; use /analyse-job for the supplied role context, without inventing a new workflow.
 - UK visa/work-right/sponsorship → eligibility and global-market rules plus the dated UK guide as context; current authority verification is still necessary for current legal conclusions.
 
-This skill is scoped to career planning, discovery/search planning, live public scanning, job analysis, application preparation, quality and eligibility. For the normal `/scan-jobs` request, use the current configured source preset and pass only request-scoped Career context; do not reconstruct source adapters or URLs in the calling model. A custom `scanConfig` is only for an intentional source override and must follow the advertised MCP schema. Ephemeral Career context is not a new Career owner and should not contain unnecessary personal data. If no compatible executor exists, degrade to `/find-jobs` or a bounded handoff rather than pretending a live scan ran. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
+This skill is scoped to career planning, discovery/search planning, live public scanning, job analysis, application preparation, quality and eligibility. For the normal `/scan-jobs` request, the ChatGPT MCP caller MUST NOT reconstruct or widen source adapters, URLs, queries or limits: the tool surface does not expose them. Current exact-role continuity and stable Career preferences come from the local read-only [Career context provider](scripts/career_context_provider.py); request-scoped `careerContext` may add/clarify context but must not be used as a replacement for that provider. `BROAD` and `FOCUSED` are post-discovery pool views only and never authorize a wider search. If no compatible executor exists, degrade to `/find-jobs` or a bounded handoff rather than pretending a live scan ran. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
 
 ## Mandatory shared rules
 
