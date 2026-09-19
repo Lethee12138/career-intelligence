@@ -1,0 +1,1210 @@
+{
+  "schema_version": "0.1",
+  "candidate_status": "HUMAN_REVIEW_REQUIRED",
+  "scan_ref": "LIVE-MULTISOURCE-20260919-01",
+  "scan_captured_at": "2026-09-19T04:35:48+00:00",
+  "context_as_of": "2026-09-19",
+  "review_packet_count": 7,
+  "review_state_counts": {
+    "QUALIFICATION_REVIEW_REQUIRED": 6,
+    "EXISTING_POOL_CONTINUITY": 1
+  },
+  "packets": [
+    {
+      "role_key": "kuaishou:external:31523",
+      "review_state": "QUALIFICATION_REVIEW_REQUIRED",
+      "next_step": "RUN_BOUNDED_QUALIFICATION_REVIEW",
+      "job_identity": {
+        "company": "Kuaishou",
+        "external_job_id": "31523",
+        "role": "商城用户产品经理实习生（导购方向）-【电商】",
+        "location": [
+          "Hangzhou"
+        ],
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/31523",
+        "source_identity": "career-url:https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/31523"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:39+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": {
+          "adapter": "kuaishou",
+          "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+          "query": "用户产品经理",
+          "location": "domestic"
+        }
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、参与店铺/短视频等产品的C端导购链路升级，根据消费者的购买决策路径，以短店的成交和体验为目标，挖掘优化空间；",
+          "2、参与商家供给相关的B端能力升级，通过后台工具和激励政策，提升商家的带货视频发布数和转化效率；",
+          "3、协助推进AI专项的策略设计、开发、评测进程，加速AI能力的商家端覆盖。"
+        ],
+        "requirements": [
+          "1、本科及以上学历，能至少连续实习3个月，每周出勤5天；",
+          "2、数据敏感，会使用SQL等工具完成业务命题分析；",
+          "3、对AI相关新生事物敏感，能快速掌握工作流程、工作方法；",
+          "4、具备良好的内外部沟通和执行能力，高效推进项目落地。"
+        ],
+        "department": "D10115",
+        "recruitment_project": "socialr",
+        "recruitment_label": null,
+        "position_nature": "C002"
+      },
+      "scan_screening": {
+        "state": "REVIEW_PRIORITY",
+        "reasons": [
+          "preferred-location, role and capability signals all present"
+        ],
+        "location": {
+          "preferred_hits": [
+            "Hangzhou"
+          ],
+          "deprioritized_hits": []
+        },
+        "role_term_hits": [
+          "产品经理"
+        ],
+        "capability_term_hits": [
+          "工作流",
+          "AI",
+          "策略"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [
+          "实习"
+        ],
+        "experience_requirement": {
+          "minimum_years": null,
+          "maximum_years": null,
+          "evidence": null
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "INTERNSHIP_DURATION_OR_ATTENDANCE",
+          "INTERNSHIP_ROUTE",
+          "TOOL_OR_QUANT_REQUIREMENT"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [
+        {
+          "constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME",
+          "scope": "2027 campus recruitment snapshot; applicability to current social/intern roles requires verification",
+          "source_ref": "CANONICAL §1.5"
+        },
+        {
+          "constraint": "CURRENT_PRIMARY_CAMPUS_ROLE_13299_ALREADY_PREPARED",
+          "scope": "strategy continuity only; not an active submitted application",
+          "source_ref": "CURRENT_CAREER:kuaishou-13299"
+        }
+      ],
+      "existing_role": null,
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    },
+    {
+      "role_key": "kuaishou:external:31750",
+      "review_state": "QUALIFICATION_REVIEW_REQUIRED",
+      "next_step": "RUN_BOUNDED_QUALIFICATION_REVIEW",
+      "job_identity": {
+        "company": "Kuaishou",
+        "external_job_id": "31750",
+        "role": "用户产品经理实习生（直播间方向）-【电商】",
+        "location": [
+          "Hangzhou"
+        ],
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/31750",
+        "source_identity": "career-url:https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/31750"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:44+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": {
+          "adapter": "kuaishou",
+          "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+          "query": "用户产品经理",
+          "location": "domestic"
+        }
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、参与用户导购相关的C端产品迭代，根据消费者电商直播间购买决策路径，以电商直播间的体验和成交为目标，挖掘优化空间，产出需求文档和产品原型图；",
+          "2、协助推进专项的开发、测试、验收进程，完成产品功能上线；",
+          "3、参与产品迭代和专项的数据分析、复盘，以及后续方案优化设计。"
+        ],
+        "requirements": [
+          "1、本科及以上学历，能至少连续实习3个月，每周出勤5天；",
+          "2、有互联网电商业务的产品经理实习经验者优先；",
+          "3、具备良好的内外部沟通和执行能力，能够推进项目落地实施，出色地完成任务；",
+          "4、熟悉Figma等产品经理常用工具，会使用基础的SQL或其它工具，完成数据分析总结工作；",
+          "5、对国内外互联网产品有学习和理解能力，对新生事物敏感，能快速掌握工作流程、工作方法。"
+        ],
+        "department": "D10115",
+        "recruitment_project": "socialr",
+        "recruitment_label": null,
+        "position_nature": "C002"
+      },
+      "scan_screening": {
+        "state": "REVIEW_PRIORITY",
+        "reasons": [
+          "preferred-location, role and capability signals all present"
+        ],
+        "location": {
+          "preferred_hits": [
+            "Hangzhou"
+          ],
+          "deprioritized_hits": []
+        },
+        "role_term_hits": [
+          "产品经理"
+        ],
+        "capability_term_hits": [
+          "工作流",
+          "原型"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [
+          "实习"
+        ],
+        "experience_requirement": {
+          "minimum_years": null,
+          "maximum_years": null,
+          "evidence": null
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "INTERNSHIP_DURATION_OR_ATTENDANCE",
+          "INTERNSHIP_ROUTE",
+          "TOOL_OR_QUANT_REQUIREMENT"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [
+        {
+          "constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME",
+          "scope": "2027 campus recruitment snapshot; applicability to current social/intern roles requires verification",
+          "source_ref": "CANONICAL §1.5"
+        },
+        {
+          "constraint": "CURRENT_PRIMARY_CAMPUS_ROLE_13299_ALREADY_PREPARED",
+          "scope": "strategy continuity only; not an active submitted application",
+          "source_ref": "CURRENT_CAREER:kuaishou-13299"
+        }
+      ],
+      "existing_role": null,
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    },
+    {
+      "role_key": "kuaishou:external:32370",
+      "review_state": "QUALIFICATION_REVIEW_REQUIRED",
+      "next_step": "RUN_BOUNDED_QUALIFICATION_REVIEW",
+      "job_identity": {
+        "company": "Kuaishou",
+        "external_job_id": "32370",
+        "role": "用户产品经理（基础体验方向）-【电商】",
+        "location": [
+          "Hangzhou"
+        ],
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/32370",
+        "source_identity": "career-url:https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/32370"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:40+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": {
+          "adapter": "kuaishou",
+          "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+          "query": "用户产品经理",
+          "location": "domestic"
+        }
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、参与电商买家增长与补贴策略的设计与落地；",
+          "2、负责增长核心指标的数据分析，拆解钱效、买家质量、留存等指标波动原因；",
+          "3、参与AB实验设计与效果复盘，输出策略迭代建议；",
+          "4、配合算法团队完成补贴/推荐模型的策略梳理与效果验证。"
+        ],
+        "requirements": [
+          "1、本科及以上在读，数学、统计学、经济学、计算机等相关专业优先，对电商有兴趣；",
+          "2、了解用户增长基本逻辑（拉新、促活、留存、补贴玩法）；",
+          "3、优秀的数据分析能力与数据思维，能从数据中发现机会点并提出验证路径；熟练使用Excel，会SQL者优先；",
+          "4、逻辑清晰、沟通顺畅、主动性强。"
+        ],
+        "department": "D10115",
+        "recruitment_project": "socialr",
+        "recruitment_label": null,
+        "position_nature": "C001"
+      },
+      "scan_screening": {
+        "state": "REVIEW_PRIORITY",
+        "reasons": [
+          "preferred-location, role and capability signals all present"
+        ],
+        "location": {
+          "preferred_hits": [
+            "Hangzhou"
+          ],
+          "deprioritized_hits": []
+        },
+        "role_term_hits": [
+          "产品经理"
+        ],
+        "capability_term_hits": [
+          "策略"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [
+          "在读"
+        ],
+        "experience_requirement": {
+          "minimum_years": null,
+          "maximum_years": null,
+          "evidence": null
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "STUDENT_STATUS",
+          "TOOL_OR_QUANT_REQUIREMENT"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [
+        {
+          "constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME",
+          "scope": "2027 campus recruitment snapshot; applicability to current social/intern roles requires verification",
+          "source_ref": "CANONICAL §1.5"
+        },
+        {
+          "constraint": "CURRENT_PRIMARY_CAMPUS_ROLE_13299_ALREADY_PREPARED",
+          "scope": "strategy continuity only; not an active submitted application",
+          "source_ref": "CURRENT_CAREER:kuaishou-13299"
+        }
+      ],
+      "existing_role": null,
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    },
+    {
+      "role_key": "tencent:external:1283878533483275264",
+      "review_state": "EXISTING_POOL_CONTINUITY",
+      "next_step": "REUSE_EXISTING_ROLE_STATE",
+      "job_identity": {
+        "company": "Tencent",
+        "external_job_id": "1283878533483275264",
+        "role": "用户研究",
+        "location": [
+          "深圳总部",
+          "北京"
+        ],
+        "source_url": "https://join.qq.com/post_detail.html?postid=1283878533483275264",
+        "source_identity": "career-url:https://join.qq.com/post_detail.html?postid=1283878533483275264"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:48+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": null
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、从研究需求出发，与业务方沟通并明确研究目的，完成项目的研究设计；",
+          "2、负责跟踪并研究行业动态及用户行为趋势，通过定量和定性研究方法，并结合AI驱动的数据分析，深入挖掘用户需求，为产品迭代和创新提供数据支持和策略建议；",
+          "3、负责研究项目的执行与推进，探索AI在用户研究各环节的提效应用；",
+          "4、跟进研究成果在业务方的落地，持续迭代研究方法论，保持对AI+用研前沿趋势的敏锐关注。"
+        ],
+        "requirements": [
+          "AI应用技能：",
+          "善于借助AI工具拆解复杂问题、探索解决方案，并能对AI 的输出进行高质量判断，具备人机协同的工作意识和习惯。",
+          "专业能力：",
+          "熟悉定性及定量的用户研究方法，如：问卷调查、用户访谈、可用性测试、启发式评估、眼动测试等。",
+          "其他：",
+          "1、具备大局观，逻辑思维能力强，主动性高，有高效的执行力；",
+          "2、具备优秀的理解、沟通与协调能力，有一定的文字表达能力；",
+          "3、国家英语四级及以上水平。",
+          "3、对AI驱动的用户研究方法有兴趣和学习意愿。"
+        ],
+        "department": "设计",
+        "recruitment_project": "应届毕业生",
+        "recruitment_label": "应届毕业生",
+        "position_nature": null
+      },
+      "scan_screening": {
+        "state": "REVIEW_PRIORITY",
+        "reasons": [
+          "preferred-location, role and capability signals all present"
+        ],
+        "location": {
+          "preferred_hits": [
+            "深圳",
+            "深圳总部"
+          ],
+          "deprioritized_hits": [
+            "北京"
+          ]
+        },
+        "role_term_hits": [
+          "用户研究"
+        ],
+        "capability_term_hits": [
+          "用户研究",
+          "AI",
+          "人机",
+          "访谈",
+          "可用性",
+          "策略"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [
+          "应届"
+        ],
+        "experience_requirement": {
+          "minimum_years": null,
+          "maximum_years": null,
+          "evidence": null
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "LANGUAGE_REQUIREMENT",
+          "TOOL_OR_QUANT_REQUIREMENT"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [],
+      "existing_role": {
+        "company": "Tencent",
+        "external_job_id": "1283878533483275264",
+        "role": "用户研究",
+        "official_post_id": "1283878533483275264",
+        "current_state": "FORM_READY_FOR_HUMAN_COMPLETION",
+        "qualification": "CURRENT_ACCEPTED_ROLE_STATE",
+        "application_status": "NOT_SUBMITTED",
+        "route": "TARGETED_PREPARE",
+        "source_ref": "CURRENT_CAREER:tencent-user-research-22502"
+      },
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    },
+    {
+      "role_key": "kuaishou:external:31011",
+      "review_state": "QUALIFICATION_REVIEW_REQUIRED",
+      "next_step": "RUN_BOUNDED_QUALIFICATION_REVIEW",
+      "job_identity": {
+        "company": "Kuaishou",
+        "external_job_id": "31011",
+        "role": "用户产品经理实习生-【主站】",
+        "location": [
+          "Beijing"
+        ],
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/31011",
+        "source_identity": "career-url:https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/31011"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:42+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": {
+          "adapter": "kuaishou",
+          "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+          "query": "用户产品经理",
+          "location": "domestic"
+        }
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、负责快手生产社交相关的产品工作，包括但不限于生产工具、即时通讯、创新玩法、AI玩法等社交业务，服务用户的社交体验；",
+          "2、与设计、数据分析师、用户研究等团队深度合作，参与到业务功能的完整产品设计流程中，协调各方资源帮助团队高效完成目标；",
+          "3、结合用户特点和需求，主动挖掘产品需求和业务改进点，提升用户社交体验；",
+          "4、通过产品设计提升用户活跃、社交关系构建、社交互动核心指标。"
+        ],
+        "requirements": [
+          "1、本科及以上学历，有生产、社交产品实习经验加分；",
+          "2、较强的逻辑思维能力和数据分析问题、解决问题的能力，善于归纳总结问题，注重过程和结果，关注细节，抗压能力强；",
+          "3、对生产、社交产品方向有强烈的热情和深入的理解，善于发现用户痛点，判断优先级。"
+        ],
+        "department": "D15515",
+        "recruitment_project": "socialr",
+        "recruitment_label": null,
+        "position_nature": "C002"
+      },
+      "scan_screening": {
+        "state": "REVIEW",
+        "reasons": [
+          "source is open but requires Career Intelligence review"
+        ],
+        "location": {
+          "preferred_hits": [],
+          "deprioritized_hits": [
+            "Beijing"
+          ]
+        },
+        "role_term_hits": [
+          "产品经理"
+        ],
+        "capability_term_hits": [
+          "用户研究",
+          "AI",
+          "产品设计"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [
+          "实习"
+        ],
+        "experience_requirement": {
+          "minimum_years": null,
+          "maximum_years": null,
+          "evidence": null
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "INTERNSHIP_ROUTE"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [
+        {
+          "constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME",
+          "scope": "2027 campus recruitment snapshot; applicability to current social/intern roles requires verification",
+          "source_ref": "CANONICAL §1.5"
+        },
+        {
+          "constraint": "CURRENT_PRIMARY_CAMPUS_ROLE_13299_ALREADY_PREPARED",
+          "scope": "strategy continuity only; not an active submitted application",
+          "source_ref": "CURRENT_CAREER:kuaishou-13299"
+        }
+      ],
+      "existing_role": null,
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    },
+    {
+      "role_key": "kuaishou:external:26468",
+      "review_state": "QUALIFICATION_REVIEW_REQUIRED",
+      "next_step": "RUN_BOUNDED_QUALIFICATION_REVIEW",
+      "job_identity": {
+        "company": "Kuaishou",
+        "external_job_id": "26468",
+        "role": "用户产品经理实习生（消费）-【主站】",
+        "location": [
+          "Beijing"
+        ],
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/26468",
+        "source_identity": "career-url:https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/26468"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:45+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": {
+          "adapter": "kuaishou",
+          "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+          "query": "用户产品经理",
+          "location": "domestic"
+        }
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、负责快手视频消费场景的探索，参与到服务用户的基础体验；",
+          "2、主动挖掘产品需求和业务改进点，帮助用户构建消费场景和关系；",
+          "3、通过产品设计提升用户消费时长、活跃等核心指标。"
+        ],
+        "requirements": [
+          "1、本科及以上学历，或有相关实习经验；",
+          "2、对消费产品方向有强烈的热情和深入的理解，善于发现用户痛点，判断优先级；",
+          "3、较强的逻辑思维能力和分析问题、解决问题的能力，善于归纳总结问题，注重过程和结果，关注细节，抗压能力强；",
+          "4、自我驱动力强，能够清楚描述问题，各类内容 / 社区产品深度用户优先。"
+        ],
+        "department": "D11444",
+        "recruitment_project": "socialr",
+        "recruitment_label": null,
+        "position_nature": "C002"
+      },
+      "scan_screening": {
+        "state": "REVIEW",
+        "reasons": [
+          "source is open but requires Career Intelligence review"
+        ],
+        "location": {
+          "preferred_hits": [],
+          "deprioritized_hits": [
+            "Beijing"
+          ]
+        },
+        "role_term_hits": [
+          "产品经理"
+        ],
+        "capability_term_hits": [
+          "产品设计"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [
+          "实习"
+        ],
+        "experience_requirement": {
+          "minimum_years": null,
+          "maximum_years": null,
+          "evidence": null
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "INTERNSHIP_ROUTE"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [
+        {
+          "constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME",
+          "scope": "2027 campus recruitment snapshot; applicability to current social/intern roles requires verification",
+          "source_ref": "CANONICAL §1.5"
+        },
+        {
+          "constraint": "CURRENT_PRIMARY_CAMPUS_ROLE_13299_ALREADY_PREPARED",
+          "scope": "strategy continuity only; not an active submitted application",
+          "source_ref": "CURRENT_CAREER:kuaishou-13299"
+        }
+      ],
+      "existing_role": null,
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    },
+    {
+      "role_key": "kuaishou:external:29853",
+      "review_state": "QUALIFICATION_REVIEW_REQUIRED",
+      "next_step": "RUN_BOUNDED_QUALIFICATION_REVIEW",
+      "job_identity": {
+        "company": "Kuaishou",
+        "external_job_id": "29853",
+        "role": "用户产品经理（搜索功能）-【主站】",
+        "location": [
+          "Beijing"
+        ],
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/29853",
+        "source_identity": "career-url:https://zhaopin.kuaishou.cn/recruit/e/#/official/social/job-info/29853"
+      },
+      "source": {
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": "2026-09-19T04:35:46+00:00",
+        "verification_status": "OPEN_VERIFIED",
+        "discovery_context": {
+          "adapter": "kuaishou",
+          "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+          "query": "用户产品经理",
+          "location": "domestic"
+        }
+      },
+      "job_text": {
+        "responsibilities": [
+          "1、参与快手搜索功能产品设计，负责产品专项规划，能够进行长短期目标拆解，明确优化路径并设计对应产品方案；",
+          "2、产品逻辑清晰，能够结合快手场景进行用户搜索需求分析洞察，清晰定义并解决问题，提升用户搜索体验；关注行业发展趋势动态，创新产品形态，探索搜索规模增长；",
+          "3、负责方案推进，与运营、设计、数据、算法、开发等合作方紧密协同，推进项目高质量落地，支撑团队目标达成。"
+        ],
+        "requirements": [
+          "1、本科及以上学历，1年以上用户产品经验；",
+          "2、善于分析用户潜在需求，有较强的逻辑思维及产品判断能力，不断优化创新产品体验；",
+          "3、有较强的跨团队协同能力和执行力，有一定抗压能力，有游戏产品经验、游戏社区产品深度用户优先。"
+        ],
+        "department": "D8943",
+        "recruitment_project": "socialr",
+        "recruitment_label": null,
+        "position_nature": "C001"
+      },
+      "scan_screening": {
+        "state": "REVIEW",
+        "reasons": [
+          "source is open but requires Career Intelligence review"
+        ],
+        "location": {
+          "preferred_hits": [],
+          "deprioritized_hits": [
+            "Beijing"
+          ]
+        },
+        "role_term_hits": [
+          "产品经理"
+        ],
+        "capability_term_hits": [
+          "产品设计"
+        ],
+        "preference_risk_hits": [],
+        "student_or_early_career_hits": [],
+        "experience_requirement": {
+          "minimum_years": 1,
+          "maximum_years": null,
+          "evidence": "1年以上"
+        },
+        "experience_gap_signal": false,
+        "job_quality": {
+          "state": "UNKNOWN",
+          "reason": "Public vacancy text alone does not establish workload, leave, management quality, compensation reliability, or stability."
+        },
+        "final_fit_decision": false
+      },
+      "qualification_gate": {
+        "state": "QUALIFICATION_REVIEW_REQUIRED",
+        "reason": "Visible requirements include candidate-specific gates or unresolved requirements.",
+        "markers": [
+          "EXPERIENCE_REQUIREMENT"
+        ]
+      },
+      "candidate_context": {
+        "new_ssot": false,
+        "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+        "as_of": "2026-09-19",
+        "scope": "THIS_SCAN_REVIEW_ONLY",
+        "evidence_refs": [
+          {
+            "id": "CANONICAL",
+            "source": "/Users/luna/Downloads/职业规划_Canonical_Career_Plan_v1.md",
+            "location": "§1.5, §4, §6, §8, §10–11",
+            "role": "current career plan, evidence router, preferences and application boundaries"
+          },
+          {
+            "id": "OUTPUT",
+            "source": "/Users/luna/Downloads/Prototype_Output_First_Role_Discovery_2026-09-09.md",
+            "location": "Executive finding, A2, B1–B3",
+            "role": "report-level capability transfer evidence"
+          },
+          {
+            "id": "DNEG_IMPLEMENTATION",
+            "source": "/Users/luna/dmi/workflow/CREATIVE_DRIFT_CHECKPOINT_PROJECT_NOTE.md",
+            "location": "Core Workflow / AI Integration Boundary",
+            "role": "bounded implementation/runtime context"
+          }
+        ],
+        "evidence_limitations": [
+          "Master Evidence originals are not fully loaded into this bridge.",
+          "Report-level capability patterns support bounded inference, not invented DEMONSTRATED capability.",
+          "No verified SQL/A-B/commercial growth analytics ownership.",
+          "No commercial production deployment or ROI/efficiency outcome may be inferred."
+        ]
+      },
+      "preference_context": {
+        "china_location_order": [
+          "Hangzhou",
+          "Nanjing/Suzhou",
+          "Guangzhou",
+          "Shanghai",
+          "Shenzhen"
+        ],
+        "beijing_default": "DEPRIORITIZED_UNLESS_HIGH_CAREER_VALUE",
+        "strong_negative_work_style": [
+          "sales quota",
+          "customer acquisition",
+          "negotiation-heavy persuasive selling"
+        ],
+        "interview_process_risk_only": [
+          "group assessment",
+          "case interview",
+          "impromptu presentation"
+        ],
+        "management_trainee": "NOT_DEFAULT_PREFERENCE"
+      },
+      "company_constraints": [
+        {
+          "constraint": "ONE_ACTIVE_APPLICATION_AT_A_TIME",
+          "scope": "2027 campus recruitment snapshot; applicability to current social/intern roles requires verification",
+          "source_ref": "CANONICAL §1.5"
+        },
+        {
+          "constraint": "CURRENT_PRIMARY_CAMPUS_ROLE_13299_ALREADY_PREPARED",
+          "scope": "strategy continuity only; not an active submitted application",
+          "source_ref": "CURRENT_CAREER:kuaishou-13299"
+        }
+      ],
+      "existing_role": null,
+      "analysis_contract": {
+        "required_dimensions": [
+          "Capability Fit",
+          "Evidence Fit",
+          "Experience Fit",
+          "Eligibility Fit",
+          "Practical Fit",
+          "Career Value",
+          "Interest / Preference Fit",
+          "Work-style Preference Fit",
+          "Interview Process Risk",
+          "Stretch Level"
+        ],
+        "job_quality_required": true,
+        "no_match_percentage": true,
+        "final_human_review_required": true
+      }
+    }
+  ],
+  "boundary": {
+    "new_ssot": false,
+    "canonical_write": false,
+    "application": false,
+    "cv_edit": false,
+    "portfolio_edit": false,
+    "external_contact": false
+  }
+}

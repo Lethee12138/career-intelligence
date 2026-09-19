@@ -1,0 +1,157 @@
+{
+  "schema_version": "0.2.3",
+  "candidate_status": "HUMAN_REVIEW_REQUIRED",
+  "routing_state": "REVIEW_COMPLETE_NO_EXTERNAL_ACTION",
+  "source_scan_ref": "LIVE-MULTISOURCE-20260919-01",
+  "review_packet_ref": "tests/outputs/job-scan-review-packets-live-2026-09-19.json",
+  "review_report_ref": "tests/outputs/job-scan-career-review-live-2026-09-19.md",
+  "as_of": "2026-09-19",
+  "candidate_context": {
+    "new_ssot": false,
+    "provenance": "CURRENT_CAREER_CANONICAL_AND_ACCEPTED_CONTEXT",
+    "scope": "THIS_REVIEW_ONLY"
+  },
+  "ai_neutral_by_default": true,
+  "targeted_wip_applies_to": "DEEP_ANALYSIS_AND_MATERIAL_PREPARATION_ONLY",
+  "opportunity_pool_count": 7,
+  "targeted_candidate_count": 1,
+  "targeted_active_count": 0,
+  "fast_lane_count": 0,
+  "existing_pool_continuity": [
+    {
+      "company": "Tencent",
+      "external_job_id": "1283878533483275264",
+      "role": "用户研究",
+      "continuity_state": "EXISTING_POOL",
+      "current_route": "TARGETED_PREPARE",
+      "current_state": "FORM_READY_FOR_HUMAN_COMPLETION",
+      "application_status": "NOT_SUBMITTED",
+      "action": "MAINTAIN_EXISTING_ROLE"
+    }
+  ],
+  "allocation_order": [
+    "Kuaishou:31750",
+    "Kuaishou:31523",
+    "Kuaishou:32370",
+    "Kuaishou:31011",
+    "Kuaishou:26468",
+    "Kuaishou:29853"
+  ],
+  "routes": [
+    {
+      "candidate_id": "Kuaishou:31750",
+      "route": "WATCH_VERIFY",
+      "lane": "NONE",
+      "queue_state": "WATCH",
+      "readiness_state": "QUALIFICATION_VERIFY",
+      "priority_rationale": [
+        "Hangzhou practical fit is strong.",
+        "Prototype/testing/product-iteration duties transfer from completed evidence.",
+        "Internship duration/attendance and analytics-tool bar remain unresolved."
+      ],
+      "next_human_action": "VERIFY_INTERNSHIP_TIMING_AND_ANALYTICS_BAR",
+      "job_quality": {
+        "job_quality_fit": "UNKNOWN"
+      },
+      "external_action": false
+    },
+    {
+      "candidate_id": "Kuaishou:31523",
+      "route": "WATCH_VERIFY",
+      "lane": "NONE",
+      "queue_state": "WATCH",
+      "readiness_state": "QUALIFICATION_VERIFY",
+      "priority_rationale": [
+        "Hangzhou plus AI/product evaluation creates career value.",
+        "E-commerce/merchant/conversion experience and SQL remain evidence gaps.",
+        "Internship duration/attendance is a live qualification gate."
+      ],
+      "next_human_action": "VERIFY_INTERNSHIP_TIMING_AND_SQL_THRESHOLD",
+      "job_quality": {
+        "job_quality_fit": "UNKNOWN"
+      },
+      "external_action": false
+    },
+    {
+      "candidate_id": "Kuaishou:32370",
+      "route": "WATCH_VERIFY",
+      "lane": "NONE",
+      "queue_state": "WATCH",
+      "readiness_state": "LOW_PRIORITY_QUALIFICATION_VERIFY",
+      "priority_rationale": [
+        "Hangzhou is positive but does not override fit gaps.",
+        "Core work emphasizes growth metrics, A/B experiments and algorithm strategy validation.",
+        "Current evidence is materially stronger in qualitative product/research judgment than quantitative growth analytics."
+      ],
+      "next_human_action": "VERIFY_RECRUITMENT_NATURE_AND_ANALYTICS_BAR",
+      "job_quality": {
+        "job_quality_fit": "UNKNOWN"
+      },
+      "external_action": false
+    },
+    {
+      "candidate_id": "Kuaishou:31011",
+      "route": "WATCH_VERIFY",
+      "lane": "NONE",
+      "queue_state": "WATCH",
+      "readiness_state": "QUALIFICATION_AND_VALUE_VERIFY",
+      "priority_rationale": [
+        "User/social/AI product duties have transferable evidence.",
+        "Internship timing is unresolved.",
+        "Beijing has not been justified as a high-value exception over current priorities."
+      ],
+      "next_human_action": "VERIFY_INTERNSHIP_ROUTE_BEFORE_FURTHER_ANALYSIS",
+      "job_quality": {
+        "job_quality_fit": "UNKNOWN"
+      },
+      "external_action": false
+    },
+    {
+      "candidate_id": "Kuaishou:26468",
+      "route": "WATCH_VERIFY",
+      "lane": "NONE",
+      "queue_state": "WATCH",
+      "readiness_state": "LOW_PRIORITY_VERIFY",
+      "priority_rationale": [
+        "General user-product discovery transfers partially.",
+        "Role has weaker distinctive Human-AI/workflow overlap.",
+        "Beijing practical fit is lower."
+      ],
+      "next_human_action": "KEEP_AS_LOW_PRIORITY_COMPARISON",
+      "job_quality": {
+        "job_quality_fit": "UNKNOWN"
+      },
+      "external_action": false
+    },
+    {
+      "candidate_id": "Kuaishou:29853",
+      "route": "WATCH_VERIFY",
+      "lane": "NONE",
+      "queue_state": "WATCH",
+      "readiness_state": "EXPERIENCE_GATE_VERIFY",
+      "priority_rationale": [
+        "JD explicitly asks for 1+ years user-product experience.",
+        "Do not equate academic/project work with formal product employment without employer scope.",
+        "Beijing practical fit is lower and search/growth ownership is not directly evidenced."
+      ],
+      "next_human_action": "VERIFY_MEANING_OF_ONE_YEAR_PRODUCT_EXPERIENCE",
+      "job_quality": {
+        "job_quality_fit": "UNKNOWN"
+      },
+      "external_action": false
+    }
+  ],
+  "continuity_notes": [
+    "Existing Kuaishou campus target 13299 remains the current primary Kuaishou pursuit unless Human review changes it.",
+    "The one-active-application constraint is preserved at its original campus scope; applicability to current social/intern roles remains VERIFY."
+  ],
+  "boundary": {
+    "application": false,
+    "canonical_write": false,
+    "cv_edit": false,
+    "portfolio_edit": false,
+    "login": false,
+    "upload": false,
+    "external_contact": false
+  }
+}

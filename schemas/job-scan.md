@@ -59,6 +59,30 @@ Optional runtime fields:
   - default UNKNOWN unless supported by vacancy evidence
 - screening.final_fit_decision = false
 
+## Review packet bridge
+
+Optional downstream review-packet fields:
+
+- role_key
+- review_state
+  - EXISTING_POOL_CONTINUITY
+  - SOURCE_VERIFY_FIRST
+  - QUALIFICATION_REVIEW_REQUIRED
+  - READY_FOR_JOB_ANALYSIS
+- next_step
+- job_identity
+- source
+- job_text
+- scan_screening
+- qualification_gate
+- candidate_context
+- preference_context
+- company_constraints
+- existing_role
+- analysis_contract
+
+The bridge is non-semantic: it may expose visible gate markers, but it does not decide final Capability Fit, Qualification, Job Quality or application route. Existing exact roles reuse current Career state.
+
 ## Routing
 
 Allowed routes:

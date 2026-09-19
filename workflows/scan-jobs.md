@@ -50,7 +50,8 @@ Optional:
    - Preference Fit
    - Job Quality
    - Interview Process Risk
-7. Route candidate after Career Intelligence review.
+7. Build exact-role review packets with the [scan review bridge](../scripts/job_scan_review_bridge.py). Existing exact roles become continuity packets rather than duplicates; visible internship/experience/language/quant gates are surfaced before high-effort analysis.
+8. Send only bounded new candidates into `/analyse-job`; roles already in the Application Pool reuse their existing state. Route only after Career Intelligence review.
 
 ## Output
 
@@ -62,7 +63,7 @@ Return a deduplicated Candidate Pool. The batch runtime may add non-final screen
 - DEPRIORITIZE
 - CLOSE
 
-These are triage states, not final Fit or application decisions.
+These are triage states, not final Fit or application decisions. The downstream review bridge emits `EXISTING_POOL_CONTINUITY`, `SOURCE_VERIFY_FIRST`, `QUALIFICATION_REVIEW_REQUIRED` or `READY_FOR_JOB_ANALYSIS`; none is an application authorization.
 
 Allowed Career Intelligence routes:
 
