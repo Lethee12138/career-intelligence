@@ -21,6 +21,36 @@ Human review remains required before external action.
 
 ## Core operations
 
+### scan_and_review()
+
+Purpose:
+
+Provide the ChatGPT/agent-facing high-level operation for one bounded scan cycle.
+
+Reference implementation:
+
+`scripts/career_scan.py`
+
+Input:
+
+- ephemeral scan configuration
+- ephemeral Career context referencing existing owners
+- optional current exact-role records / constraints
+
+Execution:
+
+`public discovery → official verification → dedupe → transparent triage → exact-role review packets`
+
+Output:
+
+- compact summary
+- Candidate Pool
+- review packets
+- exact-role continuity markers
+- qualification/source gates
+- Human Review boundary
+
+This operation MUST NOT turn triage into final Fit, persist Career state, edit CV/Portfolio materials or perform an application. MCP implementations should wrap the same Core logic rather than reimplementing a parallel scanner.
 
 ### search_public_jobs()
 

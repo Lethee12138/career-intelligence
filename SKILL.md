@@ -3,7 +3,7 @@ name: career-intelligence
 description: Help with career direction, live public job scanning, job discovery and search plans, JD fit analysis, candidate-batch prioritization, application preparation, offer quality and work-right or sponsorship questions. Use for natural-language career requests and /position, /discover, /find-jobs, /scan-jobs, /route-jobs, /analyse-job, /prepare-application. Do not use for unrelated writing or general chat.
 ---
 
-# Career Intelligence v0.2.3 — UK Residence and Work-territory Feasibility Fix
+# Career Intelligence v0.2.4 — Live Scan Review Entrypoint
 
 Portable, agent-executed positioning, discovery, analysis and preparation. Inputs are read-only references to the existing Career owners. Outputs are review candidates, never a new Evidence Bank, CV Base lifecycle or application tracker.
 
@@ -16,7 +16,7 @@ Load this entrypoint and the selected workflow, then only the shared rules and r
 - `/position`: follow [position](workflows/position.md); no JD required.
 - `/discover`: follow [discover](workflows/discover.md); no exact title or live search required.
 - `/find-jobs`: follow [find-jobs](workflows/find-jobs.md); generate a portable external search handoff.
-- `/scan-jobs`: follow [scan-jobs](workflows/scan-jobs.md) with [job-scanning rules](rules/job-scanning.md) and [job-scan schema](schemas/job-scan.md); perform bounded, on-demand public vacancy scanning through an available read-only executor.
+- `/scan-jobs`: follow [scan-jobs](workflows/scan-jobs.md) with [job-scanning rules](rules/job-scanning.md) and [job-scan schema](schemas/job-scan.md); perform bounded, on-demand public vacancy scanning through an available read-only executor. When this package's local Python executor is available, prefer the one-shot [career scan entrypoint](scripts/career_scan.py) so one invocation produces both the Candidate Pool and exact-role Career review packets.
 - `/route-jobs`: follow [route-jobs](workflows/route-jobs.md); intake candidates and propose bounded pool lanes.
 - For positioning/discovery also load [discovery rules](rules/discovery.md) and their linked capability/role contracts.
 
@@ -33,7 +33,7 @@ Explicit current user instructions override default Skill workflow preferences u
 - Offer pay/work-life quality → relevant Job Quality and market-calibration rules; use /analyse-job for the supplied role context, without inventing a new workflow.
 - UK visa/work-right/sponsorship → eligibility and global-market rules plus the dated UK guide as context; current authority verification is still necessary for current legal conclusions.
 
-This skill is scoped to career planning, discovery/search planning, job analysis, application preparation, quality and eligibility. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
+This skill is scoped to career planning, discovery/search planning, live public scanning, job analysis, application preparation, quality and eligibility. For `/scan-jobs`, an agent may build ephemeral scan-config and Career-context JSON from the current request plus existing owners, then call `python3 scripts/career_scan.py --scan-config <temp> --career-context <temp> --output <review-artifact>`. Ephemeral execution inputs are not new Career owners and should not contain unnecessary personal data. If no compatible executor exists, degrade to `/find-jobs` or a bounded handoff rather than pretending a live scan ran. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
 
 ## Mandatory shared rules
 

@@ -15,4 +15,4 @@ Treat ../../SKILL.md as the single source of truth for routing, evidence rules, 
 
 Do not duplicate or reinterpret the canonical rules here. Resolve the canonical entrypoint's relative links from the plugin root package directory.
 
-For natural-language requests, use the canonical routing rules so requests such as “帮我看看这个岗位”, “帮我找现在能投的岗位”, “这几个岗位先投哪个”, and “帮我准备这个申请” automatically select the appropriate workflow without requiring the user to name a slash command.
+For natural-language requests, use the canonical routing rules so requests such as “帮我看看这个岗位”, “帮我找现在能投的岗位”, “扫描一下最近开放岗位”, “这几个岗位先投哪个”, and “帮我准备这个申请” automatically select the appropriate workflow without requiring the user to name a slash command. When the canonical `/scan-jobs` workflow has a compatible local executor, use its one-shot scan entrypoint rather than manually chaining the lower-level scan and review scripts.
