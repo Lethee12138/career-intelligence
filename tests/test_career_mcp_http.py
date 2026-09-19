@@ -90,6 +90,17 @@ class CareerMcpHttpTests(unittest.TestCase):
         for tool in tools:
             self.assertTrue(tool["annotations"]["readOnlyHint"])
             self.assertFalse(tool["annotations"]["destructiveHint"])
+            self.assertIn("outputSchema", tool)
+
+        scan_tool = next(tool for tool in tools if tool["name"] == "career.scan_and_review")
+        properties = scan_tool["inputSchema"]["properties"]
+        self.assertIn("useConfiguredSources", properties)
+        self.assertIn("scanConfig", properties)
+        self.assertNotIn("scanConfig", scan_tool["inputSchema"].get("required", []))
+        source_props = properties["scanConfig"]["properties"]["sources"]["items"]["properties"]
+        self.assertIn("adapter", source_props)
+        self.assertIn("mode", source_props)
+        self.assertIn("url", source_props)
 
     def test_server_info_is_stateless_and_non_persistent(self):
         response = _mcp_post(
@@ -110,7 +121,7 @@ class CareerMcpHttpTests(unittest.TestCase):
         self.assertFalse(value["application"])
         self.assertFalse(value["canonicalWrite"])
 
-    def test_scan_tool_composes_core_without_network_for_empty_source_set(self):
+    def test_scan_tool_rejects_missing_config_when_default_is_disabled(self):
         response = _mcp_post(
             self.port,
             {
@@ -120,27 +131,17 @@ class CareerMcpHttpTests(unittest.TestCase):
                 "params": {
                     "name": "career.scan_and_review",
                     "arguments": {
-                        "scanConfig": {
-                            "scan_id": "mcp-empty",
-                            "sources": [],
-                        },
-                        "careerContext": {
-                            "candidate_context": {
-                                "new_ssot": False,
-                                "as_of": "2026-09-19",
-                            }
-                        },
+                        "useConfiguredSources": False,
+                        "careerContext": {},
                         "detailLevel": "summary",
                     },
                 },
             },
         )
-        value = response["result"]["structuredContent"]
-        self.assertEqual(value["scan_id"], "mcp-empty")
-        self.assertEqual(value["raw_record_count"], 0)
-        self.assertEqual(value["review_packet_count"], 0)
-        self.assertFalse(value["external_action"])
-        self.assertTrue(value["human_review_required"])
+        result = response["result"]
+        self.assertTrue(result["isError"])
+        text = result["content"][0]["text"]
+        self.assertIn("scanConfig is required", text)
 
 
 if __name__ == "__main__":

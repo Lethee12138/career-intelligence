@@ -1,0 +1,33 @@
+{
+  "preset_id": "CURRENT_CONFIGURED_SOURCES_V01",
+  "profile": {
+    "preferred_locations": ["杭州", "Hangzhou", "南京", "Nanjing", "苏州", "Suzhou", "广州", "Guangzhou", "上海", "Shanghai", "深圳", "Shenzhen", "深圳总部"],
+    "deprioritized_locations": ["北京", "Beijing"],
+    "role_terms": ["产品经理", "Product Manager", "用户研究", "User Research", "AI", "人工智能", "智能"],
+    "capability_terms": ["用户研究", "user research", "工作流", "workflow", "原型", "prototype", "AI", "人机", "访谈", "interview", "可用性", "usability", "产品设计", "product design", "策略", "strategy"],
+    "risk_terms": ["销售", "客户拓展", "拉客户", "business development", "sales target", "sales quota", "业绩指标"],
+    "student_terms": ["应届", "在读", "实习", "graduate", "intern", "student"],
+    "max_experience_years": 1
+  },
+  "sources": [
+    {
+      "adapter": "sap",
+      "mode": "discover",
+      "url": "https://jobs.sap.com/search/?q=Product&locationsearch=China",
+      "limit": 10,
+      "verify_limit": 5
+    },
+    {
+      "adapter": "kuaishou",
+      "mode": "discover",
+      "url": "https://zhaopin.kuaishou.cn/recruit/e/",
+      "query": "用户产品经理",
+      "location": "domestic",
+      "limit": 12,
+      "verify_limit": 10
+    }
+  ],
+  "dynamic_sources": {
+    "existing_tencent_roles": true
+  }
+}

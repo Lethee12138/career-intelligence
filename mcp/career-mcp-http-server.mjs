@@ -50,8 +50,16 @@ const asToolError = (reason, detail = undefined) => ({
   }],
 });
 
-const runCareerScan = ({ scanConfig, careerContext }) => new Promise((resolvePromise, rejectPromise) => {
-  const payload = JSON.stringify({ scanConfig, careerContext });
+const runCareerScan = ({
+  scanConfig,
+  careerContext,
+  useConfiguredSources,
+}) => new Promise((resolvePromise, rejectPromise) => {
+  const payload = JSON.stringify({
+    scanConfig: scanConfig ?? null,
+    careerContext,
+    useConfiguredSources,
+  });
   if (Buffer.byteLength(payload, "utf8") > MAX_INPUT_BYTES) {
     rejectPromise(new Error("input-too-large"));
     return;
@@ -61,7 +69,7 @@ const runCareerScan = ({ scanConfig, careerContext }) => new Promise((resolvePro
     "import json,sys",
     "from scripts.career_scan import run_scan_review",
     "p=json.load(sys.stdin)",
-    "r=run_scan_review(p['scanConfig'],p['careerContext'])",
+    "r=run_scan_review(p.get('scanConfig'),p.get('careerContext') or {},use_configured_sources=p.get('useConfiguredSources',True))",
     "print(json.dumps(r,ensure_ascii=False))",
   ].join(";");
 
@@ -118,19 +126,113 @@ const runCareerScan = ({ scanConfig, careerContext }) => new Promise((resolvePro
 });
 
 const trimResult = (result, detailLevel) => {
-  if (detailLevel === "summary") return result.summary;
-  if (detailLevel === "review") {
-    return {
-      summary: result.summary,
-      review: result.review,
-      boundary: result.boundary,
-    };
+  const visible = {
+    schema_version: result.schema_version,
+    operation: result.operation,
+    candidate_status: result.candidate_status,
+    scan_config_source: result.scan_config_source,
+    summary: result.summary,
+    boundary: result.boundary,
+  };
+  if (detailLevel === "review" || detailLevel === "full") {
+    visible.review = result.review;
   }
-  return result;
+  if (detailLevel === "full") {
+    visible.scan = result.scan;
+  }
+  return visible;
 };
+
+const scanSourceSchema = z.object({
+  adapter: z.enum(["sap", "tencent", "kuaishou"]),
+  mode: z.enum(["discover", "detail"]).default("discover"),
+  url: z.string().url().optional(),
+  urls: z.array(z.string().url()).optional(),
+  query: z.string().optional(),
+  location: z.string().optional(),
+  company: z.string().optional(),
+  limit: z.number().int().min(0).max(100).optional(),
+  verify_limit: z.number().int().min(0).max(100).optional(),
+});
+
+const scanProfileSchema = z.object({
+  preferred_locations: z.array(z.string()).optional(),
+  deprioritized_locations: z.array(z.string()).optional(),
+  role_terms: z.array(z.string()).optional(),
+  capability_terms: z.array(z.string()).optional(),
+  risk_terms: z.array(z.string()).optional(),
+  student_terms: z.array(z.string()).optional(),
+  max_experience_years: z.number().int().min(0).max(20).optional(),
+});
+
+const customScanConfigSchema = z.object({
+  scan_id: z.string().optional(),
+  profile: scanProfileSchema.optional(),
+  sources: z.array(scanSourceSchema).min(1),
+});
+
+const careerContextSchema = z.object({
+  review_states: z.array(
+    z.enum(["REVIEW_PRIORITY", "REVIEW", "VERIFY", "DEPRIORITIZE", "CLOSE"]),
+  ).optional(),
+  candidate_context: z.record(z.string(), z.unknown()).optional(),
+  preference_context: z.record(z.string(), z.unknown()).optional(),
+  existing_roles: z.array(z.record(z.string(), z.unknown())).optional(),
+  company_constraints: z.record(
+    z.string(),
+    z.array(z.record(z.string(), z.unknown())),
+  ).optional(),
+}).passthrough();
+
+const scanSummarySchema = z.object({
+  scan_id: z.string().nullable().optional(),
+  captured_at: z.string().nullable().optional(),
+  source_results: z.array(z.record(z.string(), z.unknown())).optional(),
+  raw_record_count: z.number().int().nonnegative(),
+  deduped_count: z.number().int().nonnegative(),
+  screening_counts: z.record(z.string(), z.number().int().nonnegative()),
+  review_packet_count: z.number().int().nonnegative(),
+  review_state_counts: z.record(z.string(), z.number().int().nonnegative()),
+  review_priority_candidates: z.array(z.record(z.string(), z.unknown())),
+  external_action: z.boolean(),
+  human_review_required: z.boolean(),
+});
+
+const scanOutputSchema = z.object({
+  schema_version: z.string(),
+  operation: z.literal("SCAN_AND_REVIEW"),
+  candidate_status: z.string(),
+  scan_config_source: z.enum(["CURRENT_CONFIGURED_SOURCES", "CALLER_SUPPLIED"]),
+  summary: scanSummarySchema,
+  review: z.record(z.string(), z.unknown()).optional(),
+  scan: z.record(z.string(), z.unknown()).optional(),
+  boundary: z.object({
+    read_only_public_sources: z.boolean(),
+    canonical_write: z.boolean(),
+    application: z.boolean(),
+    login: z.boolean(),
+    upload: z.boolean(),
+    external_contact: z.boolean(),
+    cv_edit: z.boolean(),
+    portfolio_edit: z.boolean(),
+  }),
+});
+
+const serverInfoOutputSchema = z.object({
+  service: z.string(),
+  version: z.string(),
+  stateless: z.boolean(),
+  persistence: z.boolean(),
+  supportedAdapters: z.record(z.string(), z.string()),
+  configuredSourcePreset: z.string(),
+  externalAction: z.boolean(),
+  application: z.boolean(),
+  canonicalWrite: z.boolean(),
+});
+
 export const createCareerMcpServer = () => {
   const server = new McpServer(
-    { name: "career-intelligence-remote", version: "0.2.5" },
+    { name: "career-intelligence-remote", version: "0.2.6" },
     {
       instructions:
         "Read-only Career Intelligence job scanning. Use career.scan_and_review for bounded public vacancy scanning and exact-role review packets. Never treat triage as final Fit or submission authority. The server is stateless and does not persist Career context.",
@@ -145,6 +247,7 @@ export const createCareerMcpServer = () => {
       description:
         "Return read-only runtime boundaries and supported official source adapters. No personal Career context is read or stored.",
       inputSchema: z.object({}),
+      outputSchema: serverInfoOutputSchema,
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -154,7 +257,7 @@ export const createCareerMcpServer = () => {
     },
     async () => asToolResult({
       service: "career-intelligence-remote",
-      version: "0.2.5",
+      version: "0.2.6",
       stateless: true,
       persistence: false,
       supportedAdapters: {
@@ -162,6 +265,7 @@ export const createCareerMcpServer = () => {
         tencent: "detail",
         kuaishou: "social-discovery-and-detail",
       },
+      configuredSourcePreset: "CURRENT_CONFIGURED_SOURCES_V01",
       externalAction: false,
       application: false,
       canonicalWrite: false,
@@ -172,12 +276,14 @@ export const createCareerMcpServer = () => {
     {
       title: "Scan public jobs and create Career review packets",
       description:
-        "Run one bounded read-only scan cycle: official public discovery/verification, dedupe, transparent triage, exact-role continuity and qualification/source gates. Personal context is request-scoped and never persisted. This tool does not apply, log in, upload, edit CV/Portfolio, or write Career canonical state.",
+        "Run one bounded read-only scan cycle. Normally omit scanConfig and leave useConfiguredSources=true: Career MCP will use its current configured official sources directly. Supply scanConfig only for an intentional custom-source scan. The tool verifies official public sources, dedupes, triages, preserves exact-role continuity and surfaces qualification/source gates. Personal context is request-scoped and never persisted. It does not apply, log in, upload, edit CV/Portfolio, or write Career canonical state.",
       inputSchema: z.object({
-        scanConfig: z.record(z.string(), z.unknown()),
-        careerContext: z.record(z.string(), z.unknown()),
+        useConfiguredSources: z.boolean().default(true),
+        scanConfig: customScanConfigSchema.optional(),
+        careerContext: careerContextSchema.default({}),
         detailLevel: z.enum(["summary", "review", "full"]).default("review"),
       }),
+      outputSchema: scanOutputSchema,
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -185,9 +291,18 @@ export const createCareerMcpServer = () => {
         openWorldHint: true,
       },
     },
-    async ({ scanConfig, careerContext, detailLevel }) => {
+    async ({
+      useConfiguredSources,
+      scanConfig,
+      careerContext,
+      detailLevel,
+    }) => {
       try {
-        const result = await runCareerScan({ scanConfig, careerContext });
+        const result = await runCareerScan({
+          scanConfig,
+          careerContext,
+          useConfiguredSources,
+        });
         return asToolResult(trimResult(result, detailLevel));
       } catch (error) {
         return asToolError(
@@ -257,7 +372,7 @@ export const startCareerMcpHttpServer = async ({
         response.end(JSON.stringify({
           ok: true,
           service: "career-intelligence-remote",
-          version: "0.2.5",
+          version: "0.2.6",
           stateless: true,
         }));
         return;

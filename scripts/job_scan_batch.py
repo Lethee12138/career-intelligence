@@ -27,6 +27,48 @@ SCREENING_ORDER = {
 }
 
 
+class ScanConfigError(ValueError):
+    """Raised when a caller supplies an invalid scan contract."""
+
+
+def validate_scan_config(config: dict[str, Any]) -> None:
+    if not isinstance(config, dict):
+        raise ScanConfigError("scanConfig must be an object")
+    sources = config.get("sources")
+    if not isinstance(sources, list) or not sources:
+        raise ScanConfigError(
+            "scanConfig.sources must be a non-empty array; omit scanConfig to use configured sources"
+        )
+    for index, source in enumerate(sources):
+        prefix = f"scanConfig.sources[{index}]"
+        if not isinstance(source, dict):
+            raise ScanConfigError(f"{prefix} must be an object")
+        adapter = source.get("adapter")
+        if adapter not in source_runtime.ADAPTERS:
+            raise ScanConfigError(
+                f"{prefix}.adapter must be one of: {', '.join(sorted(source_runtime.ADAPTERS))}"
+            )
+        mode = source.get("mode", "discover")
+        if mode not in {"discover", "detail"}:
+            raise ScanConfigError(f"{prefix}.mode must be discover or detail")
+        if mode == "discover" and not source.get("url"):
+            raise ScanConfigError(f"{prefix}.url is required for discover mode")
+        if mode == "detail":
+            urls = source.get("urls")
+            if not source.get("url") and not (
+                isinstance(urls, list) and any(str(item).strip() for item in urls)
+            ):
+                raise ScanConfigError(
+                    f"{prefix} requires url or non-empty urls for detail mode"
+                )
+        for field in ("limit", "verify_limit"):
+            if field not in source:
+                continue
+            value = source[field]
+            if not isinstance(value, int) or isinstance(value, bool) or value < 0 or value > 100:
+                raise ScanConfigError(f"{prefix}.{field} must be an integer from 0 to 100")
+
+
 def _text(value: Any) -> str:
     if value is None:
         return ""
@@ -282,6 +324,7 @@ def _detail_source(source: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def run_batch(config: dict[str, Any]) -> dict[str, Any]:
+    validate_scan_config(config)
     profile = config.get("profile") or {}
     records: list[dict[str, Any]] = []
     source_results: list[dict[str, Any]] = []

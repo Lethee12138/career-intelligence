@@ -3,7 +3,7 @@ name: career-intelligence
 description: Help with career direction, live public job scanning, job discovery and search plans, JD fit analysis, candidate-batch prioritization, application preparation, offer quality and work-right or sponsorship questions. Use for natural-language career requests and /position, /discover, /find-jobs, /scan-jobs, /route-jobs, /analyse-job, /prepare-application. Do not use for unrelated writing or general chat.
 ---
 
-# Career Intelligence v0.2.5 — Private Remote MCP Surface
+# Career Intelligence v0.2.6 — Configured Scan Contract
 
 Portable, agent-executed positioning, discovery, analysis and preparation. Inputs are read-only references to the existing Career owners. Outputs are review candidates, never a new Evidence Bank, CV Base lifecycle or application tracker.
 
@@ -33,7 +33,7 @@ Explicit current user instructions override default Skill workflow preferences u
 - Offer pay/work-life quality → relevant Job Quality and market-calibration rules; use /analyse-job for the supplied role context, without inventing a new workflow.
 - UK visa/work-right/sponsorship → eligibility and global-market rules plus the dated UK guide as context; current authority verification is still necessary for current legal conclusions.
 
-This skill is scoped to career planning, discovery/search planning, live public scanning, job analysis, application preparation, quality and eligibility. For `/scan-jobs`, an agent may build ephemeral scan-config and Career-context JSON from the current request plus existing owners, then call `python3 scripts/career_scan.py --scan-config <temp> --career-context <temp> --output <review-artifact>`. Ephemeral execution inputs are not new Career owners and should not contain unnecessary personal data. If no compatible executor exists, degrade to `/find-jobs` or a bounded handoff rather than pretending a live scan ran. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
+This skill is scoped to career planning, discovery/search planning, live public scanning, job analysis, application preparation, quality and eligibility. For the normal `/scan-jobs` request, use the current configured source preset and pass only request-scoped Career context; do not reconstruct source adapters or URLs in the calling model. A custom `scanConfig` is only for an intentional source override and must follow the advertised MCP schema. Ephemeral Career context is not a new Career owner and should not contain unnecessary personal data. If no compatible executor exists, degrade to `/find-jobs` or a bounded handoff rather than pretending a live scan ran. Ordinary birthday greetings or unrelated chat need no Career workflow. Resolve links relative to this skill directory, including when loaded through an installed directory symlink. Historical external source paths are provenance only; imported market references are local resources. Missing real personal evidence remains a disclosed limitation.
 
 ## Mandatory shared rules
 

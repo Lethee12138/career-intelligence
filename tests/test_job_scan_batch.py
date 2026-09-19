@@ -2,10 +2,12 @@ import unittest
 from unittest.mock import patch
 
 from scripts.job_scan_batch import (
+    ScanConfigError,
     candidate_identity,
     dedupe_candidates,
     run_batch,
     screen_record,
+    validate_scan_config,
 )
 
 
@@ -20,6 +22,27 @@ PROFILE = {
 
 
 class JobScanBatchTests(unittest.TestCase):
+    def test_invalid_custom_source_contract_fails_with_descriptive_error(self):
+        with self.assertRaisesRegex(
+            ScanConfigError, r"sources\[0\]\.adapter must be one of"
+        ):
+            validate_scan_config(
+                {
+                    "sources": [
+                        {
+                            "mode": "discover",
+                            "url": "https://example.com/jobs",
+                        }
+                    ]
+                }
+            )
+
+    def test_empty_custom_sources_explains_configured_source_path(self):
+        with self.assertRaisesRegex(
+            ScanConfigError, "omit scanConfig to use configured sources"
+        ):
+            validate_scan_config({"sources": []})
+
     def test_identity_prefers_company_and_external_job_id(self):
         row = {"company": "Kuaishou", "external_job_id": "31523"}
         self.assertEqual(

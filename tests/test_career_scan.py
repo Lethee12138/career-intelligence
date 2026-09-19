@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.career_scan import build_summary, run_scan_review
+from scripts.career_scan import build_summary, resolve_scan_config, run_scan_review
 
 
 class CareerScanEntrypointTests(unittest.TestCase):
@@ -69,46 +69,35 @@ class CareerScanEntrypointTests(unittest.TestCase):
         run_batch_mock.assert_called_once()
         review_mock.assert_called_once()
 
-    def test_direct_cli_smoke_with_empty_sources(self):
-        root = Path(__file__).resolve().parents[1]
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp = Path(tmp)
-            scan = tmp / "scan.json"
-            context = tmp / "context.json"
-            output = tmp / "output.json"
-            scan.write_text(json.dumps({"scan_id": "cli-smoke", "sources": []}))
-            context.write_text(
-                json.dumps(
-                    {
-                        "candidate_context": {
-                            "new_ssot": False,
-                            "as_of": "2026-09-19",
-                        }
-                    }
-                )
-            )
-            completed = subprocess.run(
-                [
-                    "python3",
-                    "scripts/career_scan.py",
-                    "--scan-config",
-                    str(scan),
-                    "--career-context",
-                    str(context),
-                    "--output",
-                    str(output),
-                    "--summary-only",
-                ],
-                cwd=root,
-                check=True,
-                capture_output=True,
-                text=True,
-            )
-            visible = json.loads(completed.stdout)
-            full = json.loads(output.read_text())
-        self.assertEqual(visible["scan_id"], "cli-smoke")
-        self.assertEqual(full["operation"], "SCAN_AND_REVIEW")
-        self.assertFalse(full["boundary"]["application"])
+    def test_configured_sources_are_resolved_without_caller_scan_schema(self):
+        context = {
+            "existing_roles": [
+                {
+                    "company": "Tencent",
+                    "external_job_id": "1283878533483275264",
+                }
+            ]
+        }
+        config = resolve_scan_config(None, context)
+        adapters = [source["adapter"] for source in config["sources"]]
+        self.assertIn("sap", adapters)
+        self.assertIn("kuaishou", adapters)
+        self.assertIn("tencent", adapters)
+        tencent = next(source for source in config["sources"] if source["adapter"] == "tencent")
+        self.assertIn("1283878533483275264", tencent["urls"][0])
+
+    def test_custom_scan_config_is_preserved_for_intentional_override(self):
+        custom = {
+            "scan_id": "custom",
+            "sources": [
+                {
+                    "adapter": "sap",
+                    "mode": "discover",
+                    "url": "https://jobs.sap.com/search/",
+                }
+            ],
+        }
+        self.assertEqual(resolve_scan_config(custom, {}), custom)
 
     def test_plugin_surface_points_to_one_shot_entrypoint(self):
         root = Path(__file__).resolve().parents[1]
@@ -119,7 +108,7 @@ class CareerScanEntrypointTests(unittest.TestCase):
         self.assertIn("scripts/career_scan.py", canonical)
         self.assertIn("one-shot scan entrypoint", plugin)
         self.assertIn("scan_and_review()", contract)
-        self.assertEqual(manifest["version"], "0.2.5")
+        self.assertEqual(manifest["version"], "0.2.6")
 
     def test_boundary_explicitly_blocks_material_actions(self):
         with patch("scripts.career_scan.run_batch") as scan_mock, patch(

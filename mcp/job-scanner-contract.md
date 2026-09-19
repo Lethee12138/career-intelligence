@@ -37,9 +37,13 @@ The MCP server binds only to `127.0.0.1:8797` and is stateless. Personal Career 
 
 Input:
 
-- ephemeral scan configuration
+- `useConfiguredSources=true` by default
+- omit `scanConfig` for the current configured source preset
+- optional explicit, schema-validated custom `scanConfig` only for intentional source overrides
 - ephemeral Career context referencing existing owners
 - optional current exact-role records / constraints
+
+The MCP surface must advertise concrete custom-source fields (`adapter`, `mode`, `url` / `urls`, optional query/location and bounded limits) plus a stable output schema. Invalid custom input returns a descriptive contract error; raw `KeyError` or other implementation exceptions are not part of the public contract.
 
 Execution:
 
