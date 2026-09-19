@@ -44,6 +44,16 @@ Do not automatically reject:
 - user interviews
 - cross-functional collaboration
 
+## First-pass screening boundary
+
+The multi-source batch may triage verified and unverified vacancies for review. It must not fabricate a fit percentage or treat keyword matching as a final assessment.
+
+- `REVIEW_PRIORITY` means several configured scan signals are present.
+- `DEPRIORITIZE` is reversible and must preserve the exact reason.
+- `VERIFY` means source/status uncertainty comes first.
+- Explicit experience requirements may be surfaced as a gap signal only against a configured early-career bound.
+- Job Quality stays `UNKNOWN` when the public vacancy does not establish pay, workload, leave, management quality, or stability.
+
 ## External Action Boundary
 
 Scanning creates candidates only. Human review remains required before application actions.
