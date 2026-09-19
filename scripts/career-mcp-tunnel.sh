@@ -65,17 +65,21 @@ init_profile() {
   printf 'Career Tunnel profile ready: %s/%s.yaml\n' "$PROFILE_DIR" "$PROFILE_NAME"
 }
 
+check_existing_profile() {
+  [[ -f "$PROFILE_DIR/$PROFILE_NAME.yaml" ]] || fail "Career Tunnel profile is not initialized."
+}
+
 doctor_profile() {
   check_binary
   check_local_mcp
-  check_tunnel_inputs
+  check_existing_profile
   "$TUNNEL_BIN" doctor     --profile-dir "$PROFILE_DIR"     --profile "$PROFILE_NAME"     --explain
 }
 
 run_tunnel() {
   check_binary
   check_local_mcp
-  check_tunnel_inputs
+  check_existing_profile
   "$TUNNEL_BIN" run     --profile-dir "$PROFILE_DIR"     --profile "$PROFILE_NAME"
 }
 
