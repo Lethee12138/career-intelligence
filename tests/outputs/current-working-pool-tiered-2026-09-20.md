@@ -137,3 +137,13 @@ The weaker-but-still-plausible clusters are:
 - finance / industrial routes where day-to-day interest and domain fit are less certain
 
 No Tier is an application decision. Tier 1 means “worth serious attention now,” not “apply automatically.”
+
+## Reality-gate correction — 2026-09-20
+
+The deeper verification pass changes three working-pool interpretations without changing canonical Career state:
+
+1. **Hehe Information C-end AI Product Manager J14434** is added as a Tier 1 candidate and is currently the stronger Hehe variant for this candidate because it is C-end, major-unrestricted, explicitly accepts news/communication-adjacent backgrounds as preferred, and combines AI product experience with user research, prototype/PRD, data iteration and product narrative.
+2. **Richinfo AI Product Manager (LLM/Agent)** is no longer a source-gap lead. An exact current role was captured for Hangzhou / Guangzhou / Shenzhen / Beijing / Chengdu. Qualification remains VERIFY on whether Digital Media Innovation is accepted as a related major.
+3. **37 Interactive HR AI Product Manager** is confirmed as a 2027 campus role. Do not confuse it with the separate social-hire AI Product Manager requiring 5+ years of experience.
+
+See tier1-reality-gates-2026-09-20.md for the current qualification, application-constraint and process review.
