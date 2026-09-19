@@ -91,8 +91,15 @@ stop_service() {
 }
 
 restart_service() {
-  stop_service
-  start_service
+  validate_runtime
+  [[ -f "$PLIST_PATH" ]] || fail "Career MCP LaunchAgent is not installed."
+  if is_loaded; then
+    /bin/launchctl bootout "$SERVICE_TARGET"
+    /bin/sleep 0.5
+  fi
+  /bin/launchctl bootstrap "$DOMAIN" "$PLIST_PATH"
+  wait_healthy || fail "Career MCP restart failed health check."
+  printf '%s\n' "Career MCP restarted."
 }
 
 status_service() {

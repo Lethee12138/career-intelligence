@@ -76,8 +76,12 @@ stop_service() {
 }
 
 restart_service() {
-  stop_service
+  validate_runtime
   [[ -f "$PLIST_PATH" ]] || fail "Career Tunnel LaunchAgent is not installed."
+  if is_loaded; then
+    /bin/launchctl bootout "$SERVICE_TARGET"
+    /bin/sleep 0.5
+  fi
   /bin/launchctl bootstrap "$DOMAIN" "$PLIST_PATH"
   /bin/sleep 2
   is_loaded || fail "Career Tunnel restart failed."
