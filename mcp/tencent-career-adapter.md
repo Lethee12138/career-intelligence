@@ -1,4 +1,4 @@
-# Tencent Career Adapter Blueprint
+# Tencent Career Adapter
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Map Tencent official recruitment sources into the common official source runtime
 
 ## Current Stage
 
-Mapped to the common runtime. The verified official host is `join.qq.com`; a Tencent-specific live parser is not enabled yet. No application action.
+Live detail verification is active on the verified official host `join.qq.com`. The adapter resolves a public post-detail URL to Tencent's public read-only job-detail JSON API. Broad Tencent vacancy discovery is not enabled yet. No application action.
 
 ## Expected Fields
 

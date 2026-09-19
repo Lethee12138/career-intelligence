@@ -6,15 +6,17 @@ facts. It never logs in, submits applications, uploads files, or decides fit.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import hmac
 import html
 import ipaddress
 import json
 import re
-import socket
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qs, quote_plus, urlencode, urljoin, urlparse
 from urllib.request import Request, urlopen
 
 
@@ -32,10 +34,16 @@ class AdapterSpec:
 
 ADAPTERS = {
     "sap": AdapterSpec("sap", "SAP", ("jobs.sap.com", "careers.sap.com")),
-    "tencent": AdapterSpec("tencent", "Tencent", ("join.qq.com",), "MAPPED"),
-    # Kuaishou's official recruitment host is verified; a site-specific parser
-    # remains disabled until its public page structure is mapped.
-    "kuaishou": AdapterSpec("kuaishou", "Kuaishou", ("zhaopin.kuaishou.cn",), "MAPPED"),
+    "tencent": AdapterSpec("tencent", "Tencent", ("join.qq.com",), "DETAIL_ACTIVE"),
+    "kuaishou": AdapterSpec(
+        "kuaishou", "Kuaishou", ("zhaopin.kuaishou.cn",), "SOCIAL_ACTIVE"
+    ),
+}
+
+KUAISHOU_PUBLIC_SIGNING_KEY = "652f962a-0575-4575-98d2-f04e2291bee2"
+KUAISHOU_READ_ONLY_PATHS = {
+    "/recruit/e/api/v1/open/position",
+    "/recruit/e/api/v1/open/positions/simple",
 }
 
 
@@ -85,6 +93,77 @@ def fetch_public(url: str, spec: AdapterSpec, timeout: int = 20) -> tuple[str, s
             raise ValueError("Page exceeds read-only fetch size limit")
         charset = response.headers.get_content_charset() or "utf-8"
     return raw.decode(charset, "replace"), final_url
+
+
+def fetch_json(
+    url: str,
+    spec: AdapterSpec,
+    headers: dict[str, str] | None = None,
+    timeout: int = 20,
+) -> tuple[dict[str, Any], str]:
+    _validate_public_url(url, spec)
+    request_headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json",
+    }
+    if headers:
+        request_headers.update(headers)
+    req = Request(url, headers=request_headers, method="GET")
+    with urlopen(req, timeout=timeout) as response:
+        final_url = response.geturl()
+        _validate_public_url(final_url, spec)
+        raw = response.read(MAX_BYTES + 1)
+        if len(raw) > MAX_BYTES:
+            raise ValueError("Response exceeds read-only fetch size limit")
+        charset = response.headers.get_content_charset() or "utf-8"
+    payload = json.loads(raw.decode(charset, "replace"))
+    if not isinstance(payload, dict):
+        raise ValueError("Expected a JSON object from official source")
+    return payload, final_url
+
+
+def _canonical_query(params: dict[str, Any]) -> str:
+    parts: list[str] = []
+    for key in sorted(params):
+        value = params[key]
+        values = value if isinstance(value, (list, tuple)) else [value]
+        values = sorted(
+            str(item) for item in values if item is not None and str(item) != ""
+        )
+        if not values:
+            continue
+        encoded = ",".join(quote_plus(item, safe="~()*!.'") for item in values)
+        parts.append(f"{key}={encoded}")
+    return "&".join(parts)
+
+
+def kuaishou_sign(
+    params: dict[str, Any],
+    timestamp_ms: int,
+    key: str = KUAISHOU_PUBLIC_SIGNING_KEY,
+) -> str:
+    message = f"{timestamp_ms}{_canonical_query(params)}{key}"
+    return hmac.new(key.encode(), message.encode(), hashlib.sha256).hexdigest()
+
+
+def _kuaishou_open_json(
+    path: str,
+    params: dict[str, Any],
+    timestamp_ms: int | None = None,
+) -> tuple[dict[str, Any], str]:
+    if path not in KUAISHOU_READ_ONLY_PATHS:
+        raise ValueError("Kuaishou runtime only permits approved public read-only endpoints")
+    timestamp_ms = timestamp_ms or int(time.time() * 1000)
+    query = urlencode(params, doseq=True)
+    url = f"https://zhaopin.kuaishou.cn{path}"
+    if query:
+        url += "?" + query
+    headers = {
+        "Referer": "https://zhaopin.kuaishou.cn/recruit/e/",
+        "sign": kuaishou_sign(params, timestamp_ms),
+        "signTimestamp": str(timestamp_ms),
+    }
+    return fetch_json(url, ADAPTERS["kuaishou"], headers=headers)
 
 
 def _attr(tag: str, name: str) -> str | None:
@@ -191,11 +270,202 @@ def extract_sap_detail(page: str, source_url: str, captured_at: str | None = Non
     }
 
 
-def discover(adapter: str, url: str, limit: int = 25) -> dict[str, Any]:
-    spec = ADAPTERS[adapter]
-    page, final_url = fetch_public(url, spec)
+def extract_tencent_payload(
+    payload: dict[str, Any],
+    source_url: str,
+    captured_at: str | None = None,
+) -> dict[str, Any]:
+    data = payload.get("data") if payload.get("status") == 0 else None
+    data = data if isinstance(data, dict) else {}
+    bg_list = data.get("intentionBGDList") or []
+    business_groups = [
+        item.get("showTitle") or item.get("title")
+        for item in bg_list
+        if isinstance(item, dict) and (item.get("showTitle") or item.get("title"))
+    ]
+    role = data.get("title")
+    post_id = str(data.get("postId") or "") or None
+    locations = data.get("workCityList") or []
+    status = "OPEN_VERIFIED" if role and post_id and locations else "NEEDS_VERIFY"
+    return {
+        "source_identity": f"career-url:{source_url}",
+        "company": "Tencent",
+        "url": source_url,
+        "source_url": source_url,
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": captured_at or utc_now(),
+        "adapter_name": "tencent",
+        "extraction_method": "official-json-api",
+        "external_job_id": post_id,
+        "role": role,
+        "location": locations,
+        "department": data.get("tidName"),
+        "business_groups": business_groups,
+        "responsibilities": data.get("desc"),
+        "requirements": data.get("request"),
+        "recruitment_project": data.get("projectName"),
+        "recruitment_label": data.get("recruitLabelName"),
+        "graduate_bonus": data.get("graduateBonus"),
+        "verification_status": status,
+        "verification_evidence": {
+            "api_status": payload.get("status"),
+            "detail_record_present": bool(data),
+        },
+    }
+
+
+def fetch_tencent_detail(
+    source_url: str,
+    captured_at: str | None = None,
+) -> dict[str, Any]:
+    _validate_public_url(source_url, ADAPTERS["tencent"])
+    parsed = urlparse(source_url)
+    post_ids = parse_qs(parsed.query).get("postid", [])
+    if not post_ids or not post_ids[0].isdigit():
+        raise ValueError("Tencent detail URL must contain a numeric postid")
+    post_id = post_ids[0]
+    api_url = (
+        "https://join.qq.com/api/v1/jobDetails/getJobDetailsByPostId?"
+        + urlencode({"postId": post_id})
+    )
+    payload, api_final = fetch_json(api_url, ADAPTERS["tencent"])
+    record = extract_tencent_payload(payload, source_url, captured_at)
+    record["verification_evidence"]["api_url"] = api_final
+    return record
+
+
+def _kuaishou_source_url(job_id: Any) -> str:
+    return (
+        "https://zhaopin.kuaishou.cn/recruit/e/"
+        f"#/official/social/job-info/{job_id}"
+    )
+
+
+def normalize_kuaishou_item(
+    item: dict[str, Any],
+    verified: bool = False,
+    captured_at: str | None = None,
+) -> dict[str, Any]:
+    job_id = item.get("id")
+    source_url = _kuaishou_source_url(job_id)
+    locations = item.get("workLocationsCode") or []
+    if not locations and item.get("workLocationCode"):
+        locations = [item.get("workLocationCode")]
+    return {
+        "source_identity": f"career-url:{source_url}",
+        "company": "Kuaishou",
+        "url": source_url,
+        "source_url": source_url,
+        "source_type": "official",
+        "authority_level": "HIGH",
+        "captured_at": captured_at or utc_now(),
+        "adapter_name": "kuaishou",
+        "extraction_method": "official-signed-json-api",
+        "external_job_id": str(job_id) if job_id is not None else None,
+        "role": item.get("name"),
+        "location": locations,
+        "department": item.get("departmentName") or item.get("departmentCode"),
+        "responsibilities": item.get("description"),
+        "requirements": item.get("positionDemand"),
+        "recruitment_project": item.get("recruitProjectCode"),
+        "position_nature": item.get("positionNatureCode"),
+        "updated_at": item.get("updateTime"),
+        "verification_status": "OPEN_VERIFIED" if verified else "NEEDS_VERIFY",
+    }
+
+
+def discover_kuaishou(
+    query: str | None,
+    location: str | None,
+    limit: int,
+) -> dict[str, Any]:
+    params: dict[str, Any] = {
+        "pageNum": 1,
+        "pageSize": max(1, min(limit, 100)),
+        "workLocationCode": location or "domestic",
+    }
+    if query:
+        params["name"] = query
+    payload, api_url = _kuaishou_open_json(
+        "/recruit/e/api/v1/open/positions/simple", params
+    )
+    result = payload.get("result") if payload.get("code") == 0 else {}
+    result = result if isinstance(result, dict) else {}
+    items = result.get("list") or []
+    candidates = [
+        normalize_kuaishou_item(item)
+        for item in items[:limit]
+        if isinstance(item, dict)
+    ]
+    return {
+        "adapter": "kuaishou",
+        "source_url": "https://zhaopin.kuaishou.cn/recruit/e/",
+        "source_api_url": api_url,
+        "captured_at": utc_now(),
+        "count": len(candidates),
+        "reported_total": result.get("total"),
+        "candidates": candidates,
+    }
+
+
+def fetch_kuaishou_detail(
+    source_url: str,
+    captured_at: str | None = None,
+) -> dict[str, Any]:
+    _validate_public_url(source_url, ADAPTERS["kuaishou"])
+    match = re.search(r"/job-info/(\d+)", source_url)
+    if not match:
+        query_ids = parse_qs(urlparse(source_url).query).get("id", [])
+        job_id = query_ids[0] if query_ids else None
+    else:
+        job_id = match.group(1)
+    if not job_id or not str(job_id).isdigit():
+        raise ValueError("Kuaishou detail URL must contain a numeric job id")
+    payload, api_url = _kuaishou_open_json(
+        "/recruit/e/api/v1/open/position", {"id": str(job_id)}
+    )
+    result = payload.get("result") if payload.get("code") == 0 else None
+    if not isinstance(result, dict):
+        return {
+            "source_identity": f"career-url:{source_url}",
+            "company": "Kuaishou",
+            "source_url": source_url,
+            "source_type": "official",
+            "authority_level": "HIGH",
+            "captured_at": captured_at or utc_now(),
+            "adapter_name": "kuaishou",
+            "external_job_id": str(job_id),
+            "verification_status": "NEEDS_VERIFY",
+            "source_state": "NOT_FOUND",
+            "verification_evidence": {
+                "api_code": payload.get("code"),
+                "api_message": payload.get("message"),
+                "api_url": api_url,
+            },
+        }
+    record = normalize_kuaishou_item(result, verified=True, captured_at=captured_at)
+    record["verification_evidence"] = {
+        "api_code": payload.get("code"),
+        "detail_record_present": True,
+        "api_url": api_url,
+    }
+    return record
+
+
+def discover(
+    adapter: str,
+    url: str,
+    limit: int = 25,
+    query: str | None = None,
+    location: str | None = None,
+) -> dict[str, Any]:
+    if adapter == "kuaishou":
+        return discover_kuaishou(query, location, limit)
     if adapter != "sap":
         raise NotImplementedError(f"{adapter} discovery parser is not live yet")
+    spec = ADAPTERS[adapter]
+    page, final_url = fetch_public(url, spec)
     items = extract_sap_search(page, final_url, limit=limit)
     return {
         "adapter": adapter,
@@ -207,10 +477,14 @@ def discover(adapter: str, url: str, limit: int = 25) -> dict[str, Any]:
 
 
 def extract(adapter: str, url: str, captured_at: str | None = None) -> dict[str, Any]:
-    spec = ADAPTERS[adapter]
-    page, final_url = fetch_public(url, spec)
+    if adapter == "tencent":
+        return fetch_tencent_detail(url, captured_at=captured_at)
+    if adapter == "kuaishou":
+        return fetch_kuaishou_detail(url, captured_at=captured_at)
     if adapter != "sap":
         raise NotImplementedError(f"{adapter} detail parser is not live yet")
+    spec = ADAPTERS[adapter]
+    page, final_url = fetch_public(url, spec)
     return extract_sap_detail(page, final_url, captured_at=captured_at)
 
 
@@ -231,6 +505,8 @@ def main() -> int:
     parser.add_argument("--adapter", required=True, choices=sorted(ADAPTERS))
     parser.add_argument("--url")
     parser.add_argument("--limit", type=int, default=10)
+    parser.add_argument("--query")
+    parser.add_argument("--location")
     parser.add_argument("--captured-at")
     args = parser.parse_args()
 
@@ -239,9 +515,17 @@ def main() -> int:
     else:
         if not args.url:
             parser.error("--url is required for discover/extract")
-        result = (discover(args.adapter, args.url, args.limit)
-                  if args.action == "discover"
-                  else extract(args.adapter, args.url, args.captured_at))
+        result = (
+            discover(
+                args.adapter,
+                args.url,
+                args.limit,
+                query=args.query,
+                location=args.location,
+            )
+            if args.action == "discover"
+            else extract(args.adapter, args.url, args.captured_at)
+        )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
 

@@ -8,9 +8,14 @@ Discovery results are leads, not verified openings.
 
 ## Source Types
 
+- official public vacancy search endpoints
 - public search results
 - public job aggregators
 - public professional platforms
+
+## Live executor coverage
+
+The current standard-library runtime supports live official discovery for SAP search pages and Kuaishou social-recruitment public APIs. Tencent official detail verification is live, while broad Tencent discovery remains pending. Third-party discovery stays a lead until official verification.
 
 ## Output
 

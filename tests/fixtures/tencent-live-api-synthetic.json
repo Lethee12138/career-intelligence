@@ -1,0 +1,20 @@
+{
+  "message": "",
+  "status": 0,
+  "data": {
+    "postId": "1283878533483275264",
+    "title": "用户研究",
+    "tidName": "设计",
+    "desc": "负责用户研究项目并推动成果落地。",
+    "request": "熟悉定性及定量用户研究方法。",
+    "workCityList": ["深圳总部", "北京"],
+    "projectName": "应届毕业生",
+    "recruitLabelName": "应届毕业生",
+    "graduateBonus": "人机交互、认知心理学等相关专业。",
+    "intentionBGDList": [
+      {"showTitle": "CSIG", "title": "CSIG云与智慧产业事业群"},
+      {"showTitle": "IEG", "title": "IEG互动娱乐事业群"},
+      {"showTitle": "PCG", "title": "PCG平台与内容事业群"}
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-# Kuaishou Career Adapter Blueprint
+# Kuaishou Career Adapter
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Map Kuaishou official recruitment sources into the common official source runtim
 
 ## Current Stage
 
-Mapped to the common runtime with verified official host `zhaopin.kuaishou.cn`. A Kuaishou-specific live parser is not enabled yet. No application action.
+Live social-recruitment discovery and detail verification are active on `zhaopin.kuaishou.cn` through the current public read-only APIs used by the official frontend. The current campus client routes remain NEEDS_VERIFY because live probes returned HTTP 404. No application action.
 
 ## Expected Fields
 

@@ -6,6 +6,8 @@ Provide a shared runtime boundary for official career source adapters.
 
 Adapters provide factual job source records only.
 
+The executable reference implementation is [job_source_runtime.py](../scripts/job_source_runtime.py). Current live coverage includes SAP discovery/detail, Tencent detail verification, and Kuaishou social-recruitment discovery/detail.
+
 ## Input
 
 - company

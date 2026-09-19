@@ -34,12 +34,12 @@ class JobSourceRuntimeTests(unittest.TestCase):
     def test_adapter_mappings_are_explicit_about_live_readiness(self):
         self.assertEqual(adapter_map("sap")["runtime_status"], "ACTIVE")
         self.assertEqual(adapter_map("tencent")["verified_hosts"], ["join.qq.com"])
-        self.assertEqual(adapter_map("tencent")["runtime_status"], "MAPPED")
+        self.assertEqual(adapter_map("tencent")["runtime_status"], "DETAIL_ACTIVE")
         self.assertEqual(
             adapter_map("kuaishou")["verified_hosts"],
             ["zhaopin.kuaishou.cn"],
         )
-        self.assertEqual(adapter_map("kuaishou")["runtime_status"], "MAPPED")
+        self.assertEqual(adapter_map("kuaishou")["runtime_status"], "SOCIAL_ACTIVE")
 
 
 if __name__ == "__main__":
