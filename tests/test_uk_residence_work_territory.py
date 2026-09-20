@@ -143,7 +143,7 @@ class UKResidenceWorkTerritory(unittest.TestCase):
 
     def test_find_jobs_handoff_requires_territory_fields(self):
         handoff = make_handoff({}, 'SYN-TERRITORY-HANDOFF', DATE)
-        self.assertEqual('0.2.3', handoff['schema_version'])
+        self.assertEqual('0.2.4', handoff['schema_version'])
         self.assertTrue({'work_right_review.current_residence',
                          'work_right_review.required_work_territory',
                          'work_right_review.residence_requirement',

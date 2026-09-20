@@ -80,6 +80,16 @@ class ExecutionTests(unittest.TestCase):
         self.assertEqual('ACTIVE',h['market_scope'][1]['status']);self.assertTrue(h['target_is_advisory'])
         self.assertNotIn('screen',h['existing_pool']['entries'][0]);self.assertFalse(h['external_action'])
 
+    def test_additive_why_matched_preserves_existing_match_fields(self):
+        i,_=run(batch={'candidates':[F['batch']['candidates'][0]]})
+        candidate=i['candidates'][0]
+        self.assertEqual('0.2.4', make_handoff(F['discovery'], 'S', DATE)['schema_version'])
+        self.assertEqual({'capability','role_family','market_title','matched_role_hypothesis',
+                          'evidence_refs','responsibility_match','gaps'}, set(candidate['why_matched']))
+        self.assertEqual(candidate['role_family'], candidate['why_matched']['role_family'])
+        self.assertEqual(candidate['role_title'], candidate['why_matched']['market_title'])
+        self.assertEqual(candidate['matched_role_hypothesis'], candidate['why_matched']['matched_role_hypothesis'])
+
     def test_missing_optional_inputs_and_no_hypothesis(self):
         h=make_handoff({},'S',DATE)
         self.assertEqual('READ_EXISTING_DISCOVERY',h['handoff_state']);self.assertEqual('UNKNOWN',h['existing_pool_coverage'])

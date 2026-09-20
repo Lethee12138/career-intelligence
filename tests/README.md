@@ -73,3 +73,7 @@ python3 -B -m unittest tests.test_uk_residence_work_territory -v
 The focused controls cover Home Based versus explicit UK-only authority, outside-UK residence with unknown or impossible relocation, explicit no sponsorship with future need, explicit global remote permission, current-right versus territory separation, Capability/Evidence preservation and the `/prepare-application` material-uncertainty gate. Inputs are synthetic and do not encode or verify a real employer.
 
 They confirm current-right PASS plus future-sponsorship UNKNOWN can remain Fast-ready, sponsor capability does not become exact-role sponsorship, permanent-right and explicit no-sponsorship gates still apply, unknown current right stays Watch, and confirmed role sponsorship cannot override another qualification failure. They are routing controls, not immigration or employer-policy verification.
+
+## v0.2.4 taxonomy and explainable discovery output
+
+The additive focused checks cover the Capability → Role Family → Market Title taxonomy and the uniform `why_matched` candidate explanation. Existing match fields remain unchanged; the new structure only assembles supplied capability, role, title, evidence, responsibility and gap fields.
