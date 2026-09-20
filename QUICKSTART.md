@@ -56,3 +56,14 @@ Use synthetic examples for testing and demonstrations.
 This project provides analysis capability. It does not submit applications, contact employers, or make decisions on behalf of users.
 
 For personal use, keep private career information outside the public repository.
+
+## Node.js path note
+
+The service uses Node.js to run locally. If Node.js is installed in a different location from the default path, set the environment variable before starting:
+
+```bash
+export CAREER_MCP_NODE_BIN=/your/path/node
+./scripts/career-mcp-service.sh start
+```
+
+This allows the service script to work with different local Node.js installations.
