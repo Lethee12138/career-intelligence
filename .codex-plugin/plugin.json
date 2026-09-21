@@ -1,14 +1,14 @@
 {
   "name": "career-intelligence",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Evidence-first career intelligence for live public job scanning, positioning, role analysis, application preparation, job quality, and work-right or sponsorship checks.",
   "author": {
     "name": "Yixuan Wang"
   },
   "interface": {
     "displayName": "Career Intelligence",
-    "shortDescription": "Evidence-first live job scanning via private MCP",
-    "longDescription": "Use Career Intelligence for career direction, bounded live public job scanning, JD analysis, candidate routing, application preparation, job quality, and work-right or sponsorship questions. The private MCP scan surface uses a locked source preset and reads a private local Career continuity snapshot without writing it. Human review remains required before external action.",
+    "shortDescription": "Evidence-first live job scanning and discovery via private MCP",
+    "longDescription": "Use Career Intelligence for career direction, capability-driven discovery, bounded live public job scanning, JD analysis, candidate routing, application preparation, job quality, and work-right or sponsorship questions. configured_review keeps the locked source preset; market_discovery and hybrid_discovery accept bounded Capability Profile and Role Hypothesis inputs without writing Career state. Human review remains required before external action.",
     "developerName": "Yixuan Wang",
     "category": "Productivity",
     "capabilities": ["Read"]

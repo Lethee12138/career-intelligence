@@ -37,17 +37,19 @@ The MCP server binds only to `127.0.0.1:8797`. Tool execution is stateless and p
 
 Input:
 
+- `mode = configured_review | market_discovery | hybrid_discovery` (default `hybrid_discovery` on the MCP surface)
 - `poolMode = BROAD | FOCUSED`
 - optional request-scoped `careerContext` overlay
+- optional `discovery` object with Capability Profile, Role Hypotheses, taxonomy reference, market/location scope, candidate constraints and supplied discovery candidates
 - `detailLevel = summary | review | full`
 
 The current local Career context provider is always enabled on the public ChatGPT tool surface; callers cannot disable or replace it.
 
-The public ChatGPT MCP surface deliberately does **not** expose `scanConfig`, source adapters, URLs, discovery queries or source limits. `BROAD` / `FOCUSED` can only change the post-discovery pool view. The output includes the immutable source scope/fingerprint and current Career-context source/version so callers can detect scope or continuity drift. Invalid runtime state returns a descriptive contract error; raw implementation exceptions are not part of the public contract.
+`configured_review` deliberately keeps the current configured source preset and does **not** expose `scanConfig`, source adapters, URLs or source limits. `market_discovery` builds the accepted Search Execution 0.2.4 handoff from the supplied Capability Profile/Role Hypotheses and supplied discovery candidates; it does not invent vacancies. `hybrid_discovery` combines configured candidates with those discovery candidates and deduplicates them. `BROAD` / `FOCUSED` can only change the post-discovery pool view. The output includes the immutable source scope/fingerprint, discovery mode and current Career-context source/version so callers can detect scope or continuity drift. Invalid runtime state returns a descriptive contract error; raw implementation exceptions are not part of the public contract.
 
 Execution:
 
-`public discovery → official verification → dedupe → transparent triage → exact-role review packets`
+`configured/public discovery → Role Hypothesis discovery handoff → official verification → dedupe → transparent triage → exact-role review packets`
 
 Output:
 

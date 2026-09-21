@@ -9,6 +9,37 @@ from scripts.career_scan import build_summary, resolve_scan_config, run_scan_rev
 
 
 class CareerScanEntrypointTests(unittest.TestCase):
+    @staticmethod
+    def _discovery_payload():
+        return {
+            "capabilityProfile": {"profile_ref": "SYNTHETIC-PROFILE"},
+            "roleHypotheses": [{
+                "id": "H1",
+                "role_or_family": "Product / Digital Product",
+                "taxonomy_ref": "schemas/capability-role-family-taxonomy.md#product",
+                "capability_root_refs": ["cap-product"],
+                "search_terms": {
+                    "China": {"title": [{"term": "Product Manager", "why": "family variant"}]},
+                    "UK": {"title": [{"term": "Product Manager", "why": "family variant"}]},
+                    "Other": {"title": [{"term": "Product Manager", "why": "family variant"}]},
+                },
+            }],
+            "marketScope": ["China", "UK"],
+            "locationScope": ["Hangzhou", "London"],
+            "companyTypes": ["technology", "research-led"],
+            "candidateConstraints": {"no_external_action": True},
+            "candidates": [{
+                "company": "Synthetic Discovery Co",
+                "external_job_id": "DISC-1",
+                "role": "Product Manager",
+                "location": ["Hangzhou"],
+                "role_family": "Product / Digital Product",
+                "ai_involvement": "NONE",
+                "evidence_refs": ["SYN-E1"],
+                "matched_role_hypothesis": "H1",
+            }],
+        }
+
     def test_summary_preserves_counts_and_priority_candidates(self):
         scan = {
             "scan_id": "scan-1",
@@ -43,6 +74,83 @@ class CareerScanEntrypointTests(unittest.TestCase):
         self.assertEqual(len(summary["review_priority_candidates"]), 1)
         self.assertFalse(summary["external_action"])
         self.assertTrue(summary["human_review_required"])
+
+    def test_market_discovery_uses_handoff_without_configured_sources(self):
+        result = run_scan_review(
+            None,
+            {},
+            use_configured_sources=True,
+            use_current_career_context=False,
+            mode="market_discovery",
+            discovery=self._discovery_payload(),
+        )
+        self.assertEqual(result["mode"], "market_discovery")
+        self.assertEqual(result["scan_config_source"], "DISCOVERY_INPUT")
+        self.assertEqual(result["source_scope"]["sources"], [])
+        self.assertEqual(result["discovery"]["handoff_schema_version"], "0.2.4")
+        self.assertEqual(result["discovery"]["role_hypothesis_count"], 1)
+        candidate = result["pool_view"]["candidates"][0]
+        self.assertEqual(candidate["role_family"], "Product / Digital Product")
+        self.assertEqual(candidate["ai_involvement"], "NONE")
+        self.assertEqual(candidate["evidence_refs"], ["SYN-E1"])
+        self.assertEqual(candidate["next_action"], "VERIFY_OFFICIAL_SOURCE")
+
+    @patch("scripts.career_scan.build_review_packets")
+    @patch("scripts.career_scan.run_batch")
+    def test_hybrid_discovery_merges_and_dedupes_configured_candidates(
+        self, run_batch_mock, review_mock
+    ):
+        run_batch_mock.return_value = {
+            "scan_id": "configured",
+            "captured_at": "2026-09-21T00:00:00+00:00",
+            "candidate_pool": [{
+                "company": "Synthetic Discovery Co",
+                "external_job_id": "DISC-1",
+                "role": "Product Manager",
+                "location": ["Hangzhou"],
+                "verification_status": "OPEN_VERIFIED",
+                "screening": {"state": "REVIEW", "reasons": ["configured"]},
+            }],
+            "source_results": [{"adapter": "sap", "status": "OK"}],
+            "raw_record_count": 1,
+            "deduped_count": 1,
+            "screening_counts": {"REVIEW": 1},
+        }
+        review_mock.return_value = {"review_packet_count": 0, "review_state_counts": {}}
+        result = run_scan_review(
+            None,
+            {},
+            use_configured_sources=True,
+            use_current_career_context=False,
+            mode="hybrid_discovery",
+            discovery=self._discovery_payload(),
+        )
+        self.assertEqual(result["scan_config_source"], "CURRENT_CONFIGURED_SOURCES_PLUS_DISCOVERY_INPUT")
+        self.assertEqual(result["scan"]["deduped_count"], 1)
+        self.assertEqual(result["scan"]["candidate_pool"][0]["verification_status"], "OPEN_VERIFIED")
+        self.assertEqual(result["discovery"]["candidate_count"], 1)
+        self.assertEqual(result["pool_view"]["candidates"][0]["role_family"], "UNKNOWN")
+
+    @patch("scripts.career_scan.build_review_packets")
+    @patch("scripts.career_scan.run_batch")
+    def test_configured_review_keeps_current_source_path(self, run_batch_mock, review_mock):
+        run_batch_mock.return_value = {
+            "scan_id": "configured",
+            "captured_at": "2026-09-21T00:00:00+00:00",
+            "candidate_pool": [],
+            "source_results": [],
+            "raw_record_count": 0,
+            "deduped_count": 0,
+            "screening_counts": {},
+        }
+        review_mock.return_value = {"review_packet_count": 0, "review_state_counts": {}}
+        result = run_scan_review(
+            None, {}, use_configured_sources=True, use_current_career_context=False,
+            mode="configured_review",
+        )
+        self.assertEqual(result["mode"], "configured_review")
+        self.assertEqual(result["scan_config_source"], "CURRENT_CONFIGURED_SOURCES")
+        self.assertEqual(result["discovery"]["state"], "NOT_REQUESTED")
 
     @patch("scripts.career_scan.build_review_packets")
     @patch("scripts.career_scan.run_batch")
@@ -199,7 +307,7 @@ class CareerScanEntrypointTests(unittest.TestCase):
         self.assertIn("scripts/career_scan.py", canonical)
         self.assertIn("one-shot scan entrypoint", plugin)
         self.assertIn("scan_and_review()", contract)
-        self.assertEqual(manifest["version"], "0.2.7")
+        self.assertEqual(manifest["version"], "0.2.8")
 
     def test_boundary_explicitly_blocks_material_actions(self):
         with patch("scripts.career_scan.run_batch") as scan_mock, patch(

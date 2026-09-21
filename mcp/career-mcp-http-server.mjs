@@ -53,10 +53,14 @@ const asToolError = (reason, detail = undefined) => ({
 const runCareerScan = ({
   careerContext,
   poolMode,
+  mode,
+  discovery,
 }) => new Promise((resolvePromise, rejectPromise) => {
   const payload = JSON.stringify({
     careerContext,
     poolMode,
+    mode,
+    discovery,
   });
   if (Buffer.byteLength(payload, "utf8") > MAX_INPUT_BYTES) {
     rejectPromise(new Error("input-too-large"));
@@ -67,7 +71,7 @@ const runCareerScan = ({
     "import json,sys",
     "from scripts.career_scan import run_scan_review",
     "p=json.load(sys.stdin)",
-    "r=run_scan_review(None,p.get('careerContext') or {},use_configured_sources=True,use_current_career_context=True,pool_mode=p.get('poolMode','BROAD'))",
+    "r=run_scan_review(None,p.get('careerContext') or {},use_configured_sources=True,use_current_career_context=True,pool_mode=p.get('poolMode','BROAD'),mode=p.get('mode','hybrid_discovery'),discovery=p.get('discovery'))",
     "print(json.dumps(r,ensure_ascii=False))",
   ].join(";");
 
@@ -127,10 +131,12 @@ const trimResult = (result, detailLevel) => {
   const visible = {
     schema_version: result.schema_version,
     operation: result.operation,
+    mode: result.mode,
     candidate_status: result.candidate_status,
     scan_config_source: result.scan_config_source,
     source_scope: result.source_scope,
     pool_view: result.pool_view,
+    discovery: result.discovery,
     summary: result.summary,
     boundary: result.boundary,
   };
@@ -156,6 +162,18 @@ const careerContextSchema = z.object({
   ).optional(),
 }).passthrough();
 
+const discoverySchema = z.object({
+  capabilityProfile: z.record(z.string(), z.unknown()).optional(),
+  roleHypotheses: z.array(z.record(z.string(), z.unknown())).optional(),
+  candidates: z.array(z.record(z.string(), z.unknown())).optional(),
+  locationScope: z.array(z.unknown()).optional(),
+  companyTypes: z.array(z.string()).optional(),
+  candidateConstraints: z.record(z.string(), z.unknown()).optional(),
+  marketScope: z.array(z.unknown()).optional(),
+  inputRefs: z.array(z.string()).optional(),
+  taxonomyRef: z.string().optional(),
+}).passthrough().optional();
+
 const scanSummarySchema = z.object({
   scan_id: z.string().nullable().optional(),
   captured_at: z.string().nullable().optional(),
@@ -177,8 +195,14 @@ const scanSummarySchema = z.object({
 const scanOutputSchema = z.object({
   schema_version: z.string(),
   operation: z.literal("SCAN_AND_REVIEW"),
+  mode: z.enum(["configured_review", "market_discovery", "hybrid_discovery"]),
   candidate_status: z.string(),
-  scan_config_source: z.literal("CURRENT_CONFIGURED_SOURCES"),
+  scan_config_source: z.enum([
+    "CURRENT_CONFIGURED_SOURCES",
+    "DISCOVERY_INPUT",
+    "CURRENT_CONFIGURED_SOURCES_PLUS_DISCOVERY_INPUT",
+    "CALLER_SUPPLIED",
+  ]),
   source_scope: z.object({
     immutable_for_pool_mode: z.literal(true),
     sources: z.array(z.record(z.string(), z.unknown())),
@@ -198,9 +222,16 @@ const scanOutputSchema = z.object({
       screening_state: z.string().nullable().optional(),
       screening_reasons: z.unknown().optional(),
       source_url: z.string().nullable().optional(),
+      role_family: z.string().nullable().optional(),
+      ai_involvement: z.string().nullable().optional(),
+      why_matched: z.unknown().optional(),
+      evidence_refs: z.unknown().optional(),
+      risk: z.unknown().optional(),
+      next_action: z.unknown().optional(),
     })),
     source_scope_changed: z.literal(false),
   }),
+  discovery: z.record(z.string(), z.unknown()).optional(),
   summary: scanSummarySchema,
   review: z.record(z.string(), z.unknown()).optional(),
   scan: z.record(z.string(), z.unknown()).optional(),
@@ -231,10 +262,10 @@ const serverInfoOutputSchema = z.object({
 
 export const createCareerMcpServer = () => {
   const server = new McpServer(
-    { name: "career-intelligence-remote", version: "0.2.7" },
+    { name: "career-intelligence-remote", version: "0.2.8" },
     {
       instructions:
-        "Read-only Career Intelligence job scanning. career.scan_and_review always uses the current configured source preset; Broad/Focused only changes post-discovery retention and display, never source scope. Current Career continuity comes from a local read-only context provider plus optional request overlay. Never treat triage as final Fit or submission authority.",
+        "Read-only Career Intelligence scanning and discovery. career.scan_and_review supports configured_review, market_discovery and hybrid_discovery; configured_review keeps the current configured source preset, while discovery modes accept a bounded Capability Profile/Role Hypothesis handoff. Never treat triage as final Fit or submission authority.",
       cacheHints: { "tools/list": { ttlMs: 60_000, cacheScope: "private" } },
     },
   );
@@ -256,7 +287,7 @@ export const createCareerMcpServer = () => {
     },
     async () => asToolResult({
       service: "career-intelligence-remote",
-      version: "0.2.7",
+      version: "0.2.8",
       stateless: true,
       contextProvider: "CURRENT_LOCAL_CONTEXT",
       contextPersistenceWrites: false,
@@ -280,6 +311,8 @@ export const createCareerMcpServer = () => {
       inputSchema: z.object({
         poolMode: z.enum(["BROAD", "FOCUSED"]).default("BROAD"),
         careerContext: careerContextSchema.default({}),
+        mode: z.enum(["configured_review", "market_discovery", "hybrid_discovery"]).default("hybrid_discovery"),
+        discovery: discoverySchema,
         detailLevel: z.enum(["summary", "review", "full"]).default("review"),
       }),
       outputSchema: scanOutputSchema,
@@ -293,12 +326,16 @@ export const createCareerMcpServer = () => {
     async ({
       poolMode,
       careerContext,
+      mode,
+      discovery,
       detailLevel,
     }) => {
       try {
         const result = await runCareerScan({
           careerContext,
           poolMode,
+          mode,
+          discovery,
         });
         return asToolResult(trimResult(result, detailLevel));
       } catch (error) {
@@ -369,7 +406,7 @@ export const startCareerMcpHttpServer = async ({
         response.end(JSON.stringify({
           ok: true,
           service: "career-intelligence-remote",
-          version: "0.2.7",
+          version: "0.2.8",
           stateless: true,
         }));
         return;
